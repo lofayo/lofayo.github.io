@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="网站关键字">
+  <meta name="description" content="网站简介">
+  
+  <title>每天寻求一点变化</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+</head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/images/header-bg.png);background-color:#26A69A">
+    <div class="header-box"><img src="/images/header.png" ondragstart="return false;"></div>
+    <p>lofayo</p>
+    <div class="nav-link">
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        
+        <a  href="http://example.com" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
+        
+        
+        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/09/">September 2017<span class="archive-count">4</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<!--friends-->
+
+<!--about-->
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-12.png)" >
+  <h2></h2>
+    
+  <p>作者:lofayo &nbsp&nbsp 发布于:<time datetime="2017-09-16T10:01:08.051Z">
+          2017-09-16
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p>flex的某些属性可能更符合我们的理解，感觉更智能化，更人性化</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>一般，我们都是在父级框设置为<strong>弹性盒子</strong>，此后它的<strong>子元素</strong>就会受到影响，要注意一个问题，这里的子元素真的就是<strong>直系子元素</strong>，而非孙子辈的后代元素。</p>
+<h3 id="1、初始-flex"><a href="#1、初始-flex" class="headerlink" title="1、初始 flex"></a>1、初始 flex</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>因为弹性盒子是个符合属性，所以只设置弹性盒子，其实也设置了弹性盒子的其它一些默认选项，如：</p>
+<pre><code>.box {
+    dispaly: flex;
+}
+</code></pre><p>其实浏览器设置了一系列的默认选项</p>
+<pre><code>.box {
+    display: flex;
+
+    &lt;!--以下是附带默认选项--&gt;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+</code></pre><p>看图：这是列举的一部分，其实任何元素无论设置与否，选上谷歌浏览器下的<code>show all</code>都有一整套的样式</p>
+<p><img src="https://raw.githubusercontent.com/lofayo/images/master/flex.png" alt="image"></p>
+<p>注：这里的有些属性是作用于父元素，有的作用于子元素</p>
+<h3 id="2、复合属性flex-flex-grow-flex-shrink-flex-basis"><a href="#2、复合属性flex-flex-grow-flex-shrink-flex-basis" class="headerlink" title="2、复合属性flex: flex-grow flex-shrink flex-basis"></a>2、复合属性<code>flex: flex-grow flex-shrink flex-basis</code></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>前面两个值决定了，伸长比率和收缩比率，最后一个伸缩基准值。</p>
+<ul>
+<li>当一行元素有除去子元素的宽度和，还有多余空间是，<code>flex-grow</code>决定了各子元素分得的空间比，而<code>flex-basis</code>不会算作在内。</li>
+<li>当一行元素的所剩空间为负数时，<code>flex-shrink</code>决定了个元素的收缩比，<strong>但此时子元素具体收缩长度却由<code>flex-shrink</code>和<code>flex-basis</code>共同决定着</strong></li>
+</ul>
+<p><strong>注：</strong> 设置了flex属性后，子元素会获得具体的宽度，只是这个宽度是弹性的，随着父元素宽度的改变而改变</p>
+<h3 id="3、复合属性flex-flow-flex-direction-flex-wrap"><a href="#3、复合属性flex-flow-flex-direction-flex-wrap" class="headerlink" title="3、复合属性flex-flow: flex-direction flex-wrap"></a>3、复合属性<code>flex-flow: flex-direction flex-wrap</code></h3><ul>
+<li><code>flex-direction: row || column || row-reverse || column-reverse</code> 决定了<code>flex</code>子元素在弹性盒子里的排布方式，行或列</li>
+<li><p><code>flex-wrap: nowrap || wrap || wrap-reverse</code> 决定了<code>flex</code>子元素是否换行。<strong>但这个里面有个前提，就是子元素本身得有布局上的宽度（包括width+padding+border+margin）</strong>，如果依靠由<code>flex: 1</code>获取的宽度可能情况有点不一样。</p>
+</li>
+<li><p><strong>注意：</strong> 这个<code>flex-direction</code>属性非常有用，它能控制<code>flex: 1</code>子项横向排布或纵向排布，而不论该子元素默认是<code>block</code>或<code>inline</code>。就是说，它能改变元素默认横纵排列的布局规则</p>
+</li>
+</ul>
+<ul>
+<li>重点理解：由<code>flex: 1</code>获得的宽度，和自己设置元素的<strong>布局宽度</strong>。对于这两个的宽度的处理，更像CSS里的媒体查询，当本身布局宽度之和不够填充父级宽度，由<code>flex: 1</code>主导；当本身布局宽度之和超过父级宽度，由子元素宽度之和决定；这也就是弹性盒子的奥秘。 </li>
+</ul>
+<h3 id="4、align-content多行flex子项在纵向上的对齐方式"><a href="#4、align-content多行flex子项在纵向上的对齐方式" class="headerlink" title="4、align-content多行flex子项在纵向上的对齐方式"></a>4、<code>align-content</code>多行<code>flex</code>子项在纵向上的对齐方式</h3><p>取值：<code>align-content: flex-start || flex-end || center || space-around || space-between</code></p>
+<p><strong>用法</strong>：这个属性，最好用在<code>flex-direction: row</code>上才有效果，放在列布局上没有效果的</p>
+<h3 id="5、justify-content一行flex子项在横向上的对齐方式"><a href="#5、justify-content一行flex子项在横向上的对齐方式" class="headerlink" title="5、justify-content一行flex子项在横向上的对齐方式"></a>5、<code>justify-content</code>一行<code>flex</code>子项在横向上的对齐方式</h3><p>取值：<code>justify-content: flex-start || flex-end || center || space-around || space-between</code></p>
+<p>同理：对于列向布局没有效果</p>
+<h3 id="6、align-items-一行flex子项在纵向上（或横向上）的对齐方式"><a href="#6、align-items-一行flex子项在纵向上（或横向上）的对齐方式" class="headerlink" title="6、align-items 一行flex子项在纵向上（或横向上）的对齐方式"></a>6、<code>align-items</code> 一行<code>flex</code>子项在纵向上（或横向上）的对齐方式</h3><p>取值：<code>align-items: stretch || flex-start || flex-end || center || baseline</code></p>
+<p><strong>注意：</strong> 当弹性盒子有多余空间时，子元素都会忽略原始宽或高，填充父框的空余空间。这是默认属性。</p>
+<p>适用场景：当父级弹性盒子有多余高度空间，子元素默认填充，只有设置了<code>align-items</code>才能恢复元素的本身布局宽高，从而实现一行元素在纵向上的对齐方式</p>
+<p><strong>最重要：</strong> 这个属性适用于，<code>flex-dirction: row</code>和<code>flex-direction: column</code></p>
+<ul>
+<li>当子元素横向布局，<code>align-items</code>定义了纵向上对齐方式；</li>
+<li>当子元素纵向布局，<code>align-items</code>定义了横向上对齐方式；</li>
+<li><img src="https://raw.githubusercontent.com/lofayo/images/master/align-items.png" alt="image"></li>
+</ul>
+<p><code>align-items</code> 起到一列布局并水平居中的效果</p>
+<p><img src="https://raw.githubusercontent.com/lofayo/images/master/clumn.png" alt="image">  </p>
+<h3 id="7、align-self定义子元素自身在总纵向上（或横向上）对齐方式"><a href="#7、align-self定义子元素自身在总纵向上（或横向上）对齐方式" class="headerlink" title="7、align-self定义子元素自身在总纵向上（或横向上）对齐方式"></a>7、<code>align-self</code>定义子元素自身在总纵向上（或横向上）对齐方式</h3><p>取值：<code>align-self: stretch || flex-start || flex-end || center || baseline</code></p>
+<p><strong>最重要：</strong> 这个属性适用于，<code>flex-dirction: row</code>和<code>flex-direction: column</code></p>
+<ul>
+<li>当子元素横向布局，<code>align-items</code>定义了纵向上对齐方式；</li>
+<li>当子元素纵向布局，<code>align-items</code>定义了横向上对齐方式；</li>
+<li></li>
+</ul>
+<h3 id="8、order定义子元素的排列前后顺序，数值小的在前面，大的在后面"><a href="#8、order定义子元素的排列前后顺序，数值小的在前面，大的在后面" class="headerlink" title="8、order定义子元素的排列前后顺序，数值小的在前面，大的在后面"></a>8、<code>order</code>定义子元素的排列前后顺序，数值小的在前面，大的在后面</h3><h2 id="简单总结："><a href="#简单总结：" class="headerlink" title="简单总结："></a>简单总结：</h2><p>作用于<code>flex</code>子项：</p>
+<pre><code>flex: flex-grow flex-shrink flex-basis
+
+align-self: stretch || flex-start || flex-end || center || baseline
+
+order:
+</code></pre><p>作用于父元素：</p>
+<pre><code>display: flex;
+
+flex-direction:
+
+flex-wrap:
+
+align-content:
+
+justify-content:
+
+align-items:
+</code></pre>
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/hello/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、初始-flex"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、初始 flex</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、复合属性flex-flex-grow-flex-shrink-flex-basis"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、复合属性flex: flex-grow flex-shrink flex-basis</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、复合属性flex-flow-flex-direction-flex-wrap"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、复合属性flex-flow: flex-direction flex-wrap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、align-content多行flex子项在纵向上的对齐方式"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、align-content多行flex子项在纵向上的对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、justify-content一行flex子项在横向上的对齐方式"><span class="post-toc-number">5.</span> <span class="post-toc-text">5、justify-content一行flex子项在横向上的对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、align-items-一行flex子项在纵向上（或横向上）的对齐方式"><span class="post-toc-number">6.</span> <span class="post-toc-text">6、align-items 一行flex子项在纵向上（或横向上）的对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、align-self定义子元素自身在总纵向上（或横向上）对齐方式"><span class="post-toc-number">7.</span> <span class="post-toc-text">7、align-self定义子元素自身在总纵向上（或横向上）对齐方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、order定义子元素的排列前后顺序，数值小的在前面，大的在后面"><span class="post-toc-number">8.</span> <span class="post-toc-text">8、order定义子元素的排列前后顺序，数值小的在前面，大的在后面</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单总结："><span class="post-toc-number"></span> <span class="post-toc-text">简单总结：</span></a>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p style="line-height: 45px">Copyright ©  2017  每天寻求一点变化</p>
+<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+</body>
+</html>
