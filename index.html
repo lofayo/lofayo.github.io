@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   
-  <meta name="keywords" content="网站关键字">
-  <meta name="description" content="网站简介">
+  <meta name="keywords" content="中秋月饼">
+  <meta name="description" content="天价月饼">
   
   <title>每天寻求一点变化</title>
   
@@ -37,24 +37,18 @@
 <div id="menu-outer">
   <div id="menu-inner">
       <ul id="slide-out" class="side-nav" >
-    <div class="nav-header"  style="background-image: url(/images/header-bg.png);background-color:#26A69A">
-    <div class="header-box"><img src="/images/header.png" ondragstart="return false;"></div>
+    <div class="nav-header"  style="background-image: url(/my-imgs/river.png);background-color:#26A69A">
+    <div class="header-box"><img src="/my-imgs/me.png" ondragstart="return false;"></div>
     <p>lofayo</p>
     <div class="nav-link">
         
-        <a href="http://example.com" target="_blank"> <div class="link-box twitter"></div></a>
+        
+        <a  href="https://github.com/lofayo" target="_blank"><div class="link-box github"></div></a>
         
         
-        <a  href="http://example.com" target="_blank"><div class="link-box github"></div></a>
+        <a href="mailto:870876711@qq.com"><div class="link-box email"></div></a>
         
         
-        <a href="mailto:http://example.com"><div class="link-box email"></div></a>
-        
-        
-        <a href="http://example.com" target="_blank"><div class="link-box weibo"></div></a>
-        
-        
-        <a href="http://example.com" target="_blank"> <div class="link-box zhihu"></div></a>
         
     </div>
     <div class="nav-search">
@@ -104,6 +98,12 @@
 
 <!--photo-->
 
+<li class="nav-list">
+    <a href="/photo" class="nopjax" target="_self">
+        <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
+    </a>
+</li>
+
 <!--friends-->
 
 <!--about-->
@@ -117,23 +117,27 @@
 <div id="content-outer">
   <div id="content-inner">
     
-<div class="post-header" style="background-image:url(/images/coverpic.png);background-color:#26A69A ">
-    <a  href="http://example.com"  >
+<div class="post-header" style="background-image:url(/my-imgs/Fuji.png);background-color:#26A69A ">
+    <a  href="http://lofayo.github.io"  >
         <div class="post-header-title">
             <p style="">
                 
                 
-                你好 欢迎来到本站
+                生活是艺术，可你不是画家，可你是主角
                 
                 
                 <br>
+                
+                <span id="busuanzi_container_site_pv" style="color: white;font-size:10px;line-height: 10px;display: inline-block;height: 10px">
+                你是第<span id="busuanzi_value_site_pv"></span>位访客
+                </span>
                 
             </p>
         </div>
     </a>
 </div>
 <div class="post-author">
-    <div class="post-author-img"><img src="/images/header.png" ondragstart="return false;"></div>
+    <div class="post-author-img"><img src="/my-imgs/me.png" ondragstart="return false;"></div>
     <p class="post-author-name">lofayo</p>
     <div class="post-author-button"  target="_self"><i class="material-icons"  target="_self" style="font-size: 20px">share</i></div>
     <div class="post-author-link"><ul>
@@ -153,7 +157,7 @@
     
   
     
-      <div class="recent-post-item lazy"style="background-color:#26A69A"  data-original="/images/random/vateral-2.png"  >
+      <div class="recent-post-item lazy"style="background-color:#26A69A"  data-original="/images/random/vateral-10.png"  >
         <a class="recent-post-link" href="/flex/">
         <div class="post-hover">
           <!--title-->
@@ -199,7 +203,7 @@ flex的某些属性可能更符合我们的理解，感觉更智能化，更人�
     
   
     
-      <div class="recent-post-item lazy"style="background-color:#26A69A"  data-original="/images/random/vateral-9.png"  >
+      <div class="recent-post-item lazy"style="background-color:#26A69A"  data-original="/images/random/vateral-14.png"  >
         <a class="recent-post-link" href="/lofayo/">
         <div class="post-hover">
           <!--title-->
@@ -256,8 +260,31 @@ flex的某些属性可能更符合我们的理解，感觉更智能化，更人�
     <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
 
 
-<p style="line-height: 45px">Copyright ©  2017  每天寻求一点变化</p>
-<p style="line-height: 45px">Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> && Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+<p >Copyright ©  2017  每天寻求一点变化</p>
+<p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+<p style="font-size: 10px" id="footer-times" data-time="1/1/2017 00:00:00"></p>
+<script>
+    var beginTime=document.getElementById("footer-times").dataset.time
+    function show_date_time(){
+        var span=document.getElementById("footer-times")
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date(beginTime);//初始日期
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold);
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=Math.floor(e_hrsold);
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=Math.floor((e_hrsold-hrsold)*60);
+        seconds=Math.floor((e_minsold-minsold)*60);
+        span.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+    }
+    show_date_time();
+</script>
 
   </div>
 </div>
@@ -292,6 +319,8 @@ flex的某些属性可能更符合我们的理解，感觉更智能化，更人�
             menu();
         });
 </script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>
 </html>
