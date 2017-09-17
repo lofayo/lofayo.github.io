@@ -31,7 +31,7 @@
           url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
       }
   </style>
-</head>
+<link rel="stylesheet" href="/css/prism-cb.css" type="text/css"></head>
 <body>
 <div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
 <div id="menu-outer">
@@ -106,6 +106,12 @@
 
 <!--about-->
 
+<li class="nav-list">
+    <a href="/about" target="_self">
+        <div class="nav-ico"><i class="material-icons">copyright</i> </div><p>关于</p>
+    </a>
+</li>
+
 
 </ul>
 
@@ -116,7 +122,7 @@
   <div id="content-inner">
     
 <article id="post">
-  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-18.png)" >
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-16.png)" >
   <h2></h2>
     
   <p>作者:lofayo &nbsp&nbsp 发布于:<time datetime="2017-09-16T10:01:08.051Z">
@@ -129,8 +135,8 @@
   <blockquote>
 <p>flex的某些属性可能更符合我们的理解，感觉更智能化，更人性化</p>
 </blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>一般，我们都是在父级框设置为<strong>弹性盒子</strong>，此后它的<strong>子元素</strong>就会受到影响，要注意一个问题，这里的子元素真的就是<strong>直系子元素</strong>，而非孙子辈的后代元素。</p>
-<h4 id="1、初始-flex"><a href="#1、初始-flex" class="headerlink" title="1、初始 flex"></a>1、初始 flex</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>因为弹性盒子是个符合属性，所以只设置弹性盒子，其实也设置了弹性盒子的其它一些默认选项，如：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般，我们都是在父级框设置为<strong>弹性盒子</strong>，此后它的<strong>子元素</strong>就会受到影响，要注意一个问题，这里的子元素真的就是<strong>直系子元素</strong>，而非孙子辈的后代元素。</p>
+<h4 id="1、初始-flex"><a href="#1、初始-flex" class="headerlink" title="1、初始 flex"></a>1、初始 flex</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为弹性盒子是个符合属性，所以只设置弹性盒子，其实也设置了弹性盒子的其它一些默认选项，如：</p>
 <pre><code>.box {
     dispaly: flex;
 }
@@ -148,7 +154,7 @@
 </code></pre><p>看图：这是列举的一部分，其实任何元素无论设置与否，选上谷歌浏览器下的<code>show all</code>都有一整套的样式</p>
 <p><img src="https://raw.githubusercontent.com/lofayo/images/master/flex.png" alt="image"></p>
 <p>注：这里的有些属性是作用于父元素，有的作用于子元素</p>
-<h4 id="2、复合属性-flex-flex-grow-flex-shrink-flex-basis"><a href="#2、复合属性-flex-flex-grow-flex-shrink-flex-basis" class="headerlink" title="2、复合属性 flex: flex-grow flex-shrink flex-basis"></a>2、复合属性 <code>flex: flex-grow flex-shrink flex-basis</code></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>前面两个值决定了，伸长比率和收缩比率，最后一个伸缩基准值。</p>
+<h4 id="2、复合属性-flex-flex-grow-flex-shrink-flex-basis"><a href="#2、复合属性-flex-flex-grow-flex-shrink-flex-basis" class="headerlink" title="2、复合属性 flex: flex-grow flex-shrink flex-basis"></a>2、复合属性 <code>flex: flex-grow flex-shrink flex-basis</code></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前面两个值决定了，伸长比率和收缩比率，最后一个伸缩基准值。</p>
 <ul>
 <li>当一行元素有除去子元素的宽度和，还有多余空间是，<code>flex-grow</code>决定了各子元素分得的空间比，而<code>flex-basis</code>不会算作在内。</li>
 <li>当一行元素的所剩空间为负数时，<code>flex-shrink</code>决定了个元素的收缩比，<strong>但此时子元素具体收缩长度却由<code>flex-shrink</code>和<code>flex-basis</code>共同决定着</strong></li>
@@ -240,7 +246,7 @@ align-items:
 
 <p >Copyright ©  2017  每天寻求一点变化</p>
 <p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
-<p style="font-size: 10px" id="footer-times" data-time="1/1/2017 00:00:00"></p>
+<p style="font-size: 10px" id="footer-times" data-time="9/17/2017 8:00:00"></p>
 <script>
     var beginTime=document.getElementById("footer-times").dataset.time
     function show_date_time(){

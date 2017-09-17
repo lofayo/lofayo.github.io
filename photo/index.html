@@ -31,7 +31,7 @@
           url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
       }
   </style>
-</head>
+<link rel="stylesheet" href="/css/prism-cb.css" type="text/css"></head>
 <body>
 <div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
 <div id="menu-outer">
@@ -106,6 +106,12 @@
 
 <!--about-->
 
+<li class="nav-list">
+    <a href="/about" target="_self">
+        <div class="nav-ico"><i class="material-icons">copyright</i> </div><p>关于</p>
+    </a>
+</li>
+
 
 </ul>
 
@@ -114,40 +120,103 @@
 
 <div id="content-outer">
   <div id="content-inner">
-    
-<article id="post">
-  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-10.png)" >
-  <h2>photo</h2>
-    
-  <p>作者:lofayo &nbsp&nbsp 发布于:<time datetime="2017-09-16T14:57:57.613Z">
-          2017-09-16
-    </time>
-  </p>
-    
-  </div>
-  <div class="post-page-content">
-  
-  </div>
-  <!--评论块-->
-    
+    <!-- Single Gallery Page -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="/css/magnific-popup.css" rel="stylesheet">
+<link href="/css/templatemo_style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    form {
+        float: left;
+        font-weight: 400;
+        max-width: 300px;
+        width: 100%;
+    }
+    #local-search-result li:first-child{
+        margin-top: 45px;
+    }
+    @media screen and (max-width: 980px){
+        form {
 
-</article>
-<nav class="post-nav">
-  <!-- Prev Nav -->
-    
-
-
-  <!-- Next Nav -->
-    
-</nav>
-<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
-<div class="post-toc-none"><p>(无)</p></div>
-<div class="post-toc-box">
-    
+        margin: 0 auto;
+    }}
+    .photo-box{
+        background-size: cover;
+        background-repeat:no-repeat;
+        background-position:center;
+    }
+    .loaded {
+        opacity: 1;
+    }
+    .img-small {
+        opacity: 0;
+        transition: opacity 1s linear;
+    }
+    content img {
+        width: 100%;
+    }
+</style>
+<div class="main-container" id="photo">
+    <nav class="main-nav" style="background-color: white;border-bottom: #DDDDDD 1px solid;box-shadow: none;height: 104px">
+        <div id="logo" class="left" style="color: #707070">影集</div>
+    </nav>
+    <div class="content-container">
+        <header>
+            <h1 class="center-text">美丽风景</h1>
+            <h2 class="center-text">办公司坐久了，程序写累了，看看美好图片，瞬间让人感受生活的惬意！</h2>
+        </header>
+        <div id="portfolio-content" class="center-text">
+            <div class="portfolio-page">
+                
+                    
+                        <div class="portfolio-group photo-box" style="background-image: url(/my-imgs/my-photo/Fuji.jpg);">
+                            <a class="portfolio-item placeholder" id="href"  href="/my-imgs/my-photo/Fuji.jpg" >
+                                <img  class="img-small" src="/my-imgs/my-photo/Fuji.jpg" alt="image 1">
+                                <div class="detail photo-box"  >
+                                    <h3>Fuji</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机：数据载入中...</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段：数据载入中...</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈：数据载入中...</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门：数据载入中...</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">感光度：数据载入中...</p>
+                                </div>
+                            </a>
+                        </div>
+                    
+                        <div class="portfolio-group photo-box" style="background-image: url(/my-imgs/my-photo/river.jpg);">
+                            <a class="portfolio-item placeholder" id="href"  href="/my-imgs/my-photo/river.jpg" >
+                                <img  class="img-small" src="/my-imgs/my-photo/river.jpg" alt="image 2">
+                                <div class="detail photo-box"  >
+                                    <h3>river</h3>
+                                    <p class="Model" style=" padding-top: 0;padding-bottom: 0;">相机：数据载入中...</p>
+                                    <p class="FocalLength" style=" padding-top: 0;padding-bottom: 0;">焦段：数据载入中...</p>
+                                    <p class="FNumber" style=" padding-top: 0;padding-bottom: 0;"> 光圈：数据载入中...</p>
+                                    <p class="ExposureTime" style=" padding-top: 0;padding-bottom: 0;">快门：数据载入中...</p>
+                                    <p class="ISOSpeedRatings" style=" padding-top: 0;padding-bottom: 0;">感光度：数据载入中...</p>
+                                </div>
+                            </a>
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
 </div>
-<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/js/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/js/templatemo_script.js"></script>
+<script type="text/javascript" src="/js/exif.js"></script>
+<script type="text/javascript" src="/js/photopage.js"></script>
 <script type="text/javascript">
-    menu();
+    var boxes=$('.portfolio-item');
+    boxes.magnificPopup({
+        type: 'image',
+        gallery:{
+            enabled:true
+        }
+    });
 </script>
   </div>
 </div>
@@ -158,7 +227,7 @@
 
 <p >Copyright ©  2017  每天寻求一点变化</p>
 <p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
-<p style="font-size: 10px" id="footer-times" data-time="1/1/2017 00:00:00"></p>
+<p style="font-size: 10px" id="footer-times" data-time="9/17/2017 8:00:00"></p>
 <script>
     var beginTime=document.getElementById("footer-times").dataset.time
     function show_date_time(){
@@ -186,6 +255,8 @@
 </div>
 
 <!--影集界面需要的资源-->
+
+
 
 
 
