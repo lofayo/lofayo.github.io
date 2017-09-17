@@ -4,6 +4,2557 @@
     
     <entry>
       <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E5%AE%9A%E4%BD%8D%E5%8F%8A%E7%99%BE%E5%88%86%E6%AF%94%E5%AE%9E%E4%BE%8B%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%882017.07.30%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<h3 id="先上代码好演示："><a href="#先上代码好演示：" class="headerlink" title="先上代码好演示："></a>先上代码好演示：</h3></blockquote>
+<pre><code>HTML:
+
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;img src=&quot;logo.png&quot; /&gt;
+    &lt;/div&gt;
+
+CSS:
+
+    .box{}
+    .box img {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 20%;
+        top:20%;
+    }
+</code></pre><blockquote>
+<p>根据表象提的问题：相对定位后top百分比无效？</p>
+<p>再将css中<code>position:relative;</code>改成<code>position:absolute;</code>有效果了</p>
+<p>再次根据表象效果提问：相对定位top百分比无效，而绝对定位top百分比有效，这是为什么呢？</p>
+<p>==根据表象，探讨事物本质原理，那就应该从物体本质属性出发==</p>
+<h4 id="分三点来探讨这个问题："><a href="#分三点来探讨这个问题：" class="headerlink" title="分三点来探讨这个问题："></a>分三点来探讨这个问题：</h4></blockquote>
+<p><strong>（1）、百分比</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我们知道，一般情况，设置的百分比最后计算都是相对于父元素，而且是父元素的<code>width</code>，比如说：</p>
+<pre><code>margin: 50%;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是，也有另外，上代码</p>
+<pre><code>HTML
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;img src=&quot;logo.png&quot; /&gt;
+    &lt;/div&gt;
+
+CSS:
+
+    .box{
+        width: 400px;
+        height: 800px;
+    }
+    .box img {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 20%;
+        top:20%;
+    }
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最后我们会发现，相对定位的top:20%;相对的是父框的<code>height</code></p>
+<p>==所以，定位后的定位值：left(right)、top(bottom)分别相对父框的width和height==</p>
+<p><strong>（2）、块级元素的高度</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我们又知道，块级元素的宽度默认是父级元素的100%;而高度由元素内容撑开。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>又回到上面的问题，如果将代码改成这样，top:20%会无效</p>
+<pre><code>HTML
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;img src=&quot;logo.png&quot; /&gt;
+    &lt;/div&gt;
+
+CSS:
+
+    .box{
+    }
+    .box img {
+        //图片默认尺寸：300*400
+        position: relative;
+        left: 20%;
+        top:20%;
+    }
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>虽然，box有高度，子元素的400px，但百分比依然无效，必须手动设置 <code>height: 400px;</code>才会有效果。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：虽然有高度，但不设置，相当于百分比相对于自身而言的，但其实也是相对于父元素而言，其实这样更好理解，但别人那样设置可能有它的苦衷吧！！！</p>
+<p><strong>（3）、定位特性的再次理解：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>相对定位：相对于元素在文档流中的位置而定位，如果定位数值为百分比，则相对于父元素，上面已经阐述。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>绝对定位：相对于已定位的父辈元素，可以是父亲，也可以是祖父、祖祖父、、、，或者直到==包含框==，这个包含框就是==窗口==</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>又回到最初的起点，记忆中你提出的问题、、、</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>relative的top百分比无效，absolute的top百分比有效？</p>
+<p>有了上面提到的两个特性，一切都好解释：</p>
+<p>relative的top百分比相对父元素，但是父元素没设置高度，所以无效；</p>
+<p>absolute的top百分比有效，绝对定位相对于父辈元素直至包含框，我们这里就是包含框（窗口），所以有效</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E7%AA%97%E5%8F%A3.html.body%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB%EF%BC%882017.07.30%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="三者间的关系"><a href="#三者间的关系" class="headerlink" title="三者间的关系"></a>三者间的关系</h3><blockquote>
+<p>主要谈的是宽高</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>窗口最实在，宽高就是实实在在的宽度和高度</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>html和body都是虚的，高度都是由内容撑开</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是有一点比较好，html和body可以继承窗口高度</p>
+<pre><code>html,body {
+    height: 100%;
+}
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94line-height%E7%90%86%E8%A7%A3%EF%BC%882017.08.01%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><em>太困了，写篇文章清醒自己</em></p>
+<h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height:"></a>line-height:</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>行高，顾名思义，就是一行的高度，这里的一行内容多半指的是一行文字，文字有本身的大小，所以行高就是一行整体的高度，将字体大小计算在内。行高减去字体大小，剩余高度平均填充到字体上边和下边。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>行高，不是真正意义上的高度，但是它的确占据了那么高的空间，却不能使背景颜色填充到行高区域，这也就是为什么将高度和行高设置一样，实现一行元素的垂直居中：</p>
+<pre><code>height:100px;
+line-height: 100px;
+</code></pre><h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><blockquote>
+<p>适用范围：</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所有元素，对于块级元素，定义内部元素line-boxes最小高度；对于<code>非替换元素</code>，计算line-box的高度；对于替换元素（img,input,button）line-height没有效果（部分替换元素有效）</p>
+<blockquote>
+<p>取值用法：</p>
+</blockquote>
+<pre><code>normal|&lt;number&gt;|&lt;length&gt;|&lt;percentage&gt;
+</code></pre><blockquote>
+<p>计算方法：</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>相对于本身字体大小</p>
+<blockquote>
+<p>能否继承：</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>可以继承</p>
+<h3 id="line-height继承时取值特性："><a href="#line-height继承时取值特性：" class="headerlink" title="line-height继承时取值特性："></a>line-height继承时取值特性：</h3><blockquote>
+<p>先继承，后作用</p>
+</blockquote>
+<pre><code>line-height: 2;
+line-height: 2em;   //但是注意，em指的是父级元素字体大小
+</code></pre><blockquote>
+<p>先计算，后继承：</p>
+</blockquote>
+<pre><code>line-height: 200%;
+</code></pre><p>实例：</p>
+<pre><code>HTML:
+    &lt;div class=&quot;box number&quot;&gt;
+        &lt;h1&gt;标题的行高，这个line-height=30px*2=60px;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;box length&quot;&gt;
+        &lt;h1&gt;标题的行高，这个line-height=15px*2=30px;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;box percent&quot;&gt;
+        &lt;h1&gt;标题的行高，这个line-height=15px*200%=30px;&lt;/h1&gt;
+    &lt;/div&gt;
+
+CSS:
+    .box {
+        font-size: 15px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .number {
+        line-height: 2;
+    }
+    .length {
+        line-height: 2em;
+    }
+    .percent {
+        line-height: 200%;
+    }
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>结果解释：行高效果，相对于本身字体大小计算，但继承后的line-height有些不一样，特殊之处就是，line-height: 200%; 是先计算具体的line-height数值，再继承</p>
+<p><strong>最推荐写法：font: 20px/2</strong>，设置了字体大小，也设置了行高</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94img%E5%9C%A8div%E7%9A%84%E5%B1%85%E4%B8%AD%EF%BC%882017.07.31%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><strong>先来点思想斗争</strong></p>
+<blockquote>
+<p>不知怎么回事，突然被这个问题搞得很郁闷</p>
+<p>其实也没什么，因为你所知道的每个属性，都只是在最单纯的环境下的表现</p>
+<p>一旦大的环境背景改变了，它可能就不会那么乖了</p>
+<p>因为大的环境下，某些属性可能会冲突，这时候就会有个取舍问题，但不一定就是后者取代前者</p>
+</blockquote>
+<p><strong>代码的深刻理解</strong></p>
+<h3 id="（1）、基本居中"><a href="#（1）、基本居中" class="headerlink" title="（1）、基本居中"></a>（1）、基本居中</h3><blockquote>
+<h4 id="水平居中：-行内元素"><a href="#水平居中：-行内元素" class="headerlink" title="水平居中：(行内元素)"></a>水平居中：(行内元素)</h4></blockquote>
+<pre><code>text-align: center;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>用于父级块级元素内容的水平居中，最差也得是个<code>行内块级元素</code></p>
+<blockquote>
+<p><strong>水平居中：（块级元素）</strong></p>
+</blockquote>
+<pre><code>margin: 0 auto;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>用于块级元素水平居中，还有可能垂直居中，但得配合其它属性</p>
+<blockquote>
+<p><strong>垂直居中：（默认特性）</strong></p>
+</blockquote>
+<pre><code>&lt;td&gt;td元素默认就是垂直居中&lt;/td&gt;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：其实它的本质，是默认设置了以下两属性：</p>
+<pre><code>display：table-cell;
+vertical-align: middle;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>拓展理解：vertical-align默认适用于inline元素和table-cell元素，所以配合使用，实现居中</p>
+<h3 id="（2）、复杂垂直居中"><a href="#（2）、复杂垂直居中" class="headerlink" title="（2）、复杂垂直居中"></a>（2）、复杂垂直居中</h3><blockquote>
+<p><strong>垂直居中：（绝对定位+ margin:atuo）</strong></p>
+</blockquote>
+<pre><code>.box {
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+
+    position:relative;
+}
+
+.box img {
+    width:200px;
+    height: 200px;
+
+    position: absolute;
+    margin: auto;
+    left:0;
+    right: 0;
+    top:0;
+    bottom: 0;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：这个其实就是，简单属性拼凑，产生的效果：<code>绝对定位了——&gt;每个位置值都为0——&gt;宽高又固定——&gt;刚好来了margin:auto;</code></p>
+<blockquote>
+<p><strong>垂直居中：（借助table-cell+vertical-align）</strong></p>
+</blockquote>
+<pre><code>.box {
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+
+    //借助table-cell+vertical-align的垂直居中
+    display:table-cell;
+    vertical-align: middle;
+
+    text-align: center; //水平居中
+}
+
+.box img {
+    width:200px;
+    height: 200px;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：这个的实现，就是基于表格单元格默认垂直居中方式</p>
+<blockquote>
+<p><strong>垂直居中：（借助background属性）</strong></p>
+</blockquote>
+<pre><code>.box {
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+
+    background: url(&quot;4.jpg&quot;) no-repeat center center
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：主要是<code>background-position: center center;</code></p>
+<blockquote>
+<p><strong>垂直居中：（借助line-height+vertical-align）</strong></p>
+</blockquote>
+<pre><code>HTML：
+    &lt;div class=&quot;box&quot;&gt;
+        &lt;span&gt;这是一行文字&lt;/span&gt;&lt;img src=&quot;4.jpg&quot; &gt;
+    &lt;/div&gt;
+
+
+CSS:
+    .box {
+        width: 800px;
+        height: 600px;
+        border: 1px solid black;
+
+        line-height: 600px;
+    }
+
+    .box img {
+        vertical-align: middle;
+    }
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：<code>line-height</code>原本就会使得一行文字垂直居中，会产生一个行基线；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图片太高，文字和图片默认基线对其；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>vertical-align</code>:定义行内元素基线相对于所在行基线对其方式</p>
+<h3 id="（3）、有属性冲突的垂直居中"><a href="#（3）、有属性冲突的垂直居中" class="headerlink" title="（3）、有属性冲突的垂直居中"></a>（3）、有属性冲突的垂直居中</h3><blockquote>
+<p>此例讲解：表格单元格和绝对定位的冲突</p>
+</blockquote>
+<pre><code>.box {
+    //这是一切根源所在
+    position:absolute;
+    left: 0;
+    top: 0;
+
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+
+    //借助table-cell+vertical-align的垂直居中
+    display:table-cell;
+    vertical-align: middle;
+
+    text-align: center; //水平居中
+}
+
+.box img {
+    width:200px;
+    height: 200px;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：最后不能实现垂直居中的效果，根源在于，<code>position:absolute;</code>产生块级元素，而<code>vertical-align</code>适用于<code>table-cell</code>元素，所以起冲突了，绝对定位占上风，所以无效果。</p>
+<p>==总结：这里面最重要的是样式效果起冲突时的选择问题，当以后写出代码不符合预期效果，一般都是特性冲突的结果==</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94border-radius(2017.08.03)/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>对于<code>border-radius</code>只知道在效果上能实现圆角，却不知道为什么这样实现，以及如何准确的使用。这个需要学习与总结。</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94BFC%EF%BC%882017.08.01%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>BFC: block formatting context（块级格式化上下文）</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我们知道HTML里的元素，有内联元素与块级元素之分，这是浏览器代理默认的CSS效果，即统一设置了默认的CSS属性。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是，除了这些默认设置效果之外，我们还可以自己设置，使其呈现不同的效果，如：</p>
+<pre><code>div {
+    display: inline;
+}
+
+span {
+    display: block;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这其实就是改变了默认的效果</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>上面是，最直接的改变呈现结果，除此之外，在CSS里我们可以通过一些其它属性也能改变其呈现效果，这就是我们要说的BFC</p>
+<blockquote>
+<p>解释：BFC（块级格式化），就是使元素呈现块级效果，它的作用主要体现在，和外部元素之间的关系，以及内部子元素的显示效果</p>
+</blockquote>
+<p><strong>什么属性能触发BFC：</strong></p>
+<ul>
+<li>HTML根元素（一般平时也没怎么用）</li>
+<li>float:值非none</li>
+<li>overflow: 值非visible(这个时候默认值，溢出可见)</li>
+<li>display: inline-block/table-cell/table-caption(仅仅只有这几个，不要想当然的认为其它也可以，display: block;都不行)</li>
+<li>position: absolute/fixed;</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>理解</strong>：这些块级格式化并不一定只是作用于<code>inline</code>元素，如果这样论，那<code>overflow</code>将不能起作用，BFC一样可以作用于<code>block</code>元素；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>并且，BFC产生的“块级格式化上下文”元素，还不完全等同于，要不然，怎么会<code>display:block</code>反而没有效果，毕竟还是有些区别的（有兴趣，这里面可以深究）</p>
+<p><strong>BFC的作用效果：</strong></p>
+<ol>
+<li>使得元素不会被浮动元素覆盖；</li>
+<li>可以包容住浮动元素；</li>
+<li>不属于同一个BFC两个div垂直外边距不会合并；</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>理解</strong>：前两条好理解，这里面探讨的其实是，<code>float</code>和<code>absolute</code>谁的级别更高些。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><em>回顾：</em> 浮动和绝对定位都使得元素脱离文档流，都生成块级元素，都不占据空间，所以都可覆盖正常文档流，但是，<code>float</code>只能覆盖背景，不会覆盖文字，而<code>absolute</code>彻底覆盖</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>回到上面的解释：</strong> BFC产生的元素，姑且都认为是<code>absolute</code>元素</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+      <content type="html"><![CDATA[<h3 id="text-indent-首行缩进"><a href="#text-indent-首行缩进" class="headerlink" title="text-indent: 首行缩进"></a>text-indent: 首行缩进</h3><p>注：仅对块级元素有效，对行内元素与图像之类的替换元素无效，但块级元素中有图片，会跟着一起缩进</p>
+<p>提示：那行内元素首行缩进，给第一行设置padding实现</p>
+<p>实现：还蛮以为可以用伪元素span:first-line，但是伪元素只适用于块级元素</p>
+<p>总结：同一个属性，都有使用场景，脱离了这个场景就很难看</p>
+<h3 id="text-align-justify用法"><a href="#text-align-justify用法" class="headerlink" title="text-align: justify用法"></a>text-align: justify用法</h3><p>1、该属性可以继承；</p>
+<p>2、对于每一行而言，</p>
+<pre><code>text-align:justify;     
+</code></pre><p>控制除了最后一行的两端对齐效果</p>
+<pre><code>text-align-last:justify;    
+</code></pre><p>这个才是控制最后一行的两端对齐</p>
+<p>3、从原理来说，上面都对，但从实现上说，又有那么点矛盾</p>
+<p>两端对齐：肯定对应的是单行， 并且该行字数小于父级宽度</p>
+<p>既然是单行，单一的text-align-last:justify 就可搞定<br>    但是不兼容，所以最完美的写法是这样的</p>
+<pre><code>.justify {
+    text-algin: justify;
+}
+.justify:after {
+    content: &quot;&quot;;
+    display: block;
+    width: 100%;
+}
+</code></pre><p><strong>4、上面方法单独使用都可以，但不适用于兼容，所以最终实现</strong></p>
+<p>实现原理：</p>
+<p>1、text-align: justify;    //实现除最后行的两端对齐</p>
+<p>2、text-justify: inter-ideograph;  //和上一句结合用兼容IE</p>
+<p>3、在行尾加一空标签</p>
+<pre><code>&lt;span&gt;&lt;/span&gt;;
+</code></pre><p>  设置</p>
+<pre><code>span {
+display: inline-block;  
+width: 100%;    
+</code></pre><p>  }</p>
+<p> 模拟最后一行，不能是block(效果上来看，是新行，但却是一个块级，不是紧贴上一行的一行)<br> //inline-block在一行显示，但宽度太大，挤到下一行</p>
+<p>4、设置父框 height和overflow</p>
+<p>5、为了兼容Firfox和Safari，两端对齐的问题中要有空格</p>
+<p><img src="http://127.0.0.1/markdown-img/justify.png" alt="image"></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS3%E6%95%B4%E7%90%86%E2%80%94%E2%80%94border-radius%EF%BC%882017.08.10%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<h3 id="回顾一点：谈到什么东西，立马进入那个状态，这个很重要！！！"><a href="#回顾一点：谈到什么东西，立马进入那个状态，这个很重要！！！" class="headerlink" title="回顾一点：谈到什么东西，立马进入那个状态，这个很重要！！！"></a>回顾一点：谈到什么东西，立马进入那个状态，这个很重要！！！</h3><p>圆角，顾名思义，就是<strong>矩形盒子</strong>的四个角落。所以有</p>
+<p>border-top-left-radius / border-top-right-radius / border-bottom-right-radius / border-bottom-left-radius</p>
+</blockquote>
+<h3 id="理解需要注意的地方："><a href="#理解需要注意的地方：" class="headerlink" title="理解需要注意的地方："></a>理解需要注意的地方：</h3><h4 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h4><pre><code>border-top-left-radius: h-radius v-radius;
+</code></pre><h4 id="1、取值："><a href="#1、取值：" class="headerlink" title="1、取值："></a>1、取值：</h4><pre><code>value: [&lt;length&gt; | &lt;percentage&gt;]{1,2}
+</code></pre><h4 id="2、percentage"><a href="#2、percentage" class="headerlink" title="2、percentage:"></a>2、percentage:</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这个百分比的就算，相对于<em>边框盒子</em><a href="http://note.youdao.com/" target="_blank" rel="external">border-box</a>，<code>h-radius</code>相对于<code>border-box 的 width</code>， <code>v-radius</code>相对于<code>border-box 的 height</code>。<strong>负值不允许</strong></p>
+<h4 id="3、简写：border-radius"><a href="#3、简写：border-radius" class="headerlink" title="3、简写：border-radius"></a>3、简写：<code>border-radius</code></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>遵循规则： 上、右、下、左</strong></p>
+<pre><code>border-radius: top-left top-right bottom-right bottom-left;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>有斜线的一种写法：斜线前面设置水平圆角，斜线后面设置的是竖直圆角</strong></p>
+<pre><code>border-radius: 2em 1em 4em / 0.5em
+</code></pre><h4 id="4、几个概念的理解："><a href="#4、几个概念的理解：" class="headerlink" title="4、几个概念的理解："></a>4、几个概念的理解：</h4><pre><code>border edge radius      //边框外边缘圆角
+
+padding edge radius     //内边距外边缘圆角
+
+content edge radius     //内容外边缘圆角
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这几个的计算，都遵循：<code>border-radius</code>减去各个厚度，就是产生的各个圆角</p>
+<h4 id="5、几个效果的理解："><a href="#5、几个效果的理解：" class="headerlink" title="5、几个效果的理解："></a>5、几个效果的理解：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p><1>边框厚度不一致，圆角会平稳地过渡<a href="https://www.w3.org/TR/css3-background/#the-border-radius" target="_blank" rel="external">corner shaping</a></1></p>
+<pre><code>.box {
+    width: 200px;
+    height: 200px;
+    border-color: pink;
+    border-style: solid solid none none;
+    border-top-width: 100px;
+    /*这是关键：边框宽度不一*/
+    border-right-width: 0px;
+    border-radius: 200px;
+    /*但是圆角效果依旧，所以平稳过渡*/
+}
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/cordova/</url>
+      <content type="html"><![CDATA[<h3 id="cordova适用场景："><a href="#cordova适用场景：" class="headerlink" title="cordova适用场景："></a><code>cordova</code>适用场景：</h3><ul>
+<li>一套应用适配于多种平台</li>
+<li>部署APP，直接分发到各大应用商店的门户网站</li>
+<li>混合应用于原生应用组件和<code>webView</code>组件</li>
+<li><h3 id="cordova应用："><a href="#cordova应用：" class="headerlink" title="cordova应用："></a><code>cordova</code>应用：</h3></li>
+<li><code>web app:</code> html\js\css\config.xml</li>
+<li><code>cordova plugins:</code> Accelerometer\geolocation\camera\media\device\newwork\contacts\storage</li>
+<li><code>mobile os:</code> services\input\sensors\graphics </li>
+</ul>
+<blockquote>
+<p>个人理解：<code>cordova</code> 可以直接通过前端语言做跨平台的APP，并且，直接通过原生的js就可以调用手机端的各种硬件API，还有可以混合开发，既可以用最新的<code>html5</code>、<code>css3</code>，也可以用原生的语言来开发</p>
+<p>在公司里查阅了一天的资料，而且，基本都是看的英文说明，大部分都看懂了，这个是不是表明我的英语阅读能力稍强了些，但还有很多不够，就是阅读速度太慢了。因为里面的毕竟有很多对我而言是新的概念，需要放慢速度来理解与接受，相信以后会变得越来越好的，也从另一个层面暗示着“习惯的力量真的太强大了”，对于一个陌生的领域，坚持着学习是你成长最好的捷径。</p>
+<p>看了一天的文档，感觉有些疲劳，那就换种方式试试，学习学习其他的东西看看。今天查的这些资料给我最深的感受就是，我终于懂了为什么<code>Android</code>和<code>Ios</code>没有了前几年的火爆了，原来它们能实现的功能，现在又更好的方式能实现，比它们快速，比它们高效，比它们简单，因此，自然就少了很多的市场份额。</p>
+<p>对此现象应该没有多少惊讶的，这就是它里面的运行规律。科技，永远没有界限，永远都是在推动着人类不断的往前走。当然，这里面也有着这样的一种意味，在你选择它的时候，它可能还处于上升期，等你学得差不多的时候，他可能已经被淘汰，这就是这个行业快速发展的规律。这多少会让人陷入一种恐惧之中，就像睡了一觉醒来，突然发现自己一无所有，这该是多么的绝望。</p>
+<p>因为，我的建议就是“不要把所有的鸡蛋放到一个篮子”，工作之余发展一种爱好，形成一套属于自己生活方式，让自己的希望不能全部寄予一个项目。这也就是投资人为什么能赚到钱的原因。</p>
+<p>最后，回到主题，说说我对这种现象更替的理解，我试着去解释解释。</p>
+<p>前几年，<code>android</code>和<code>ios</code>开发都是原生开发，写的都是纯种语言，但是最近几年，随着前端领域的发展，尤其是<code>html5``css3</code>各种不同功能的API加入，很多原生的功能都能一定程度上能模拟，并且替代，另外一个原因，之前对移动端的开发因为平台的不同，往往同样的功能需要开发多种平台版本，耗时耗力。而web页面这块，都是同样一套内容，<br>兼容着各种平台，无论是PC端，还是移动端，又或者是移动端的各平台，都是通吃的。只是同样的一个属性在不同设备可能会有一定的差异，经过兼容性的写法，最后功能大体都能相似实现。</p>
+<p>就因为这个优点，人们都相继开发web页面更新的功能，以实现真正的替代，但这个过程毕竟是模仿着替代，还起了个有意思的名字<code>WebApp</code>，很形象。虽然表面上的一些都能通过模仿替代了，底层还有些功能和硬件有关的是模仿不了的，比如说：摄像头、传感器、重心仪、加速器、、、，才出现了混合式开发，上层的能替代尽可能的替代了，底层还是调用原来接口。</p>
+<p>无论站在那个角度来讲，都不会有什么坏处，坚信的一点，这个世界一定都是向着最好的方向发展。就像你一颗向上的心一样。</p>
+<p>理解，真的太重要了，一开始，你可能不太清楚每个细节具体的 实现，但是必须得有个全局观念，知道它的一个大的方向，以及整体的一个大概运行机制，有了这些，你一切的行动才是有根据的。并且，基于自己的理解，可以按着自己所想的方式运行很多东西，而不是被别人推一步走一步。另外，根据理解，按着所想来办事，真的有点爽。</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/canvas%E5%AD%A6%E4%B9%A0%EF%BC%882017.07.28%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="canvas基本用法"><a href="#canvas基本用法" class="headerlink" title="canvas基本用法"></a>canvas基本用法</h3><pre><code>&lt;canvas id=&quot;myCanvas&quot; width=150 height=150&gt;
+    浏览器不支持的替代内容
+&lt;/canvas&gt;
+</code></pre><blockquote>
+<p>canvas是双标签，中间的内容用于浏览器不支持时显示</p>
+<p>canvas默认有宽高，width=300,height=150,可以用CSS设置宽高，但CSS宽高与canvas在HTML宽高比例不一样，会出现扭曲</p>
+<p>绘画功能需要通过脚本获取<code>渲染上下文</code>和<code>绘画功能</code>，方法是：canvas.getContext()</p>
+</blockquote>
+<h3 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h3><pre><code>//绘制一个填充矩形
+fillRect(x,y,width,height);
+
+//绘制一个描边矩形
+strokeRect(x,y,width,height);
+
+//清楚指定矩形区域，将其变透明
+clearRect(x,y,width,height);
+</code></pre><h3 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h3><blockquote>
+<p><strong>步骤：</strong></p>
+</blockquote>
+<p>1、首先，新建一条路径，<code>beginPath()</code>绘图命令被指定生成路径；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>生成路径的第一步叫做beginPath()。本质上，路径是由很多子路径构成，这些子路径都是在一个列表中，所有的子路径（线、弧形、等等）构成图形。而每次这个方法调用之后，列表清空重置，然后我们就可以重新绘制新的图形。</p>
+<p>2、然后用绘图命令去画路径，如: <code>moveTo(),lineTo()</code>；</p>
+<p>3、关闭路径，<code>closePath()</code>，会绘制一条从当前点到开始点的闭合直线，图形绘制命令重新回到上下文中；</p>
+<pre><code>注意：没了`closePath()`，fill()默认会闭合，而stroke()则不会
+</code></pre><p>4、一旦路径生成，用填充<code>fill()</code>或描边<code>stroke()</code>渲染图形</p>
+<h3 id="绘制圆弧"><a href="#绘制圆弧" class="headerlink" title="绘制圆弧"></a>绘制圆弧</h3><blockquote>
+<p>arc(x,y,radius,startAngle,endAngle,anticlockwise)</p>
+<p>设置填充或描边的颜色：</p>
+</blockquote>
+<pre><code>fillStyle = &quot;red&quot;;
+strokeStyle = &quot;green&quot;;
+</code></pre><p>canvas绘图内容还挺多的，后续还需要在学习</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/&amp;nbsp;/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%AD%97%E4%BD%93%E5%8D%95%E4%BD%8D/</url>
+      <content type="html"><![CDATA[<pre><code>em: 相对父元素计
+    用法：默认字体大小，font-size: 16px;
+    为了好计算，实现如下转换：
+
+    body {
+        font-size: 10px;    //或
+        font-size: 62.5%;   // 10px/16px = 62.5/%
+    }
+
+    div {
+        font-size: 1.2em;   //1.2em = 1.2 * 10px = 12px
+        text-indent: 2em;   //缩进两个空格
+    }
+
+    div p {
+        font-size: 1.2em;   //错误，em是相对父元素的，所以，1.2em = 1.2 * 12px = 14.4px
+    }
+</code></pre><hr>
+<pre><code>rem: (root em)相对于根元素HTML计
+    html {
+        font-size: 10px;
+    }
+
+    div {
+        font-size: 1.2rem;    //12px
+    }
+    div p {
+        font-size: 1.2em;   //12px
+    }
+</code></pre><hr>
+<pre><code>em vs rem:
+    em 是相对于父元素，需要层层复合计算
+    rem 直接相对根元素，只需计算一次
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3JQuery%EF%BC%882017.09.01%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>原来<a href="http://www.w3school.com.cn/jquery/jquery_ref_dom_element_methods.asp" target="_blank" rel="external"><code>jQuery</code></a>有这么多的好方法，都不曾好好利用，还一直苦于造轮子的毫无头绪。</p>
+<p>看来古语没错，‘工欲善其事必先利其器’，别将时间无辜的浪费了，多学习，多见识，多吸收新的思想。</p>
+</blockquote>
+<p><strong>JQuery DOM元素方法</strong></p>
+<p>1、<code>.get()</code>: 从JQuery选择器中选择指定DOM元素，适合<strong>JQuery对象转成DOM对象</strong>，还有一种方法，直接数组的中括号<code>[]</code></p>
+<pre><code>$(&#39;li&#39;).get[1];
+$(&#39;li&#39;)[1];     
+//都是取得第二个li元素
+</code></pre><p>2、<code>.index()</code>：获取索引值（从0开始）。两种用法：</p>
+<p>取得第一个匹配元素相对于同胞元素的索引值</p>
+<pre><code>$(selector).index();
+</code></pre><p>取得元素相对于选择器的索引值</p>
+<pre><code>$(selector).index(element)
+</code></pre><p>例：</p>
+<pre><code>&lt;li&gt;Milk&lt;/li&gt;
+&lt;li class=&quot;hot&quot;&gt;Tea&lt;/li&gt;
+&lt;li class=&quot;hot&quot; id=&quot;favorite&quot;&gt;Coffee&lt;/li&gt;
+
+$(&quot;.hot&quot;).index($(&quot;#favorite&quot;));    //1
+</code></pre><p>3、<code>.size()</code>: jquery选择器匹配元素的数量，等同于JQuery选择器元素的length属性</p>
+<pre><code>$(&#39;li&#39;).size() == $(&#39;li&#39;).length;
+</code></pre><p>4、<code>.toArray()</code>: 以数组形式返回JQuery选择器匹配的元素</p>
+<p>5、<code>.eq()</code>: 取到的元素永远只是1个，而且还是<code>jquery</code>对象</p>
+<p>6、奇葩的<code>num.toFixed(2)</code>: 以四舍五入保留指定位小数<br>，<strong>最后返回的是字符串</strong></p>
+<pre><code>num.toFixed(2); 
+</code></pre><p>7、<code>attr()</code>工作方式：获取第一个元素属性；设置所有匹配元素属性</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%BF%99%E5%B0%B1%E6%98%AF%E7%A8%8B%E5%BA%8F%E6%80%9D%E6%83%B3%E5%90%A7%EF%BC%882017.07.30%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><strong>程序思想</strong></p>
+<pre><code>var bFound = false;
+var i = 0;
+while(!bFound) {
+    if (arr[i] == searchValue) {
+        bFound = true;
+    } else {
+        i++;
+    }
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>bFound是个记号，用来记录检索是否成功</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%A2%84%E5%8A%A0%E8%BD%BD/</url>
+      <content type="html"><![CDATA[<h3 id="一张大图的缓缓出现"><a href="#一张大图的缓缓出现" class="headerlink" title="一张大图的缓缓出现"></a>一张大图的缓缓出现</h3><blockquote>
+<p>本质：用到了jQuery的slideDown(speed,callback)，</p>
+<p>他实现的原理改height，但是不指定width，</p>
+<p>宽高会等比例出现，因为它是直接改变高度，</p>
+<p>所以不能直接作用在img上，会拉伸图片，</p>
+<p>用于父级div中，那时图片早已加载完毕</p>
+</blockquote>
+<h3 id="预加载原理："><a href="#预加载原理：" class="headerlink" title="预加载原理："></a>预加载原理：</h3><blockquote>
+<p>打开URL时，先把图片都加载到本地，再点击时实现无需等待切换；<br>但是图片太多时，一开始的加载会特别耗时，不是很好</p>
+<p>原来以为的预加载是：浏览器当前图片时，加载这张图<br>片的前后图片，浏览器时也无需等待，但如果点击太快也会出现较长时间的等待</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%A0%B7%E5%BC%8F%E8%A1%A8%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+      <content type="html"><![CDATA[<h3 id="样式表优先级"><a href="#样式表优先级" class="headerlink" title="样式表优先级"></a>样式表优先级</h3><pre><code>内联样式最高，其次是内部样式和外部样式，它们样式覆盖有个先后顺序
+
+
+这个先后顺序决定了谁覆盖谁。
+&lt;link&gt;
+&lt;style&gt;
+如果出现重叠，style覆盖link
+
+
+&lt;style&gt;
+&lt;link&gt;
+如果出现重叠，link覆盖style
+
+总结：就是后加载的覆盖先加载的
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BF%E9%97%AE/</url>
+      <content type="html"><![CDATA[<h3 id="循环与全局变量的访问"><a href="#循环与全局变量的访问" class="headerlink" title="循环与全局变量的访问"></a>循环与全局变量的访问</h3><hr>
+<h4 id="循坏快速生成4个代码块，但到了执行某个函数时，i-4；"><a href="#循坏快速生成4个代码块，但到了执行某个函数时，i-4；" class="headerlink" title="循坏快速生成4个代码块，但到了执行某个函数时，i = 4；"></a>循坏快速生成4个代码块，但到了执行某个函数时，i = 4；</h4><pre><code>var arr = [];
+for (var i = 0; i &lt; 4; i++) {
+    arr[i] = function() {
+      console.log(i);
+    }
+  }
+  arr[2](); //4
+
+总结：其实，是先生成数组的四个元素————四个函数，但到了真正执行时，访问的都是全局变量i  
+</code></pre><h4 id="循环和定时器配合用，也是同样的效果"><a href="#循环和定时器配合用，也是同样的效果" class="headerlink" title="循环和定时器配合用，也是同样的效果"></a>循环和定时器配合用，也是同样的效果</h4><pre><code>for (var i = 0; i &lt; 4; i++) {
+    var timer = setTimeout(function(){
+        console.log(i);     //4,4,4,4
+    },0}
+}
+
+总结：循环的过程，先生成4个定时器，等到去执行每个定时器时候，i = 4；
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%EF%BC%882017.08.20%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>有时候，学习学习着，就不知道该学生么了，计算机里的知识点太多，说起来每个知识点都值得仔细的学习，但这个 有时候又得看心情，长时间学习一个东西会疲劳，换另外一个说不定效率就会高很多。但不管怎样，还是规划下当下最应该学习的知识点。因为我的学习太随意，看到什么不懂的，不熟悉的，就会立马去找相关的只是来学习，自然就忽略一开始的目标。</p>
+<h2 id="当下目标：研习框架mui"><a href="#当下目标：研习框架mui" class="headerlink" title="当下目标：研习框架mui"></a>当下目标：研习框架mui</h2><ul>
+<li>但是里面很多都跟事件有关，先得复习温故下事件知识</li>
+<li>学习框架里CSS的一些布局效果，查阅相关CSS属性</li>
+<li>周末两天连续时间，最好跟着视频完整做个项目</li>
+<li></li>
+</ul>
+<p><em>当你进入一个公司，想拿得一份像样的工资，那就必须对得起你做的事。</em></p>
+<p><em>不要总给自己等待的机会，这个不会没关系，那个不会也没关系，但是你入了一个公司，别人要求的是直接能上手做事的，而不是这个可以不会，那个可以不会</em></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%86%99%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%9D%E8%80%83/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最近做的项目让我思考，思考自己到底该学习什么，又该这样的学习。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最近这段时间做的项目差不多都是一个类型的，利用<code>html5/css3</code>实现手机端的<code>App</code>应用，这种转型也是大势所趋，其中道理也很容易理解，曾经的一个APP为了适应各种设备需要专门的团队负责开发各个操作系统的版本，比如：IOS团队、Android团队、黑莓手机团队等等。可如今的一个APP利用<code>html5/css3</code>工具写一套程序就可适配给中版本，无论是从人力物力来说，都大大节省了公司资源，所以，这是一种势在必行的趋势，可能在某些和硬件交互的功能部分不如原生语言来得流畅，对如如今各种高性能手机，高速度的网路，这些方面也该不是太大问题。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但自己在写这方面的程序也碰到过问题，比如：对于框架大行其道的编程世界，我到底改写原生语言，还是直接利用框架封装好的组件？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>作为一个初学者，一开始我肯定研究的是各种原生语言，原生写法，基础概念都清楚后，尝试着学习框架，学习的过程中只是感觉到它能实现各种功能，但是不太清楚为什么，所以学着学着就没什么意思了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>看着网上大神们的学习路线，好像还是自己基础不太扎实，因此继续转而复习巩固基础知识。可是，来了公司必定还是要为公司做点事的（虽然公司的事不是很多），开始了写项目，尝试着完整的布局一个页面，写的过程当然是相当的漫长，这个属性不清楚查一查，那个布局不太理解肯定要花时间思考理解的，这样一来自己的速度当然如蜗牛般缓慢。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我的小领导（前端就我们两个人，她有两年的工作经验吧）肯定会觉得我这也太菜鸟了，虽然她没说，但我感觉应该是这样认为的，和她配合一个项目后，我看过她写的代码，才明白了她看不起我的原因了（她没说啊，只是我个人感觉，其实她人挺好的，赞一个）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>她的页面里大量的框架组件，而我的全是原生代码，这样一比不慢才怪。况且，说实话，到现在为止也用了不少框架组件，但对里面具体原理有很多还真是不清楚的，如果让自己来写一个框架组件效果，还真写不出来，之前瞧不起框架就真的这样干过，结果就是没多大结果。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>对于框架，应该保持一种开发的心态。为了快速完成工作，框架里的东西还是有借鉴的必要，如果私底下有时间的话，回过头来好好研究下，尝试着自己封装组件，这会让你学到很多东西。首先，你得更加熟悉属性的相关用法，其次，深刻理解了封装的计算机思想。这对你以后写出快速高效的代码大有裨益。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最后，说说目前的学习目标和工作理解。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>学习目标：还是想好好研究下<code>js</code>相关的知识，目的是写出更高效的代码，还有<code>html5+</code>知识，能让自己更熟练手机端这一套操作流程。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>工作理解：平时自己的学习，不是只为了完成工作任务，也不是为了拿到一份不错的薪水，重要的是增长能力，这也是当初坚持转行的原因，趁着年轻，多学习学习，增长见识，扩宽知识，提高能力。这才是永恒不变的目标。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%86%99%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%80%E7%AF%87%E6%96%87%E5%AD%97%EF%BC%882017.08.24%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>一个人经历的事情多了，他的认识就会更深刻与成熟。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>加上今天同学给我介绍的女朋友，今年总共介绍了四个女朋友，但最后能成的，或许一个也没有吧！不是别人的问题，是我自己的原因。不知道为什么，现在的我还不想结婚，目前连恋爱的想法都没有。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我不知道这到底是什么原因，或许是因为自己的心智不够成熟，还是自己的不够担当，又或者是自己的懦弱无能，又或许都有、、、</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%A1%B9%E7%9B%AE%E2%80%94%E2%80%94%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%882017.08.17%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>不要害怕学习新的东西，因为新的事物永远有你不曾体会过的美丽！</p>
+<p>生活再也不像解一道数学题那么简单，答案唯一。生活的问题千奇百怪，生活的方法各有千秋。生活有美好，生活也有灰色，愿你不要被瑕疵绊住双脚而错失了前方的美好！</p>
+</blockquote>
+<h2 id="问题一：字符串拼接"><a href="#问题一：字符串拼接" class="headerlink" title="问题一：字符串拼接"></a>问题一：字符串拼接</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>其实字符串和变量的拼接蛮简单的：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>1、 将字符串中所有的双引号<code>&quot;</code>变成<code>\&quot;</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>2、 再将要设置为变量的字符串替换为<code>&quot;+var+&quot;</code></p>
+<pre><code>&lt;img src=&quot;***&quot; &gt;
+
+var html = &quot;&lt;img src=\&quot;&quot;+var+&quot;\&quot; &gt;&quot;
+</code></pre><p>本来想写个函数，来实现这种字符串拼接功能的，但发现好多转义问题，先放着吧！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>3、 其实字符串拼接还可以更简单，因为双引号单引号不在乎谁的级别高，只要能区分就可以</p>
+<pre><code>                var html2 = &#39;&lt;ul class=&quot;mui-table-view&quot;&gt;&lt;li class=&quot;mui-table-view-cell&quot;&gt;第二个选项卡子项-1&lt;/li&gt;&lt;li class=&quot;mui-table-view-cell&quot;&gt;第二个选项卡子项-2&lt;/li&gt;&lt;li class=&quot;mui-table-view-cell&quot;&gt;第二个选项卡子项-3&lt;/li&gt;&lt;li class=&quot;mui-table-view-cell&quot;&gt;第二个选项卡子项-4&lt;/li&gt;&lt;li class=&quot;mui-table-view-cell&quot;&gt;第二个选项卡子项-5&lt;/li&gt;&lt;/ul&gt;&#39;;
+
+
+
+
+
+
+
+
+/*    //点击切换选项，给URL追加一个参数
+    var url = location.href;
+    var para = location.search;
+    var pageNum = 1;
+    if (para) {
+        pa
+    }
+    location.assign(url + &quot;&amp;type=&quot;+pageNum)*/
+</code></pre><p>webview中用html5的video方式播放视频时，在ipad上是默认原来大小的，而在iphone上是默认全屏播放的。<br>论坛中搜索，都没给出答案，google－》stackoverflow，找到最终解决方法：</p>
+<pre><code>HTML里video必须加上webkit-playsinline属性
+&lt;video id=&quot;player&quot; width=&quot;480&quot; height=&quot;320&quot; webkit-playsinline&gt;
+Obj-C里，webview设置allowsInlineMediaPlayback属性为YES
+webview.allowsInlineMediaPlayback = YES;
+原文链接：http://stackoverflow.com/questions/3699552/html5-inline-video-on-iphone-vs-ipad-browser
+</code></pre><p><strong>思路：</strong> 明天的项目有两个地方需要改</p>
+<ul>
+<li>将所有的封面图片都换成video 的poster属性，还有那个按钮和之前写的封面都去掉。没有了这种按钮，但是怕依然点击播放</li>
+<li>为了兼容iPad，每次播放时都请求全屏播放</li>
+</ul>
+<pre><code>  function requestFullScreen(element) {
+// Supports most browsers and their versions.
+var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+if (requestMethod) { // Native full screen.
+  requestMethod.call(element);
+} else if (typeof window.ActiveXObject !== &quot;undefined&quot;) { // Older IE.
+  var wscript = new ActiveXObject(&quot;WScript.Shell&quot;);
+  if (wscript !== null) {
+    wscript.SendKeys(&quot;{F11}&quot;);
+  }
+} }
+</code></pre><h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><p>1、绝对定位的父框，宽度100%，子元素浮动了，父框的高度由子元素决定？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>解答：</strong> 说实话，绝对定位和浮动虽然在很多地方都有共同性，脱离父框、使父框高度塌陷、生成块级元素。但绝对定位就是比浮动厉害了，表现在：浮动终究逃脱不了父级元素的掌心，就算浮动也是在父框中浮动；并且，父框绝对定位，子元素浮动，父框依然包裹子元素，表现为高度由子元素撑起。</p>
+<p>2、绝对定位的元素，宽度100%，子元素浮动，并且margin-right无效</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>解答：</strong>这个还解释不了</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%EF%BC%882017.09.02%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>7、网络断开后<code>ajax</code>请求的失败</p>
+<p>竟然忽略了一个这么重要的问题：我们用<code>ajax</code>向服务器请求数据，请求成功后存储在浏览器数据库<code>webSql IndexedDB</code>，<strong>以备断网时使用</strong>。可是如果断网了，<code>ajax</code>请求必定失败报错，程序不能运行，但其实所需的数据早已都存在数据库里，直接使用即可。其实，也是程序的一个高性能问题，得到了东西，就没必要每次再重复执行了。提高性能准则：<strong>时常判断，不要重复已经存在结果的运行。没有才做，有了就不做。</strong></p>
+<p><strong>分析理想情况：</strong> 一次<code>ajax</code>请求，将数据都存储在浏览器数据库，仅仅只需要一次<code>ajax</code>成功的请求。每次打开页面，动态渲染页面，用到的数据都是从数据库中取</p>
+<p><strong>但是好像多虑了：</strong> 上面这样的确减少ajax的请求次数，而且动态代码的添加也是从浏览器数据库取得的数据。但是没网了支付设备怎么付费，又说回来，这样的确可以提高效率，因为数据从数据库请求来的，断网下依然可用</p>
+<p>8、这个竟然输出了定时器的个数</p>
+<pre><code>  var result1 = setTimeout(function() {
+
+  }, 3000);
+  console.log(setTimeout(function() {
+
+  }, 3000));    //2
+  console.log(setTimeout(function() {
+
+  }, 3000));    //3
+</code></pre><p>9、请求响应模式竟然还有这样的问题：函数申明与变量申明都会提前，但是有可能赋值需要延后</p>
+<pre><code>var result = getObjectStore(&#39;SyncCategory&#39;);
+</code></pre><p>虽然这句话在所有程序的最前面，但是后面这个赋值的函数执行<code>getObjectStore(&#39;SyncCategory&#39;)</code>是基于请求响应模式的，该函数返回的值会有延后。</p>
+<p>如果<code>getObjectStore(&#39;SyncCategory&#39;)</code>没有返回值（无论函数里），<code>result = undefined</code>;</p>
+<p>如果<code>getObjectStore(&#39;SyncCategory&#39;)</code>，<code>result = undefined</code>;</p>
+<p>10、订单号码问题：唯一性、多人同时操作时的唯一性、需要访问数据库吗？？</p>
+<p>11、不要把<code>return</code>语句的功能想得太多了， 它只是：返回一个值，结束后面代码的执行。它更本不可能等待请求响应结果后再返回，正常语句，先于‘请求响应模式’的执行</p>
+<pre><code>// 用游标对表全部检索
+function getObjectStore(osName) {
+  var result = [];
+  var request = indexedDB.open(&#39;pageData&#39;, 1);
+
+  request.onsuccess = function() {
+      let db = this.result;
+      var trans = db.transaction([osName], &#39;readwrite&#39;);
+      var os = trans.objectStore([osName]);
+
+      // 游标遍历表全部数据（循环）
+      var cursorReq = os.openCursor();
+      console.log(cursorReq);
+      cursorReq.onsuccess = function() {
+          if (this.result) {
+              result.push(this.result.value);
+              this.result.continue();
+          }
+      }
+  }
+
+  request.onerror = function() {
+      alert(&#39;初始化所有表失败：&#39; + this.error);
+  }
+
+  return result;
+  }
+</code></pre><p>这个函数返回结果永远为空数组，不会等待请求响应后的结果，只是在浏览器<code>console.log(result)</code>有点怪：虽然为空，但下面有值</p>
+<h2 id="12、之前的逻辑判断全错"><a href="#12、之前的逻辑判断全错" class="headerlink" title="12、之前的逻辑判断全错"></a>12、之前的逻辑判断全错</h2><p>我太渴望一种普遍适用的准则解释这一切:</p>
+<pre><code>console.log(NaN == NaN);
+//false
+</code></pre><p>这个好理解：NaN（not a number），不是一个数字，还可以是很多其它东西，所以不相等</p>
+<pre><code>console.log(&#39;&#39; == &#39;&#39;);
+//true
+</code></pre><p>这个也还好理解：<code>空字符</code>等于 <code>空字符</code>，如果不相等，它还能咋地？上天不成？</p>
+<p><strong>但下面这个就有点逆天了</strong></p>
+<pre><code>console.log([] == []);
+//false
+</code></pre><p><code>空数组</code>不等于<code>空数组</code>，你是想咋地？好像真的上天了，既然如此，我也没辙</p>
+<p><em>曾经还以为，<code>空数组</code>的<code>boolean</code>值是<code>false</code>，但实际是<code>true</code>，这个还能接受：数组是<code>object</code>，<code>object</code>的<code>boolean</code>值都是<code>true</code>，只有<code>null</code>的<code>boolean</code>值是<code>false</code></em></p>
+<pre><code>console.log(!![]);
+//true
+</code></pre><p><strong>后记：</strong> 虽然这些知识都比较小众，但是却决定了<code>逻辑判断</code>，选择了程序的走向，所以还是弄清楚为好。这么多东西肯定不可能全凭记忆，我太渴望一种普遍使用的准则来判断（准则肯定是有的，想想设计者的初衷），我不要：试验、根据结果作总结、推翻总结、再试验、再总结、再推翻总结、、、，这种大浪淘沙的过程太让人崩溃了。</p>
+<p><strong>静候您的指教：、、、</strong></p>
+<h2 id="13、玩电风扇把鼠标玩坏了"><a href="#13、玩电风扇把鼠标玩坏了" class="headerlink" title="13、玩电风扇把鼠标玩坏了"></a>13、玩电风扇把鼠标玩坏了</h2><p>这是一种怎样的神奇，电脑和风扇的插头在一排，通过开关风扇，鼠标的闪光跟着一起变化，希望找出规律，玩了几次后，鼠标竟然神奇的坏了（闪光依然亮着，但是不能移动光标）</p>
+<h2 id="14、跨域请求"><a href="#14、跨域请求" class="headerlink" title="14、跨域请求"></a>14、跨域请求</h2><pre><code>XMLHttpRequest cannot load http://pay.pospi.com/Api/Pay/Refund. 
+Response to preflight request doesn&#39;t pass access control check: 
+No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. 
+Origin &#39;null&#39; is therefore not allowed access. The response had HTTP status code 405.
+</code></pre><p>15、数组和<code>json</code>联系：都能循环，但是却不能在一个循环里将其联系</p>
+<p>16、很多东西能放在一个<code>.html</code>里，就尽量放在一个<code>.html</code>里，因为多个页面的跳转后涉及到数据的传递就会很麻烦：跳转之前保存数据到数据库，跳转至后，又要从数据库里取数据填充页面。</p>
+<p>17、这是一种怎样的css选择器</p>
+<pre><code>.mui-bar-tab~.mui-content
+
+
+
+18、通过`.val()`设置的值能显示在，显示栏中，但不能显示在`vlaue`属性中
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%EF%BC%882017.08.31%EF%BC%89/</url>
+      <content type="html"><![CDATA[<ol>
+<li>为什么有的空白区域可以滑动？</li>
+<li><p>我竟然见识到了这样的一个数组：</p>
+<p> arr instanceof Array;   //true</p>
+<p> arr.length = 0;</p>
+<p> arr[0] = ‘undefined’;</p>
+<p> arr == [];  //false</p>
+</li>
+</ol>
+<p>这样的奇葩是怎样的一种存在。问题来源于：请求响应模式返回值，我觉得数组元素应该都是一些请求。</p>
+<ol>
+<li><p>在js里一个点击事件引起的多个元素的联动效果，最好的实现方式还是<code>vue.js</code>好些，不然只能一点一点用js实现。体会到了<code>vue.js</code>的用处了。</p>
+</li>
+<li><p>这里面有这样一种区别：</p>
+<pre><code> console.log($(this).data(&#39;num&#39;));   //1
+
+ $(this).data(&#39;num&#39;) ++;     //报错
+
+ var num = 1;
+
+ num++;      // num=2
+</code></pre></li>
+</ol>
+<ol>
+<li><p>其实<code>data</code>属性还有很多奇怪的地方</p>
+<pre><code> typeof $(this).data(&#39;num&#39;);     number
+
+ typeof $(this).attr(&#39;data-num&#39;);     string
+</code></pre></li>
+</ol>
+<p><code>data</code>取到的值能自动转换类型</p>
+<pre><code>    $(this).attr(&#39;data-num&#39;, $(this).data(&#39;num&#39;) + 1);
+    console.log($(this).attr(&#39;data-num&#39;));
+    console.log(typeof $(this).attr(&#39;data-num&#39;));
+    console.log($(this).data(&#39;num&#39;));
+</code></pre><p><code>data</code>能取到的值永远是开始的那个值，变化后的是娶不到的</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0%EF%BC%882017.08.19%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>布局视口：PC端页面大小</p>
+<p>可视视口：PC端页面在移动端屏幕里显示的那部分</p>
+<p>理想视口：在移动端最完美的显示效果，如：</p>
+<pre><code>&lt;meta name = &quot;viewport&quot; content=&quot;width=device-width, initialscale=1,maxscale=1,minumscale=1,userscalable=no&quot;
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E8%AE%B0%E5%BD%95%E4%B8%8D%E5%A4%AA%E7%90%86%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%882017.08.17%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h2 id="1、好奇怪的eval-函数"><a href="#1、好奇怪的eval-函数" class="headerlink" title="1、好奇怪的eval()函数"></a>1、好奇怪的<code>eval()</code>函数</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>1、正常情况，<code>eval()</code>函数（它是全局对象的一个属性）用来解析一个表达式并计算的</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>2、奇怪问题一：字符串对象和字符串还是两个不一样的东西，<code>eval()</code>体现得最清楚</p>
+<pre><code>eval(&quot;2+2&quot;);    //4
+eval(new String(2+2));      //2+2
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>3、奇怪问题二：<code>eval()</code>函数的引用直接变成全局调用</p>
+<pre><code>function test() {
+  var x = 2, y = 4;
+  console.log(eval(&#39;x + y&#39;));    // Direct call, uses local scope, result is 6
+  var geval = eval;     // equivalent to calling eval in the global scope
+  console.log(geval(&#39;x + y&#39;));  // Indirect call, uses global scope, throws ReferenceError because `x` is undefined
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>4、奇怪问题三：<code>eval()</code>解析字符串必须加<code>()</code>才能得出想要的结果</p>
+<pre><code>var jsonStr = &quot;{a:20, b:10}&quot;;
+console.log(eval(&#39;(&#39;+jsonStr+&#39;)&#39;));     //{a: 20, b: 10}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>5、奇怪问题四：她真的能计算</p>
+<pre><code>var zh_test = &quot;你好&quot;;
+var en_tesh = &quot;hello&quot;;
+var lang = &quot;zh&quot;;
+var language = lang+&quot;_test&quot;;
+console.log(language);      //“zh_test”
+
+var zh_test = &quot;你好&quot;;
+var en_tesh = &quot;hello&quot;;
+var lang = &quot;zh&quot;;
+var language = lang+&quot;_test&quot;;
+console.log(eval(language));    //&quot;你好&quot;
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<h3 id="1、数组默认排序，依据的是字符对应的Unicode"><a href="#1、数组默认排序，依据的是字符对应的Unicode" class="headerlink" title="1、数组默认排序，依据的是字符对应的Unicode"></a>1、数组默认排序，依据的是字符对应的Unicode</h3><pre><code>var arr = [1,3,7,10,100];
+console.log(arr.sort());    //1,10,100,3,7
+</code></pre><h3 id="2、arr-sort-sortBy-用比较函数排序"><a href="#2、arr-sort-sortBy-用比较函数排序" class="headerlink" title="2、arr.sort(sortBy)用比较函数排序"></a>2、arr.sort(sortBy)用比较函数排序</h3><pre><code>var arr = [1,200,70,10,100];
+var result = arr.sort(function(a,b){
+    return a-b;
+});
+console.log(result);    //1,10,70,100,200
+</code></pre><h3 id="3、利用对象的‘值’来排序"><a href="#3、利用对象的‘值’来排序" class="headerlink" title="3、利用对象的‘值’来排序"></a>3、利用对象的‘值’来排序</h3><pre><code>var arr = [
+    {name: &#39;罗&#39;, age: 17},
+    {name: &#39;方&#39;, age: 13},
+    {name: &#39;勇&#39;, age: 25}
+]
+var result = arr.sort(function(a,b){
+    return a.age - b.age
+})
+console.log(result);
+</code></pre><h3 id="3、利用localeCompare-本地区比较-函数的排序"><a href="#3、利用localeCompare-本地区比较-函数的排序" class="headerlink" title="3、利用localeCompare[本地区比较]函数的排序"></a>3、利用<code>localeCompare</code>[本地区比较]函数的排序</h3><pre><code>var arr = [&#39;罗&#39;,&#39;方&#39;,&#39;勇&#39;];
+var result = arr.sort(function(a,b){
+    return a.localeCompare(b);
+});
+console.log(result);    //[&#39;方&#39;,&#39;罗&#39;,&#39;勇&#39;]
+依据的是汉字拼音
+</code></pre><blockquote>
+<p>localeCompare()函数用法：<strong>本地比较法</strong></p>
+</blockquote>
+<pre><code>a.localeCompare(b);
+</code></pre><blockquote>
+<p>返回值：</p>
+</blockquote>
+<pre><code>-1;     //a应该排在b前面
+0;      //a和b的顺序一样
+1;      //a应该排在b的后面
+</code></pre><h1 id="问题：重点理解下编码，ASSCi、Unicode、utf-8？"><a href="#问题：重点理解下编码，ASSCi、Unicode、utf-8？" class="headerlink" title="问题：重点理解下编码，ASSCi、Unicode、utf-8？"></a>问题：重点理解下编码，ASSCi、Unicode、utf-8？</h1>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%89%A9%E4%B8%8B%E8%BF%99%E6%AE%B5%E6%97%B6%E9%97%B4%E5%9D%9A%E6%8C%81%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</url>
+      <content type="html"><![CDATA[<h3 id="学习规划："><a href="#学习规划：" class="headerlink" title="学习规划："></a>学习规划：</h3><pre><code>1、对于CSS、JS真的做到精通，了解并熟练每个样式属性的用法，熟练每个基本JS知识点原理
+</code></pre><hr>
+<pre><code>2、在精通JS基础上，深刻理解jQuery框架原理，并能以此及彼，理解各大其它框架，如：vue.js、react.js
+</code></pre><hr>
+<pre><code>3、在这些基础上，部署自己的服务器，并跟着学习项目，项目要真的做大完全弄懂，而不再是跟着别人讲解做一遍
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%AE%A4%E8%AF%86%E4%BA%86%E8%87%AA%E5%B7%B1/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>最近算是慢慢认识了自己，无所谓好坏，只是它会决定着您未来的选择，那就好好剖析一次。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>首先，感性大于理性是我性格最主要的特征。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>就像我现在宁愿花更多时间写下这篇文章总结自己，而不是去学习技术，这就是最好的证明。在我的心里，永远将感性的感觉排在第一位，而不是逻辑思维的判断，更准确的说，当感性的感觉来临，任何强大合理的逻辑思维根本没有立身之地。所以我是一个感谢的人。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是，我又不是一个纯感性的人，感性中带有一点抠搜与现实才符合我自己。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>纯感性的人容易成为艺术人，像诗人、学者、画家、作家、艺术家等等，他们有更高的精神追求，活在自己的理想世界里。我却做不到，我所有的感性都是基于现实之上，没有矢志不渝的理想，一切的情绪都被现实左右着。这也就注定这样的人生是痛苦的，想活在理想境界里，却又始终被现实羁绊。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我之前不太理解，为什么自己和别人那么的不同，旁人的人情世故我向来不屑一顾，甚至鄙视，原来是内心里有个理想的世界，我会用理想的情况衡量现实的结果，所以不一样。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是，如果放任一切让我寻找理想世界，我又无从下手不知所措，因为我的行为准则所思所想又得顾虑到旁人的眼光，我会在乎别人的看法，所以注定了我是个纠结的人。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>从另一个层面来说，我不是个坚定的人，没有坚定的信念去坚持一件事，还容易受到他人的影响，好在经过不断地认识自己，对于某些事好像慢慢变得坚定多了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>说了这么多，也回顾了很多过往，毕竟性格这东西还是很复杂，很多的东西还不能很好串在一起给出一个合理的解释。但是我相信有一条主线在控制着这一切，前路漫漫，且行且认识。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>突然想到，像我这种性格的人可能做不了伟大的艺术家，但是可以做一个普普通通的平凡人，过一个正常人的普通生活，在此之上实现那么点小小的理想。这也不失为一种惬意的生活。</p>
+<h2 id="人生追求的是什么？"><a href="#人生追求的是什么？" class="headerlink" title="人生追求的是什么？"></a>人生追求的是什么？</h2><p>（2017.09.03晚）</p>
+<blockquote>
+<p>以上问题来于今晚吃饭所思</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>因为不喜欢等待，所以平时晚上吃饭都是挑人少的地去，吃得以比较简单，一碗热干面，或者两个饼，或者一碗其它的面类。今天故意排了个长队，吃了碗鸡蛋火腿猪肝煲（相对别人而言其实也挺随意的），说实话，味道还不错，吃起来感觉比较卫生，尤其适合晚上饮食。从我去到最后吃完，少说有20个人来下单，每单至少9元，算下来一晚上卖个100单应该不成问题，一个月下来3万的销售额很正常，夫妻两人，刨掉所有的成本一人1万的到手工资，在一个二线城市还是比较可观的，超过很多大学毕业生三四年的工资，反正超过我目前在这个城市的工资。还有最近看到一则新闻，浙江某地一对夫妻靠着卖饼卖油条也是一月收入3万多，前前后后在城里买了7套房子来投资，可以说他们的生活现在应该不用愁了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这样一比，都自惭形秽，敢情是那么多年的书是白读了，还不如别人小夫妻合伙创业，掌握自己的命运来得实在。可能你会说，不要只看着现在起色不错，别人的艰难辛楚你想过么？试问，自己的工作又何尝轻松过。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>因此，问题来了。我们到底该如何选择自己生活，奔着金钱去，还是奔着工作的意义去？我想大多数都会奔着利益去吧，这个本来就没错，天下熙熙皆为利来，天下攘攘皆为利往，而且可以说是最正确的取向。既然看到了金钱，那到底做什么赚钱了。好，你看别人做这个挣钱就去做这个，看到做那个挣钱就去做那个，在你多次的选择尝试中，你可能找到了最适合自己的挣钱方式，又或者依然一无所获。这就像众人做同一件事，有的人做的风生水起，有的人找不到方向还碰了一鼻子灰。所以，无论古今为利益所驱动再正常不过，但是在追逐利益同时多多量你而行，一定要发掘自己最擅长的事来干。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>还有，通过分析我还想表达另一个观点：所谓的体制内并不一定就是安全的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我这里阐述的体制内不仅仅是狭义的体制，它包含了教师、公务员、人事单位等传统体制，还包括生产车间的工人、工程师（像我们这样的程序员）、建筑工地的工人等所有的靠给公司付出一部分劳动力换取薪金的工人阶层。他们一个鲜明特征就是劳动力被压榨了，寄存于公司下，看似比较安全，其实也未必。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>反观上面提到的白手起家的创业者，他们的付出离着利益最近，没有第三方的中间人分成。相对而言，没有公司的庇护，风险稍微大些，但利益也大些。而且我认为后者的利益风险比会更大些，因此也更容易成功，所以我建议一部分跳出体制，过上自己的创业生活，可能前期的选择会比较迷茫，但是一定能找到自己的门道，必须多用点心才行。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以，生活永远不会亏待那些用心思考改变的人。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/</url>
+      <content type="html"><![CDATA[<h2 id="统一规则：都用小写英文"><a href="#统一规则：都用小写英文" class="headerlink" title="统一规则：都用小写英文"></a>统一规则：都用小写英文</h2><h3 id="1、文件夹及文件规范"><a href="#1、文件夹及文件规范" class="headerlink" title="1、文件夹及文件规范"></a>1、文件夹及文件规范</h3><p>   名称太长，或组合的，可以用中线</p>
+<h3 id="2、CSS规范"><a href="#2、CSS规范" class="headerlink" title="2、CSS规范"></a>2、CSS规范</h3><p>   名称太长，或组合的，可以用下划线</p>
+<p>后续还要、、、、、</p>
+<p>现在学习一个新标签，会先问几个问题，如：</p>
+<pre><code>    &lt;progress&gt;&lt;/progress&gt;
+</code></pre><blockquote>
+<p>是内联元素还是块级元素？</p>
+<p>有哪些HTML属性？</p>
+<p>有哪些CSS属性？</p>
+<p>以及每个属性都控制着什么？</p>
+</blockquote>
+<h3 id="3、js规范"><a href="#3、js规范" class="headerlink" title="3、js规范"></a>3、js规范</h3><blockquote>
+<p>命名规范：小驼峰；</p>
+<p>变量前面用名词，函数前面用动词  </p>
+</blockquote>
+<p><strong>那我就来规范下自己的书写格式：</strong></p>
+<ul>
+<li>文件命名用中线<code>-</code>（考虑到服务器打开有空格的文件名空格要编码）</li>
+<li>CSS命名用下划线<code>_</code>（考虑到写样式或<code>js</code>用到该名时，鼠标点击能全选到名字）</li>
+<li>JS命名用小驼峰<code>homePage</code>（这是<code>js</code>命名常规用法，以及变量的命名都是参考如此）</li>
+</ul>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%B7%AF%E5%BE%84%E7%AC%A6%E5%8F%B7%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<h3 id="常见路径符号用法："><a href="#常见路径符号用法：" class="headerlink" title="常见路径符号用法："></a>常见路径符号用法：</h3><p><strong>目前总结：</strong> 路径符号分两种</p>
+<p>1、window下的路径符号：<code>\</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如：<code>C:\Users\Administrator\Desktop\test</code></p>
+<p>2、web或net下的路径符号：<code>/</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>/</code>   表示根路径，比如h盘下文件的根路径就是h:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>./</code>  表示当前路径，即同一级路径</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>../</code>  表示上一级路径，同理，可以上上级、、、<br>        ../../../</p>
+<p><strong>既然是和路径有关的问题，那就记在这个地方，有时间好好研究下</strong>    </p>
+<p><strong>问题：</strong> 那个<code>java</code>的路径问题，环境变量的配置问题，为什么要搞那些步骤干嘛？又是JAVA_HOME，又是CLASSPATH，挺麻烦的，我就在那个环境变量的系统变量里，把java.exe和javac.exe的路径添加了，最后一样都好了，验证Java -version和javac -version。还有，环境变量里有个系统变量，还有个用户变量，这个怎么区分法？</p>
+<p><strong>接着问：</strong> 为什么有的软件安装需要配置环境变量，而有的软件安装就不需要配置环境呢？？？    </p>
+<p><strong>再问：</strong> 路径的话，为什么有时候直接路径完事<code>D:\gradle-4.1-bin\gradle-4.1</code>，而有的时候又是<code>bin路径：D:\gradle-4.1-bin\gradle-4.1\bin</code></p>
+<blockquote>
+<p>今天查阅资料时，看到了有人这样问问题“你讲了这么多，它跟某某性质差不多啊，只是用法不一样而已，那它到底还有什么其它适用场景？”</p>
+<p>对啊！就是这样的。从这个问题能看出自己与提问者之间的两个差距：第一，对于一个新的API，有资历的人总是带着批判的眼光来审视的，他会想“小样，你是干什么的？我来瞧瞧你和我里面的某个知识点有没有相同，如果相同了，那看看你有没有更新的功能补充补充我的仓库？”。而对于一个初学者来说，任何知识都是当成珍宝一样接受，理解；第二、只有对一个东西研究得非常透彻了，他才会问这个东西为什么是这样？除此之外，他还有其它更好的可能么？实在看不下去了，就自己捯饬一个认为最完美的样子。</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%A0%E8%BD%BD%E7%BD%91%E9%A1%B5%E9%A1%BA%E5%BA%8F/</url>
+      <content type="html"><![CDATA[<h3 id="浏览器加载和渲染html的顺序"><a href="#浏览器加载和渲染html的顺序" class="headerlink" title="浏览器加载和渲染html的顺序"></a>浏览器加载和渲染html的顺序</h3><ol>
+<li>用户输入网址（假设是个 HTML 页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回 HTML 文件；</li>
+<li><p>浏览器开始载入 HTML 代码，发现 <head> 标签内有一个 <link> 标签引用外部 CSS 文件；</head></p>
+</li>
+<li><p>浏览器又发出 CSS 文件的请求，服务器返回这个 CSS 文件；</p>
+</li>
+<li><p>浏览器继续载入 HTML 中 <body> 部分的代码，并且 CSS 文件已经拿到手了，可以开始渲染页面了；</body></p>
+</li>
+<li><p>浏览器在代码中发现一个 <img> 标签引用了一张图片，向服务器发出请求。==此时浏览器不会等到图片下载完，而是继续渲染后面的代码；==</p>
+</li>
+<li><p>服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；</p>
+</li>
+<li><p>浏览器发现了一个包含一行 JavaScript 代码的 <script> 标签，赶快运行它；</p>
+</li>
+<li><p>JavaScript 脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个 <div>（style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码；</p>
+</li>
+<li><p>终于等到了 </html> 的到来，浏览器泪流满面……</p>
+</li>
+<li><p>等等，还没完，用户点了一下界面中的“换肤”按钮，JavaScript 让浏览器换了一下 <link> 标签的 CSS 路径；</p>
+</li>
+<li><p>浏览器召集了在座的各位 <div><span><ul><li> 们，“大伙儿收拾收拾行李，咱得重新来过……”，浏览器向服务器请求了新的CSS文件，重新渲染页面。 浏览器每天就这么来来回回跑着，要知道不同的人写出来的 HTML 和 CSS 代码质量参差不齐，说不定哪天跑着跑着就挂掉了。好在这个世界还有这么一群人——页面重构工程师，平时挺不起眼，也就帮视觉设计师们切切图啊改改字，其实背地里还是干了不少实事的。</p>
+</li>
+</ol>
+</script></p></li></ol>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%A1%86%E6%9E%B6%E4%B8%8E%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AD%A6%E4%B9%A0%EF%BC%882017.08.22%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="1、AngularJS"><a href="#1、AngularJS" class="headerlink" title="1、AngularJS"></a>1、<code>AngularJS</code></h3><p>对 <code>AngularJS</code> 最深入真实的理解：<code>AngularJS</code>通过<strong>指令</strong>扩展了HTML<strong>属性</strong>，通过<strong>表达式</strong> <strong>绑定数据</strong>到HTML元素中</p>
+<pre><code>&lt;div ng-app&gt;
+    &lt;p&gt;名字：&lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;&lt;/p&gt;
+    &lt;h1&gt; hello {{name}}&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8E%89%E5%AE%B3%E4%B9%8B%E5%A4%84%EF%BC%882017.08.19%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在项目中同样的一个功能，自己完成的，和框架的效果对比，看源码，感觉自己太low了。因为框架里的每一个变化都会引起千丝万缕的联系，所以当初别人设计的时候那是各种问题都需考虑的。这种思路是怎么捋清的。</p>
+<p>要想弄清楚里面的原理还得从他们的设计思路入手吧！而且，里面有好多新的技能是自己没见过的，无论是CSS还是js。所以看源码是最好的学下方式，学习别人CSS布局样式效果，学习别人JS事件绑定及函数的使用方法。因为一个框架的设计，HTML、CSS、js他们肯定都是请各个方向最专业的人来设计的，所以值得学习借鉴！！！因此，这个时候是考验各知识点的基础，刚好，纯看些基础知识多少会有些枯燥，并且还感觉没啥用处，有了一些基础知识后，边学习基础，边看源码学习它的使用方式，这是最完美的结合。</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%A7%A3%E5%86%B3%E6%96%87%E5%AD%97%E4%B8%8D%E9%80%89%E4%B8%AD%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%EF%BC%882017.08.28%EF%BC%89/</url>
+      <content type="html"><![CDATA[<pre><code>if (typeof(element.onselectstart) != &quot;undefined&quot;) {        
+    // IE下禁止元素被选取        
+    element.onselectstart = new Function(&quot;return false&quot;);        
+} else {
+    // firefox下禁止元素被选取的变通办法        
+    element.onmousedown = new Function(&quot;return false&quot;);        
+    element.onmouseup = new Function(&quot;return true&quot;);        
+}
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%AE%B0%E5%BD%95%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%EF%BC%882017.08.25%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><strong>1、链接跳转</strong></p>
+<pre><code>location.href
+location.assign()
+</code></pre><p>这两个都能跳转？一个属性，一个方法</p>
+<p><strong>2、正则表达式</strong>   等价性</p>
+<pre><code>href.search(&quot;\\?&quot;)+1));
+
+href.search(/\?/)+1));
+</code></pre><p><strong>3、每次图标字体的添加，这是个问题</strong></p>
+<p><strong>4、手机端那种开关按钮的实现</strong></p>
+<p><strong>5、没事干来解释这个程序：</strong></p>
+<pre><code>  var timer = setInterval(function() {
+if (boolean) {
+  console.log(boolean);
+  $(&quot;.circle&quot;).animate({
+    width: &#39;+=5px&#39;,
+    height: &#39;+=5px&#39;
+  }, 100);
+  $(&quot;.circle&quot;).css(&quot;borderRadius&quot;, &quot;50%&quot;);
+}
+</code></pre><p>  }, 100)</p>
+<p>  <strong>6、css文件保存注释地方多出很多空行</strong></p>
+<p>  <strong>7、同一个全局变量可以在不同的外部<code>js</code>文件以及本地<code>js</code>间共享，但是这个要注意变量定义的那个文件一定要放在最前</strong></p>
+<p>  解释：其实这个问题与变量和函数的声明提前一个道理，只是函数申明提前是整个的，而变量申明提前只有部分效果一样。</p>
+<blockquote>
+<p>给自己一个建议，对于逻辑代码，一定要想清楚再行，不然你会错很多遍的！！！</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%AE%B0%E5%BD%95%E9%97%AE%E9%A2%98%EF%BC%882018.08.03%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>最近做的项目，遇到了太多的问题，不过最后都得到了解决，但有点无头苍蝇乱窜的感觉，所以亟需记录闹懂，要不然一切都会回到从前，下次碰到还是不会，那就悲哉了！</p>
+</blockquote>
+<p><strong>苹果手机下对<code>position:fixed;</code>的不太兼容</strong></p>
+<blockquote>
+<p>其实，这个都不知道，到底兼容不，浏览器初次打开HTML页面，一切都好使，再次刷新调试，却不好使了，都不知道怎么回事，但是在手机上调试的确出问题了，问题就在于<em>本该因为fixed定位的元素在最上面的，但最后却只有一部分在上面一部分又不在</em>。网上一查才得知苹果手机固定定位不太好使。得改！</p>
+<p>改的过程才体会到，固定定位原来多么重要，多么的好使，可是却不行。</p>
+</blockquote>
+<p><strong>遮罩层的制作</strong></p>
+<p><em>本来说好解决几个问题的，但是晚上尝试时，又出现了新的问题，只能先记下来，周末一起处理了</em></p>
+<p>1、手机上打开HTML文件，上下滑动会卡顿</p>
+<p>2、在电脑上明明已经是全屏的，在手机上却依然可以滑动</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%AE%B0%E5%BD%95%E9%97%AE%E9%A2%98%EF%BC%882017.08.04%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><strong>问题一：<code>position:fixed;</code></strong></p>
+<p><em>有些问题，实在闹不明白，先记下来，有时间好好研究</em></p>
+<blockquote>
+<p>问题背景：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>点击小视频，将其定位变成<code>fixed</code>，并且大小为框的100%，最后出现，播放视频一部分覆盖原背景，一部分不覆盖</p>
+</blockquote>
+<p><strong>解决方法：</strong> <code>position:fixed;</code> 用于元素本身出问题，用在父级元素就好了。还有个<em>结论</em>：下面的方法其实并不能改变元素大小为框的100%</p>
+<pre><code>.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(211, 211, 211, 1);
+    z-index: 100;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>只有设置了下面才可以：</p>
+<pre><code>width: 100%;
+height: 100%;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>其实这里面还引出另一个问题，如何自动补充宽高？？？</p>
+<p><strong>问题二：CSS样式的先后顺序：</strong></p>
+<blockquote>
+<p>当在CSS样式表里，针对同一个元素同一个样式定义了多次的值，按着值在css里的先后顺序，后者覆盖前者</p>
+</blockquote>
+<pre><code>.second-class {
+    left: 20px;
+}
+.first-class {
+    left: 100px;
+}
+//最后的left就是100px
+</code></pre><p><strong>问题三：用百分数计算ralative的top值</strong></p>
+<blockquote>
+<p>其实明明已经有值，可是却没有效果，直接数字设置（top:200px）就有了效果，同理：会用后一个计算，只是没有效果(计算了值，却没有效果)</p>
+</blockquote>
+<pre><code>.box {
+    position: absolute;
+}
+
+.box img {
+    position: relative;
+    display: block;
+    top: 100px;
+    top: 20px;    
+    top: 50%;
+}
+</code></pre><blockquote>
+<p>这个就会有效果：(这个特性很好的)</p>
+</blockquote>
+<pre><code>.box {
+    position: absolute;
+}
+
+.box img {
+    display: block;
+    margin: 50%;
+}
+</code></pre><p><strong>问题四：两个浮动的框应该会前后挨着呀</strong></p>
+<p><em>浮动碰到相对定位</em></p>
+<pre><code>.circle {
+    float: left;
+    position: relative;
+    left: 50%;
+    top: 50%;
+}
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%87%BD%E6%95%B0%E7%90%86%E8%A7%A3%EF%BC%882017.07.27%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="1、函数定义的两种方式："><a href="#1、函数定义的两种方式：" class="headerlink" title="1、函数定义的两种方式："></a>1、函数定义的两种方式：</h3><blockquote>
+<p><code>函数申明</code>和<code>函数表达式</code></p>
+</blockquote>
+<p><strong>函数申明：</strong></p>
+<pre><code>function functionName(arg1,arg2,....) {
+    //代码执行块
+    return ..;
+}
+</code></pre><p><strong>函数表达式：</strong></p>
+<pre><code>var fn = function() {
+    //代码执行块
+    return ..;
+}
+</code></pre><p><strong>区别：</strong></p>
+<blockquote>
+<p>函数申明，申明提升，可以提升到作用域顶端，即先使用后申明</p>
+<p>函数表达式，也即<code>匿名函数</code>（关键字function后面直接括号），就等同于变量的赋值，虽然变量也能提升，提升到前面去是个<code>undefined</code>,依然会出错</p>
+</blockquote>
+<p><strong>共同点：</strong></p>
+<blockquote>
+<p>函数是个对象，是Function构造函数的一个实例，因此，函数名或变量名都是指向函数对象的一个指针</p>
+</blockquote>
+<h3 id="2、因为函数是对象，所以有方法"><a href="#2、因为函数是对象，所以有方法" class="headerlink" title="2、因为函数是对象，所以有方法"></a>2、因为函数是对象，所以有方法</h3><p><strong>方法：</strong> <code>函数自己的方法</code>和<code>Function.prototype方法</code></p>
+<blockquote>
+<p><strong>Function.prototype:</strong>  </p>
+</blockquote>
+<p>就是函数实例通过原型链继承的一些方法，好像仿佛也没有什么方法</p>
+<blockquote>
+<p><strong>函数自带方法和属性</strong>：</p>
+</blockquote>
+<p>属性：</p>
+<pre><code>length: 函数参数个数
+
+arguments对象: 类数组，用来存储函数的参数
+
+this对象：指向调用函数的执行环境
+</code></pre><p>方法：</p>
+<pre><code>call(obj,arg1,arg2,...);
+
+apply(obj,[arg1,arg2,...]);
+
+obj都是指向函数的作用环境对象
+
+eg:
+
+    var color = &#39;red&#39;;
+
+    function sayColor() {
+        alert(this.color);
+    }
+
+    var o = {
+        color: &#39;green&#39;
+    }
+
+    sayColor();     //&#39;red&#39;
+    sayColor.call(o);   //&#39;green&#39;
+    sayColor.apply(0);  //&#39;green&#39;
+</code></pre><p><strong>这两个方法本质，不在于【传递参数的方式不同】，而是可以任意改变【函数作用的对象】，这个才牛</strong></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9F%A5%E8%AF%86%EF%BC%882017.08.13%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>本文讨论本地服务器知识</p>
+</blockquote>
+<p>要想打开本地服务器上文件，得关闭电脑自带的防火墙</p>
+<pre><code>window+R-&gt;services.msc-&gt;window firewall
+</code></pre><p>关闭了防火墙，360浏览器网页上图标显示为方块，因为关闭了防火墙，网页不能下载字体，所以又得打开</p>
+<p><strong>我靠 这个问题也不绝对，刚才防火墙关闭了，但浏览器的图标也是正常的</strong></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%B0%81%E8%A3%85JQuery%E4%B8%A4%E4%B8%AA%E7%B1%BB%E5%90%8D%E7%9A%84%E5%88%87%E6%8D%A2%EF%BC%882017.08.28%EF%BC%89/</url>
+      <content type="html"><![CDATA[<pre><code>  // 封装jQuery两个类名的切换（注意：this的指代）
+  (function($) {
+    $.fn.toggle = function(a, b) {
+      if (arguments.length == 1) {
+        $(this).toggleClass(arguments[0]);
+      } else {
+        return $(this).hasClass(a) ? $(this).removeClass(a).addClass(b) : $(this).removeClass(b).addClass(a);
+      }
+    }
+  })(jQuery)
+</code></pre><p><strong>等待封装的插件</strong></p>
+<pre><code>  function youPlay() {
+    var winH = $(window).height();
+    $(&quot;video&quot;).each(function() {
+      var posTop = $(this).offset().top;
+      var scrollH = $(window).scrollTop(); //浏览器滚动高度
+      var targetH = $(this).height();
+      var needShow = (posTop - winH + winH / 2) &lt;= scrollH &amp;&amp; scrollH &lt;= (posTop - winH + winH / 2 + targetH);
+      if (needShow) {
+        $(&#39;video&#39;).each(function() {
+          $(this)[0].pause();
+        })
+        $(this)[0].play();
+      }
+    })
+  }
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E6%96%B9%E6%B3%95%E2%80%94%E2%80%94%E5%AD%A6%E4%B9%A0%E5%BF%83%E6%80%81%EF%BC%882017.08.17%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>计算机就像一个小孩，你满以为的没有问题，它却偏偏出问题了，有的时候需要给他点时间（上传的东西，两个地方一模一样，这个地方好了，那个地方却是坏的），有的时候又需要告别过去（比如多清清缓存再看看效果）、、、。保持着一颗平和的心态去思考，问题不会完，但方法总是有的。</p>
+<p>其实计算机就是个小孩，我们都是以成人的角度解释着问题，可是到了他那里却又是另一个世界，多倾听，多站在它的角度思考问题。世界本没有错，错在了固步自封，却又偏偏责怪对方的不是。</p>
+<p>最近，被一个项目搞得找不着方向，都不知道怎么做才对，今天项目问题解决了，所以才有心情写这个总结。有的时候，根本就不是问题有多难，而是心态的把控。解决了一个问题，并不代表你的未来从此就是康庄大道衣食无忧，因为永远会有下一个问题等着你；被问题卡了个把星期，也不一定就代表你的生活就没了希望，你的智商不足以挑战计算机。</p>
+<p>其实有时候换个角度思考，就完全不一样。你解决了这个问题，难道你就是最厉害的人么？又或者说，你没有解决这个问题，难道就什么都不是么？这样一想是不是一切都清晰了，你的存在与否永远不是一个问题能代替的，重在一种学习的心态，世界很大，前方很远，而你的路还在脚下！</p>
+<p>生活，没必要一定要把自己过得很苦，平时多笑笑，很多问题也就没有了。况且，生活里的事情这么多，又不是只有烦恼，何必非得盯着一处发愁了，或者，有时候问题也根本没有想象的那么复杂，说不定思路一转变，一切都解决了。。。</p>
+<p>生活，也可以做一点自己想做的事，靠着自己。人生，也可以不用把所有的筹码全部都压在一起，给自己一些其它的爱好，也给自己一些其它的保障。</p>
+<p>才发现，原来计算机的世界才是最稳定不变的。它的本质的确是很傻很单纯，另一个特性就是高运速率，就凭着这两点，他已经足够做到很多我们人类做不到的事，但是要想完成高强度的任务，它还需要最重要的一点——我们人类的思想，也就是我们的设计思路，有了这他才可以没毛病的永远运行下去。所以最后的双赢 = 计算机简单语法+计算机高效率运算+人类的思想</p>
+<p>最近，想在网页上用前端语言做一个计算器，做的过程中你会发现它不知道有多傻，什么都不知道，一个简单的计算它也是一会判断这的一会判断那的，蠢得要死，简直都不想鸟他，直接鄙视。可是，就是因为这些，他才需要高明的人类帮它设计思路，有了思想它就很乐意干活，无论多难多复杂，而且可以永无错误的运算下去。所以，我才说，计算机的世界才是永不改变，也是一劳永逸的。</p>
+<p>做一个永不出错的计算器，没什么大不了的，因为它在我们生活里随处可见，太普通了，可能一开始的各种处理稍微有些麻烦，一旦设计成功就一劳永逸。况且，它真正的本事<br>也不只这一点，它还可以处理很多高强度的任务，不信，你就试试！！！</p>
+<p>所谓的bug，其实不是计算机的错，而是我们设计思想的bug，如果你真的能做到天衣无缝，你看看它还能出错不。计算机的世界也是最自由的，有了它这个工具，你可以按着的自己的想法做出各种东西，包括我们的未来世界，做未来的东西！！！</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E5%AF%B9%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%882017.08.20%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>在内蒙教书两年半，虽然说是培训机构，但自己认真教学，对学生负责任的态度丝毫不亚于公立学校教师，可以甚于他们，自认为自己负责任的态度，在学生中收到了一些口碑。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>现在离开了，从事了我目前的工作——程序员，而我更愿意说是计算机，因为程序员在网络上多少有些贬义的含义在里面。大学刚毕业那会，找工作，我都不愿意承认自己的身份，比如说：老师啊、网络销售啊、程序员啊、、、，现在分析起来，是因为那会没什么能力，不知道到底能不能干好一件事，所以不愿意承担某种身份，更应该是不敢承担某种身份。而现在，我乐意告诉别人我的职业，因为我能承担，也敢于承担了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>刚满一个月的计算机工作，目前感觉还可以，中间的过程有时候真的让我很犹豫，就像我刚去内蒙教书那会，去的头几天，我都是想着离开，感觉不太习惯，不太适应，特别是与人交流。与我刚进入这家公司情形如出一辙，因为有时候根本就不是环境的不好，只是自己还未适应，而且，自己本身就不擅长与人沟通交流，这都是自己原因。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>学习计算机，也学懂了一点东西，肯定还有大量的是自己不懂的。中间的过程里，绝大部分都是受挫的情形，也有过根据自己的理解解决了某些问题（像今天上午，直接通过原型继承，既继承了构造函数的属性，也继承了原型方法），当解决那一刹那，非常的开心，非常的享受，也更有勇气去学习新的东西了。<br>计算机给我的感觉就是矛盾与统一的，首先，你会感觉它的东西会特别的多，有特别的心，在它面前，感觉自己就是个弱智儿童，什么都不知道，但是却可以通过学习来控制他；其实，你又会感觉到它特别的傻，但是这就是它的本质，因为在内部它只能处理0和1，并且也只有一点基础的是非判断，这时，你又会觉得反倒是它很弱智与单纯，可是，恰恰是因为这，他才可以有超快的计算能力，将一些简单的东西因为快速的计算能力而无限叠加，所以它又很复杂了，牵一发动全身。人类需要掌握它的运行机制才可能掌控着它。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>上面，是对工作上的一点理解。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>下面，我更想说说目前的想法。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>刚才的一通电话，让我聊到了过去，电话来自于前同事张。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>在我辞职后，原公司的很多同事都辞职了，当然也包括张。毕竟在那里工作了两年半，多少有些感情，我不知道时该感谢那个公司，还是该后悔在那里消耗的日子，说不准，或许都有吧！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>感谢它，是因为它在我工作了一个月后给我发了9000多的工资，拿到手的那一霎我感觉都震惊了（现金），非常高兴地给妈妈打了电话，我想那一瞬间，她们应该也是高兴的，她们或许会以为咱们儿子的工作有着落了终于不用愁了，可是谁又知道那只不过旺季时工资，淡季时根本就没有这么高。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>还有，做的这两年的工作，我大部分时间还是开心，可能因为我喜欢教书吧，我非常享受将一个学生完全不懂的知识点经过自己的讲授，让它们能明白里面的运行过程，这让我有一定的成就感。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>说完了感谢，该是后悔了吧！后悔的是，在这两年时光里，除了沟通表达、逻辑思维能力稍许增强，其它的方面，几乎都处于休克状态，我没有学习到新的能力，没有学习到新的知识，学习的能力可以说是倒退状态。这一切，也不能完全归咎于别人，但多少有点关系，因为那个环境有些安逸，或许，这应该更归咎于自身的性格吧！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>还有的是，离开时学校的处理多少让我有些寒心，没有一句挽留的话语，没有一丝温馨的沟通。虽然即使她们挽留了我还是会走，但是人心肉长，感觉还是不一样的。在离开前的这半年，给我最深的感觉就是，我这两年半的辛苦工作换来的就是那点工资，没有任何其它方面的回报。刚好之前看了一篇文章，这也让我明白了，如果一份工作除了给你一份还算可以的薪水之外，不能给你任何其它的东西的话，这样的工作趁早放弃，因为它只是用了一薪金买断了你的青春。将这点薪水消耗完了，你依然是一无所有，一文不值。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这也是我最悔恨之处，恨自己为什么不能早点明白这个道理。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>回到上面那个同事张打的电话吧，她辞职了，出来单干了，跟我打电话的意思是想让我回去加盟，也跟我说了很多前公司哪些方面的不好，以及目前公司哪些方面的出众，这里面的真真假假我不置可否，因为也没有一个评判的标准。并且，我现在最想说的是，目前自己的状态。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>她之所在我离开后还跟我打电话，是因为我的暧昧，我目前的工作我也不知道有多大把握能把它做好，所以才含糊其词，如果目前的工作真的无路可走，最起码他那里是条退路。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这也从另一个方面说明，我目前立场的不坚定，连自己的职业方向都犹豫不决，是不是有点三心二意，吃着碗里瞧着锅里。或许我内心真的这样考虑过，虽然表面上给自己留了条后路，但是内心里没有给自己留退路，我现在的工作是计算机，这三个月的时间是给专门用来学习计算机的，因此我必须不顾一切的将它学好，绝不可三心二意，而是应该以坚定的信念一直走下去。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>而且，我现在也好像步入了计算机的轨道，我也开始耐心地学习新知识新概念，更喜欢把弄明白的东西以文字的方式记录下来，在记录的过程中，有些问题写着写着就更明白了。每天待在电脑面前，不会像以前一样觉得很累，而是觉得每天有事可干了。我喜欢。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E5%AD%A6%E4%B9%A0%EF%BC%882017.08.01%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="回顾过去："><a href="#回顾过去：" class="headerlink" title="回顾过去："></a>回顾过去：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>对于计算机，现在这个社会，每个人对它多少有些了解吧，对于专门学习计算机的人，那知道的就更多。但是，你会发现一个问题，个人在计算机的面前，是多么的渺小，它真可谓是“上知天文，下知地理”，任何你知道的它也知道，你不知道的它也都知道，所以它的强大无可比拟。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>对于计算机的学习，我一开始采取的策略是，多总结，多笔记，但现在才发现这样根本行不通，因为它里面的东西简直是你总结都总结不过来的，因此，必须转变思路，<strong>对于学习的每个知识，都应该这样思考：它是干什么的？为什么这样设计？如果是我，我会怎么设计？</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>每次都问自己：<strong>我会怎么设计？</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>对于做计算机的人而言，应该都做过项目的，所有的项目都不可能是一遍过，一次性全部功能成功，都是在不断的尝试，加这个，减那个，在这个过程里才逐渐完善功能的。<strong>对于语言的设计，更是同样如此</strong>，很多东西都是不完善的，都是在不足的过程中添加功能，边做边想，想到要实现这个功能，我需要加个什么东西，比如计算机要处理数字，所以创造number,我要处理字符串，所以创造了string类型，我要处理对象，所以创造了Array/json<br>…….</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以我们现在学习的每个知识，都是在先辈们需要实现某个特殊的功能时，才被创造出来的，因此，学习时，你都站在设计者的角度去思考，它就很容易被接受了。<strong>如果是我，我会怎么设计？</strong></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E8%AE%B0%EF%BC%882017.08.17%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h2 id="1、js对象分类："><a href="#1、js对象分类：" class="headerlink" title="1、js对象分类："></a>1、js对象分类：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>本地对象（native object）：</strong>  ==独立于宿主环境的、ECMAScript自定义的对象==。这类对象典型特质创建前需要<code>new</code>，如：<code>arr = new Array()</code>;又是即使没用<code>new</code>，直接<code>字面量</code>，但也相当于<code>new</code>了</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>宿主对象（host object）:</strong> 这类对象的存在==依赖于环境==，如DOM对象与BOM对象。这类对象实例化前，也需<code>new</code>，如创建一个<code>img</code>对象：<code>var oImg = new Image()</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>内置对象（built-in object）:</strong> 独立于宿主环境、ECMAScript自定义的、==ECMAScript程序执行前已经存在的==。典型就是：<code>Global</code>和<code>Math</code></p>
+<h2 id="2、一个CSS的理解："><a href="#2、一个CSS的理解：" class="headerlink" title="2、一个CSS的理解："></a>2、一个CSS的理解：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>display:inline</code>元素撑不起替换元素<code>img</code>。因为虽然内部元素自带宽高的，但内联元素的宽高不能设置，所以撑不起，既然撑不起，那<code>overflow: hidden</code>自然无效</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/webstrom%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <content type="html"><![CDATA[<p>windows 下 webstorm 格式化代码的快键键 Ctrl+Alt+l</p>
+<ol>
+<li>ctrl + shift + n: 打开工程中的文件，目的是打开当前工程下任意目录的文件。</li>
+<li>ctrl + j: 输出模板</li>
+<li>ctrl + b: 跳到变量申明处</li>
+<li>ctrl + alt + T: 围绕包裹代码(包括zencoding的Wrap with Abbreviation)</li>
+<li>ctrl + []: 匹配 {}[]</li>
+<li>ctrl + F12: 可以显示当前文件的结构</li>
+<li>ctrl + x: 剪切(删除)行，不选中，直接剪切整个行，如果选中部分内容则剪切选中的内容</li>
+<li>alt + left/right:标签切换</li>
+<li>ctrl + r: 替换</li>
+<li>ctrl + shift + up: 行移动</li>
+<li>shift + alt + up: 块移动(if(){},while(){}语句块的移动)</li>
+<li>ctrl + d: 行复制</li>
+<li>ctrl + shift + ]/[: 选中块代码</li>
+<li>ctrl + / : 单行注释</li>
+<li>ctrl + shift + / : 块注释</li>
+<li>ctrl + shift + i : 显示当前CSS选择器或者JS函数的详细信息</li>
+<li>ctrl + ‘-/+’: 可以折叠项目中的任何代码块，它不是选中折叠，而是自动识别折叠。</li>
+<li>ctrl + ‘.’: 折叠选中的代码的代码。</li>
+<li>shift + esc: 当前激活的任意小窗口最小化，也可以是alt+数字键，数字在小窗口有显示。</li>
+<li>alt + ‘7’: 显示当前的函数结构。</li>
+<li>如果是*.html页面，则在文件名下的导航栏某DOM结构上右键，可以全选当前DOM结构。</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/sublime%20Text3%E7%94%A8%E6%B3%95%EF%BC%882017.08.11%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>对于一个程序，一个事物，重点是要摸清运行机制，这样，你才能在此基础上再创造</p>
+</blockquote>
+<pre><code>.
+</code></pre><p><strong>1、st3中某个包快捷键查询与设置：</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>比如，我要查询“颜色选择器”<code>colorPicker</code>快捷键；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>首先，你得先进入此包，找到默认配置文件</p>
+<pre><code>preferences-&gt;Browser Packages -&gt; colorPicker -&gt; Default (Windows).sublime-keymap
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这里面就会出现，控制的快捷键，可以查询并设置，但是设置时要考虑可能会和其它软件快捷键冲突</p>
+<pre><code>.   
+</code></pre><p><strong>2、查询st3上某个文件，还可以命令行调窗口实现</strong></p>
+<p>ctrl+shift+p调出安装包窗口，并install：（这里面包含了st3安装任何包的方式） </p>
+<p> -&gt; packageResourceViewer 安装：（包资源视图预览，安装后，可以在此基础上查看安装了哪些包文件）</p>
+<p>  -&gt; 再打开安装窗口：  packageResourceViewr:openResouce （这里才可以查看安装的包文件，并打开，以上面一步作为基础）</p>
+<p> -&gt; 搜索 color scheme -default ：（找到对应包，并进入） </p>
+<p> -&gt; 搜索 Monokai.theme ：（找到对应文件并打开）</p>
+<p> -&gt; ctrl+f搜索 comment 从而修改颜色</p>
+<pre><code>.
+</code></pre><p><strong>3、st3包相关设置的主要几个文件</strong></p>
+<pre><code>以HTML/CSS/js-prettify为例
+</code></pre><pre><code>Default (Windows).sublime-keymap：快捷键查询与设置
+
+HTMLPrettify.sublime-settings：设置文件，比如：保存格式化
+
+.jsbeautifyrc.defaults.json：  更详细的设置文件，比如：具体怎么格式化
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<h3 id="爬虫页面分类："><a href="#爬虫页面分类：" class="headerlink" title="爬虫页面分类："></a>爬虫页面分类：</h3><pre><code>1、需要登录才能爬取
+2、有些页面是通过Ajax动态生成
+3、就是纯的静态页面（这种最好爬取）
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/mui%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%EF%BC%882017.08.19%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>源码的学习很重要，不要操之过急，慢慢来，一点一点体会。</p>
+</blockquote>
+<h3 id="1、源码都是匿名自执行函数"><a href="#1、源码都是匿名自执行函数" class="headerlink" title="1、源码都是匿名自执行函数"></a>1、源码都是匿名自执行函数</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：看源码之前可能都会问，为什么源码里都是些匿名自执行函数？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这是由js语法决定的，在js里，变量的作用域是以<em>函数代码块</em>来区分，而不是直接以代码块区分，所以为了保证同名变量在不同地方的不污染，以及内存泄漏，因此才采用了匿名函数自执行来实行相关功能</p>
+<pre><code>// 一个方法的实现：匿名函数自执行
+(function(undefined) {
+    if (String.prototype.trim === undefined) { // fix for iOS 3.2
+        String.prototype.trim = function() {
+            return this.replace(/^\s+|\s+$/g, &#39;&#39;);
+            //Regular Expression: 剪掉头或尾的一个或多个空格
+        };
+    }
+    //设置对象实例的原型
+    Object.setPrototypeOf = Object.setPrototypeOf || function(obj, proto) {
+        obj[&#39;__proto__&#39;] = proto;
+        return obj;
+    };
+
+})();
+</code></pre><h3 id="2、逻辑思维考虑的不全出的错"><a href="#2、逻辑思维考虑的不全出的错" class="headerlink" title="2、逻辑思维考虑的不全出的错"></a>2、逻辑思维考虑的不全出的错</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：所谓的内容为空，包含：真的是空内容，还有内容都是空字符串。以下判断方法特别妙：</p>
+<pre><code>mui(&quot;input&quot;).each(function(){
+    if(!this.value || trim(this.value)==&quot;&quot;)
+    //内容为空，或者空字符就做如下处理
+})
+</code></pre><pre><code>//附上源代码，感觉写得那么流畅：
+var check = true;
+mui(&quot;.mui-input-group input&quot;).each(function () {
+  //若当前input为空，则alert提醒
+  if(!this.value||trim(this.value)==&quot;&quot;){
+    var label = this.previousElementSibling;
+    mui.alert(label.innerText+&quot;不允许为空&quot;);
+    check = false;
+    return false;
+  }
+});
+//校验通过，继续执行业务逻辑
+if(check){
+  //.....
+}
+</code></pre><h3 id="3、对mui-each-用法的理解"><a href="#3、对mui-each-用法的理解" class="headerlink" title="3、对mui.each()用法的理解"></a>3、对<code>mui.each()</code>用法的理解</h3><ul>
+<li><code>mui.each(obj, handler)</code> 遍历数组或json对象</li>
+</ul>
+<pre><code>var arr = [1,2,3];
+mui.each(arr, function(index, curValue){
+    console.log(curValue*curValue);
+})
+
+//这个方法的返回值不是个数组，只是对每个元素执行某种运算
+</code></pre><ul>
+<li><code>mui(&quot;&quot;).each(handler)</code> 遍历DOM对象</li>
+</ul>
+<pre><code>mui(&quot;input&quot;).each(function(){
+    console.log(this.value);
+})
+</code></pre><h3 id="4、了解到一个CSS属性"><a href="#4、了解到一个CSS属性" class="headerlink" title="4、了解到一个CSS属性"></a>4、了解到一个CSS属性</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：块级元素宽度默认为父元素宽度的100%，如果直接是body的下的div同样如此，但是，如果div下包含的元素宽度和超过窗口宽度，这时候div的宽度不会计算为包含宽度的和，而依然是100%那么宽。所以，对于CSS里有些东西看起来很假，既然是你儿子了，但是你的宽度却不将它就算在内。</p>
+<p><strong>滑块的实现思想：</strong> 设置子元素<code>display:inline-block; width: 100%;</code>, 父元素<code>white-space: nowrap</code></p>
+<pre><code>  .slider {
+    white-space: nowrap;
+  }
+
+  .slider-item {
+    width: 100%;
+    display: inline-block;
+  }
+
+  &lt;div class=&quot;slider&quot;&gt;
+    &lt;div class=&quot;slider-item&quot;&gt;111&lt;/div&gt;
+    &lt;div class=&quot;slider-item&quot;&gt;222&lt;/div&gt;
+  &lt;/div&gt;    
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/MUI%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%EF%BC%882017.07.27%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="这样解释：最接近原生APP框架"><a href="#这样解释：最接近原生APP框架" class="headerlink" title="这样解释：最接近原生APP框架"></a>这样解释：最接近原生APP框架</h3><h3 id="学习方法："><a href="#学习方法：" class="headerlink" title="学习方法："></a>学习方法：</h3><blockquote>
+<p>对于HTML和CSS这一块，主要是利用一些<code>定义好样式的类</code>，要想熟练使用的话，就必须熟练每个类的样式效果</p>
+<p>已经定义好了的插件使用：你就必须按着它的DOM结构来写，类也必须是那样，对应的CSS样式也写好了，甚至连js的交互效果都实现了，这就是插件，已经封装好了的css和js就放在<code>mui.css</code>和<code>mui.js</code>里</p>
+<p>MUI框架算弄懂了个大概，突然感觉自己好渺小，别人好强大，把那么多还算复杂的东西都封装好，而我们作为使用者，就直接拿来用用就可以了，感觉自己能做的事不多。好好学习，好好研究吧！！！</p>
+<p>有几个问题需要记录：</p>
+</blockquote>
+<pre><code>table-view-chevron
+
+plus-visible
+
+&lt;a class=&quot;mui-navigate-right&quot; href=&quot;#&quot;&gt;
+actionsheet（操作表）
+&lt;/a&gt;
+&lt;ul class=&quot;mui-table-view mui-table-view-chevron&quot;&gt;
+    &lt;li class=&quot;mui-table-view-cell&quot;&gt;
+        &lt;a class=&quot;mui-navigate-right&quot; href=&quot;examples/actionsheet.html&quot;&gt;
+            H5模式
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;mui-table-view-cell mui-plus-visible&quot;&gt;
+        &lt;a class=&quot;mui-navigate-right&quot; href=&quot;examples/actionsheet-plus.html&quot;&gt;
+            native模式
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+为什么href=&quot;#&quot;就可以跳转到下面的ul上？？？
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/location%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h2 id="location一些属性和方法："><a href="#location一些属性和方法：" class="headerlink" title="location一些属性和方法："></a>location一些属性和方法：</h2><p>首先，一个完整的URL格式：</p>
+<pre><code>url: protocal://hostname:port/pathname/file
+
+eg: http://www.baidu.com
+</code></pre><p>location属性：</p>
+<pre><code>    location.href: 一个完整的url
+
+    location.protocal: 协议
+
+    location.hostname: 域名
+
+    location.pathname: 路径及文件名 
+</code></pre><p>location方法：<br>        location.reload(): 重新加载，F5</p>
+<pre><code>    location.assign(url): 跳转到一个新链接
+
+    location.replace(url): 也是跳转到新链接，但是它不能后退
+</code></pre><p>==总结：location = window.location，它的这么多属性与方法肯定是记不住的，所以想知道一个对象有哪些方法，可以这样==</p>
+<pre><code>console.log(location)
+</code></pre><p> <img src="http://localhost/markdown-img/location.png" alt=""></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%96%B0%E5%AD%A6%EF%BC%882017.07.28%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="1、Array-prototype-slice"><a href="#1、Array-prototype-slice" class="headerlink" title="1、Array.prototype.slice()"></a>1、Array.prototype.slice()</h3><blockquote>
+<p>从开始到结尾（不含结尾）浅拷贝数组，浅拷贝，即不改变原数组</p>
+</blockquote>
+<p><strong>语法：</strong></p>
+<blockquote>
+<p>arr.slice();</p>
+<p>arr.slice(start);</p>
+<p>arr.slice(start,end);</p>
+</blockquote>
+<p><strong>返回值</strong></p>
+<blockquote>
+<p>一个新数组</p>
+</blockquote>
+<p><strong>转换伪数组（pseudo array）对象为数组</strong></p>
+<p><code>slice()</code>方法可以将类数组对象转换成真数组，只需要将类数组作为参数传入，即：</p>
+<pre><code>Array.prototype.slice.call(arguments);
+
+[].prototype.slice.call(arguments);
+
+Array.from(arguments);
+
+[...arguments];     //spread运算符？
+
+let args = (argumetns.length == 1?[arguments[0]]:Array.apply(null,arguments));
+</code></pre><p>还未完。。。</p>
+<h3 id="2、Array-from"><a href="#2、Array-from" class="headerlink" title="2、Array.from()"></a>2、Array.from()</h3><p><strong>语法：</strong>  Array.from(arrayLike[,mapFun])</p>
+<p><strong>具体场景：</strong> <code>Array.from(string)</code> <code>Array.from(arguments)</code> <code>Array.from(set)</code>  <code>Array.from(map)</code></p>
+<p><strong>用法：</strong>：将一个伪数组或可迭代元素的对象转成一个数组</p>
+<p><strong>用法描述：</strong> 可以将下列两类元素转成一个新数组</p>
+<ul>
+<li>类数组对象（带length属性，可以索引的）</li>
+<li>可遍历对象（从他身上可以迭代若干属性，如：set  map）</li>
+</ul>
+<h3 id="3、Array-isArray"><a href="#3、Array-isArray" class="headerlink" title="3、Array.isArray()"></a>3、Array.isArray()</h3><p><strong>语法：</strong> <code>Array.isArray(obj)</code></p>
+<p><strong>用法：</strong> 判断一个对象是否数组</p>
+<p>==上述两个方法和原型上的方法还是不一样的，它是直接通过<code>Array</code>调用的；而原型上的方法是直接对象调用的<code>obj.sort()</code>==</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B4%E6%95%B0%EF%BC%882017.08.13%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>写给自己的一句话：学计算机，先得学懂大的知识框架<br>（即整体的运作机制），再去补充细小的基础。因为这些细小的都会符合一套大的规则</p>
+</blockquote>
+<p><strong>1、取余运算符<code>%</code></strong></p>
+<p>对1取余，根据余数是否为0来判断是否为整数</p>
+<p><strong>2、parseInt(num) == num</strong></p>
+<p><strong>3、Math.round(num) == Math.floor(num) == Math(ceil)</strong></p>
+<p><strong>4、ES6的<code>isInteger()</code>方法</strong></p>
+<pre><code>Number.isInteger(num);  true/false
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF%EF%BC%882017.08.19%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>继承：就是让子对象获得父对象的属性和方法的一种方式。它的内容还是蛮复杂的，方式多样！</p>
+</blockquote>
+<h3 id="1、对象冒充实现的继承"><a href="#1、对象冒充实现的继承" class="headerlink" title="1、对象冒充实现的继承"></a>1、对象冒充实现的继承</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：函数，既是方法，也是对象。一个函数（以方法身份）就可以作为另一个函数（以对象身份）的方法</p>
+<pre><code>function ClassA(sColor) {
+    this.color = sColor;
+    this.sayColor = function(){
+        alert(this.color);
+    }
+}
+// 构造函数中的 this 指向的是新创建的对象
+
+function ClassB(sColor, sName) {
+    this.newMethod = ClassA;    //ClassA中的this指向所属的对象
+    this.newMethod(sColor);     //传入参数调用了
+    delete this.newMethod;      //这个地方其实不太理解，既然delete，为啥还可以调用
+
+    this.name = sName;
+    this.sayName = function(){
+        alert(this.name);
+    }
+}
+
+var objA = new ClassA(&quot;red&quot;);
+var objB = new ClassB(&quot;green&quot;, &quot;luo&quot;);
+
+objA.sayColor();        //&quot;red&quot;
+objB.sayName();         //&quot;green&quot;
+</code></pre><h3 id="2、函数方法-call-和-apply-实现的继承"><a href="#2、函数方法-call-和-apply-实现的继承" class="headerlink" title="2、函数方法 call()和 apply() 实现的继承"></a>2、函数方法 call()和 apply() 实现的继承</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：<code>call()</code> 和 <code>apply()</code> 可以改变函数的作用对象，不同的对象可以调用同一函数</p>
+<pre><code>function ClassA(sColor) {
+    this.color = sColor;
+    this.sayColor = function(){
+        alert(this.color);
+    }
+}
+// 构造函数中的 this 指向的是新创建的对象
+
+function ClassB(sColor, sName) {
+    ClassA(this, sColor);   //this当前调用函数的对象，后面是参数
+
+    this.name = sName;
+    this.sayName = function(){
+        alert(this.name);
+    }
+}
+
+var objA = new ClassA(&quot;red&quot;);
+var objB = new ClassB(&quot;green&quot;, &quot;luo&quot;);
+
+objA.sayColor();        //&quot;red&quot;
+objB.sayName();         //&quot;green&quot;
+</code></pre><h3 id="3、原型链实现的继承"><a href="#3、原型链实现的继承" class="headerlink" title="3、原型链实现的继承"></a>3、原型链实现的继承</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：原型链继承的本质就是，每个构造函数以及该构造函数生成的对象都有个<code>prototype</code>属性，都指向同一个原型对象。因此第二个函数的原型属性就可以用第一个函数的实例对象来充当，这样就构成了一层一层的继承关系。<code>Class2.prototype = new Class1()</code></p>
+<ul>
+<li><p>原型属性等于不带参数的构造函数实例</p>
+<pre><code>  function SuperType(){
+      this.superProperty = true;
+  }
+
+  SuperType.prototype.getSupProperty = function(){
+      alert(this.superProperty);
+  }
+
+  function SubType(){
+      this.subProperty = false;
+  }
+
+  SubType.prototype = new SuperType();    //子类原型等于父类实例
+
+  SubType.prototyep.getSubProperty = function(){
+      alert(this.subProperty);
+  }
+</code></pre></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>理解：子类原型对象等于构造函数的实例，这时候的构造函数没有传参数。如果要传参数，就会用到 <code>curry</code>化，但是就得将原型对象放在构造函数内部，这个是不允许的。</p>
+<ul>
+<li><p>对象冒充继承属性，原型继承方法</p>
+<pre><code>function ClassA(sColor) {
+  this.color = sColor;
+}
+
+ClassA.prototype.sayColor = function() {
+  alert(this.color);
+}
+
+function ClassB(sColor, sName) {
+
+  ClassA.call(this, sColor);
+
+  this.name = sName;
+}
+
+ClassB.prototype = new ClassA();
+
+ClassB.prototype.sayName = function() {
+  alert(this.name);
+}
+var objA = new ClassA(&quot;red&quot;);
+var objB = new ClassB(&quot;green&quot;, &quot;luo&quot;);
+
+objA.sayColor(); //&quot;red&quot;
+objB.sayColor(); //&quot;green&quot;
+</code></pre></li>
+</ul>
+<h3 id="4、原型链继承中构造函数带参数"><a href="#4、原型链继承中构造函数带参数" class="headerlink" title="4、原型链继承中构造函数带参数"></a>4、原型链继承中构造函数带参数</h3><blockquote>
+<p>在用原型链继承时，<code>ClassB.prototype = new ClassA()</code>，子类的原型对象上已经包含了父类构造函数里的自定义属性，因为没有传参数，所以这个值为空。但本质上，这个父类元素实例化赋给子类原型时，是可以带参数的，因此子类也就可以访问父类的这个属性，也可以理解为继承了这个属性（这是原型链的继承过程）。</p>
+</blockquote>
+<pre><code>  function ClassA(sColor) {
+    this.color = sColor;
+  }
+
+  ClassA.prototype.sayColor = function() {
+    alert(this.color);
+  };
+
+  function ClassB(sName) {
+    this.name = sName;
+  }
+
+  // 将传入了参数的实例化对象赋给原型对象
+  ClassB.prototype = new ClassA(&quot;green&quot;);
+
+  var objA = new ClassA(&quot;red&quot;);
+  var objB = new ClassB(&quot;luo&quot;);
+
+  objA.sayColor(); //&quot;red&quot;
+  alert(objB.name);     //&quot;luo&quot; 这个是本对象的，构造函数实例化时有的
+  alert(objB.color);    //&quot;green    这个是原型对象上有的，即带参数的实例化对象里的
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这里面其实已经实现了“传参数的实例化对象赋给原型对象”，并且也继承了，到从代码的直观上来说，好像<code>ClasB(sName)</code>就一个name属性，其实它还有个color属性，只是放在了原型对象上，不够直观，容易误解。</p>
+<h3 id="5、Obejct-setPrototypeOf-obj-newPrototype-实现的属性继承"><a href="#5、Obejct-setPrototypeOf-obj-newPrototype-实现的属性继承" class="headerlink" title="==5、Obejct.setPrototypeOf(obj, newPrototype)实现的属性继承=="></a>==5、<code>Obejct.setPrototypeOf(obj, newPrototype)</code>实现的属性继承==</h3><blockquote>
+<p>在第三中方案里，我们是通过“对象冒充”继承属性，“原型对象”继承方法。但终究感觉不太好，因为当<code>ClassB.prototype = new ClassA()</code>时，已经继承了属性，只是这个属性为空，并且还被“对象冒充”继承的属性给提前拦截了，覆盖了，访问不到这一层。</p>
+</blockquote>
+<pre><code>  function ClassB(sColor, sName) {
+    this.name = sName;
+      return (function(sColor) {
+          ClassB.prototype = new ClassA(sColor);
+      })();
+
+      //按道理，这样应该也可行的
+  Object.getPrototypeOf(this) = new ClassA(sColor);
+  }
+
+    var objB = new ClassB(&quot;green&quot;, &quot;luo&quot;);
+  alert(objB.color);    //undefined
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我想实现的就是类似这种效果，但是都娶不到。</p>
+<p><strong>终于找到最优的解法了：</strong></p>
+<pre><code>  ClassA.prototype.sayColor = function() {
+    alert(this.color);
+  };
+
+
+function ClassB(sColor, sName) {
+    this.name = sName;
+      Object.setPrototypeOf(this, new ClassA(sColor));
+  }
+
+  ClassB.prototype.sayName = function() {
+    alert(this.name);
+  };
+
+  var objA = new ClassA(&quot;red&quot;);
+  var objB = new ClassB(&quot;green&quot;, &quot;luo&quot;);
+
+  objA.sayColor(); //&quot;red&quot;
+  alert(objB.color);    //&quot;green
+</code></pre><p><code>Object.setPrototypeOf(this, new ClassA(sColor));</code> 完美的解决了原型链继承中，属性继承的方法，而不是“对象冒充”。只是这个方法的性能好像有点影响。</p>
+<blockquote>
+<p>提个小问题：怎么感觉原型链上的这个<code>this</code>好像传的比较远？？？</p>
+<p>现在才懂，但这毕竟是自己理解下亲自解决的方法。虽然说，这个方法肯定早已存在，它就在那个地方等着，只是你现在才发现而已。但是，一开始的全盘告诉你，你能接受得了吗？所以，一切都只能自己去发掘，既然它早已存在，对于你而言肯定是越早发现越好。</p>
+<p>有一点，无论你发掘了什么东西，解决了什么问题，永远不要得意忘形，因为永远还有很多东西是你不知道的，你对于大千世界而言，永远都是渺小的。</p>
+<p>吾生也有涯，而知也无涯，以有涯随无涯，殆矣。</p>
+<p>而人生，就是这种学习探索的过程。</p>
+<p>我才知道了，当你学习一样东西，如果你学到的真的就只是那一样东西，那最终你什么也没学到。你学到的是一些死货，没了多少的意义。你真正需要学习的是里面的设计思想，何为设计思想？就是里面设计的主线，也即机制，比如说：面向对象，你真的懂什么是面向对象么？所谓的面向对象就是一切皆对象，对象的身上附带着方法与属性，所有的使用也是基如此。为什么这样说呢？因为我花了很长时间都没有学懂的<code>indexedDB</code>原来也是奉行这一套，在此基础上执行原型链的那一套继承方式。</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E5%87%A0%E4%B8%AA%E8%BF%90%E7%AE%97%E5%87%BD%E6%95%B0(2017.07.26)/</url>
+      <content type="html"><![CDATA[<h3 id="1、typeof（是个运算符）"><a href="#1、typeof（是个运算符）" class="headerlink" title="1、typeof（是个运算符）"></a>1、typeof（是个运算符）</h3><pre><code>typeof &#39;变量&#39;;
+</code></pre><blockquote>
+<p>返回值：</p>
+</blockquote>
+<pre><code>number
+string
+boolean
+undefined
+object
+</code></pre><h3 id="2、instanceof-用于实例与构造函数间-（是个运算符）"><a href="#2、instanceof-用于实例与构造函数间-（是个运算符）" class="headerlink" title="2、instanceof(用于实例与构造函数间)（是个运算符）"></a>2、instanceof(用于实例与构造函数间)（是个运算符）</h3><pre><code>var arr = [];
+console.log(arr instanceof Array);  //true
+</code></pre><blockquote>
+<p>返回值：</p>
+</blockquote>
+<pre><code>true/false
+</code></pre><h3 id="3、isPrototypeOf-用于实例与原型对象间-（是个函数，是个方法）"><a href="#3、isPrototypeOf-用于实例与原型对象间-（是个函数，是个方法）" class="headerlink" title="3、isPrototypeOf()(用于实例与原型对象间)（是个函数，是个方法）"></a>3、isPrototypeOf()(用于实例与原型对象间)（是个函数，是个方法）</h3><pre><code>var arr = [];
+
+console.log(Array.prototype.isPrototypeOf(arr));   //true
+
+console.log(Object.prototype.isPrototypeOf(arr));  //true
+
+console.log(Object.prototype.isPrototypeOf(Array.prototype));     //true
+
+console.log(arr.prototype.isPrototypeOf(arr));  //false
+</code></pre><blockquote>
+<p>返回值：</p>
+</blockquote>
+<pre><code>true/false
+</code></pre><p><strong>实例的原型和构造函数的原型还是有点不一样的，最起码看书上的符号就有区别</strong>    </p>
+<table>
+<thead>
+<tr>
+<th>constructor</th>
+<th>instance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>superType</td>
+<td>instance = new superType()</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>[[prototype]]</td>
+</tr>
+</tbody>
+</table>
+<p> 实例与构造\具体表现 | 具体对象 | 原型写法<br>|— |— |—<br>constructor | superType() | prototype |<br>instance | instance = new superType() | [[prototype]]/<em>prototype</em> </p>
+<p><em>这里面有个小小的问题，表格到底怎么设计一目了然，什么作为行什么作为列？</em></p>
+<h3 id="4、prototype、-prototype-、Object-getPrototypeOf-关系的理解"><a href="#4、prototype、-prototype-、Object-getPrototypeOf-关系的理解" class="headerlink" title="4、prototype、_prototype_、Object.getPrototypeOf()关系的理解"></a>4、<code>prototype</code>、<code>_prototype_</code>、<code>Object.getPrototypeOf()</code>关系的理解</h3><blockquote>
+<p><code>prototype</code>用于构造函数：</p>
+</blockquote>
+<pre><code>Array.prototype
+</code></pre><blockquote>
+<p><code>_proto_</code>用于实例(这是个内部属性，实际中没有这样用)，其实实例的原型有多种表示法，还有可以像上面这样的<code>[[prototype]]</code></p>
+</blockquote>
+<pre><code>arr._proto_/arr.[[prototype]]
+</code></pre><blockquote>
+<p><code>Object.getPrototypeOf()</code>取的也是实例的原型对象。因为上述用法在实际中不存在，所以才有了这个方法</p>
+</blockquote>
+<pre><code>Object.getPrototypeOf(arr) === Array.prototype;
+</code></pre><p><strong>实例理解：</strong></p>
+<blockquote>
+<p>当你执行：</p>
+</blockquote>
+<pre><code>var o = new Foo();
+</code></pre><blockquote>
+<p>实际执行：</p>
+</blockquote>
+<pre><code>var o = new Object();   //对象从原始的Object来
+
+o_prototype_ = Foo.prototype;   //实例的原型指向构造函数原型，获得方法
+
+Foo.call(o);    //函数方法调用，传入对象，获取`属性`
+</code></pre><p>==上述这样理解很透彻==</p>
+<blockquote>
+<p>当你这样查找属性时：</p>
+</blockquote>
+<pre><code>o.someProp;
+</code></pre><p>实际执行：检查自身有没有属性，如果没有，就查找<code>Object.getPrototypeOf(o).someProp</code>；如果没有，就查找<code>Object.getPrototypeOf(Object.getPrototypeOf(o)).someProp</code>;一直就这样找下去，找不到就返回null</p>
+<p>==原型对象也是对象实例，这就是原型继承存在的依据所在==</p>
+<h3 id="5、一个更重要的方法Object-setPrototypeOf-obj-newPrototye"><a href="#5、一个更重要的方法Object-setPrototypeOf-obj-newPrototye" class="headerlink" title="==5、一个更重要的方法Object.setPrototypeOf(obj, newPrototye)=="></a>==5、一个更重要的方法<code>Object.setPrototypeOf(obj, newPrototye)</code>==</h3><blockquote>
+<p>参考资料上说：更改实例对象的原型会是一个很慢的操作，更改了继承的性能也会受到影响。但目前来说，它的确解决了我目前最迫切的问题：</p>
+</blockquote>
+<pre><code>  function ClassB(sColor, sName) {
+    this.name = sName;
+      Object.setPrototypeOf(this, new ClassA(sColor));
+  }
+</code></pre><p>总结：<code>[[prototype]]</code>、<code>_proto</code>、<code>Object.getPrototypeOf()</code>、<code>Object.setPrototypeOf(obj, newPrototype)</code> 这些原型属性都是和对象实例有关的。有了这些，就能清晰地理解构造函数的原型与实例对象的原型了。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94switch%E7%9A%84%E4%B8%80%E4%B8%AD%E7%94%A8%E6%B3%95%EF%BC%882017.08.20%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><code>switch</code>主要是为了简化<code>if...else...</code>面临多个选择时多重判断的场景。它的用法就是，根据表达式的值，选择对应的场景来执行。但是有种少见的用法：</p>
+</blockquote>
+<pre><code>switch(true) {
+    case n&gt;10 &amp;&amp; n&lt;20:
+        ....
+        break;
+    case n&lt;=10:
+        ...
+        break;
+    case n&gt;=20:
+        ...
+        break;
+}
+</code></pre><p>其实它也符合根据表达式的值，选择对应情景。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94geolocationAPI%EF%BC%882017.07.30%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="浏览器地理定位接口"><a href="#浏览器地理定位接口" class="headerlink" title="浏览器地理定位接口"></a>浏览器地理定位接口</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>geolocation对象是navigator对象的一个属性</p>
+<pre><code>navigator.geolocation
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>geolocation对象有个方法<code>getCurrentPosition()</code></p>
+<pre><code>navigator.geolocation.getCurrentPosition(geo_success, geo_fail, geo_options){
+
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>三个参数，定位成功的回到函数，定位失败的回到函数，定位参数选项（涉及到：定位高精度、最长可接受的定位返回时间、延迟时间）</p>
+<pre><code>funcition geo_success(pos) {
+    var latitude = pos.coords.latitude;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>成功函数，有个位置参数，可以获取坐标</p>
+<blockquote>
+<p>监视定位函数</p>
+</blockquote>
+<pre><code>var watchID = navigator.geolocation.watchPosition(geo_success, geo_fail, geo_options) {
+
+}
+</code></pre><p>监视定位函数，返回的是个定位ID，可以取消</p>
+<pre><code>navigator.geolocation.clearWatch(watchID)
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94for%E5%BE%AA%E7%8E%AF%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%EF%BC%882017.08.10%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>问题背景： ==循环时，我们需要得到索引角标的值== </p>
+<p>eg:</p>
+<h4 id="1、json的循环"><a href="#1、json的循环" class="headerlink" title="1、json的循环"></a>1、json的循环</h4><pre><code>var json = {
+    &quot;name&quot;: &quot;luo&quot;,
+    &quot;sex&quot;: &quot;male&quot;,
+    &quot;age&quot;: 18
+}
+</code></pre></blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>对json对象的循环，还算简单，直接 <code>for (var i in json){}</code>。但是，有时候我们需要知道<strong>json对象包含哪几项的值</strong>，即包含什么信息，也就是数据表中的列项值。其实这一个也很容易得到：</p>
+<pre><code>for (var key in json) {
+    console.log(json[kye]);    //得到每项值
+
+    console.log(key);      //得到得到索引值key
+
+    console.log(typeof key);    //string
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>回顾一点：</strong>json是“键值对”，即：<code>key:value</code>，这个<code>key</code>自然是<code>string</code>。其实json也要求key为字符串，但是实际中，不是字符串，也没问题，但是上述循环中的 key 一定是字符串</p>
+<h4 id="2、数组的循环"><a href="#2、数组的循环" class="headerlink" title="2、数组的循环"></a>2、数组的循环</h4><pre><code>&lt;1&gt;
+    for (var i = 0; i &lt; arr.length; i++) {
+        console.log(arr[i]);    //value
+
+        console.log(i);     //index
+
+        console.log(typeof i);      //number
+    }
+
+&lt;2&gt;
+    for (var key in arr) {
+        console.log(arr[key]);      //value
+
+        console.log(key);       //index
+
+        console.log(typeof key);        //string
+    }
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以<code>for ... in...</code>循环得到的<code>key</code>值类型都是<code>string</code></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94Array.prototype(2017.08.10)/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><strong>问题背景：</strong>    ==数组在程序中用得较多，它本身的方法也众多，必须整理总结，以理解==</p>
+</blockquote>
+<h4 id="（1）、Array-prototype-join-separator"><a href="#（1）、Array-prototype-join-separator" class="headerlink" title="（1）、Array.prototype.join( separator )"></a>（1）、Array.prototype.join( separator )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.join( separator )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 用分隔符，将数组元素拼接成一个字符串</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  任意都可以</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回拼接后的字符串，元素组不变</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>默认情况：</strong> 参数为空，将<code>,</code>作为分隔符</p>
+<pre><code>.
+</code></pre><h4 id="（2）、Array-prototype-push-elems"><a href="#（2）、Array-prototype-push-elems" class="headerlink" title="（2）、Array.prototype.push( elems)"></a>（2）、Array.prototype.push( elems)</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.push( elem1, elem2,.... )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 在数组末尾，追加元素，一个或多个</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  元素element</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回新数组的长度</p>
+<pre><code>.
+</code></pre><h4 id="（3）、Array-prototype-unshift-elems"><a href="#（3）、Array-prototype-unshift-elems" class="headerlink" title="（3）、Array.prototype.unshift( elems)"></a>（3）、Array.prototype.unshift( elems)</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.unshift( elem1, elem2,.... )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 在数组开头，追加元素，一个或多个</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  元素element</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回新数组的长度</p>
+<pre><code>.
+</code></pre><h4 id="（4）、Array-prototype-pop"><a href="#（4）、Array-prototype-pop" class="headerlink" title="（4）、Array.prototype.pop()"></a>（4）、Array.prototype.pop()</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.pop()</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 删除数组最后一个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  没有</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回删除的值</p>
+<pre><code>.
+</code></pre><h4 id="（5）、Array-prototype-shift"><a href="#（5）、Array-prototype-shift" class="headerlink" title="（5）、Array.prototype.shift()"></a>（5）、Array.prototype.shift()</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.shift()</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 删除数组第一个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  没有</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回删除的值</p>
+<pre><code>.
+</code></pre><h4 id="（6）、Array-prototype-slice-startIndex-endIndex"><a href="#（6）、Array-prototype-slice-startIndex-endIndex" class="headerlink" title="（6）、Array.prototype.slice( startIndex, endIndex )"></a>（6）、Array.prototype.slice( startIndex, endIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.slice( startIndex, endIndex )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 截取数组中某一个片段的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  起点和终点索引位置，算头不算尾（猜中了开头却没猜中结尾）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>如果参数为负，则倒着数；省略第二个参数，则从索引值到尾；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回一个新数组。元素组不变</p>
+<pre><code>.
+</code></pre><h4 id="（7）、Array-prototype-splice-index-howmany-item1-item2…"><a href="#（7）、Array-prototype-splice-index-howmany-item1-item2…" class="headerlink" title="（7）、Array.prototype.splice( index, howmany, item1, item2….. )"></a>（7）、Array.prototype.splice( index, howmany, item1, item2….. )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.splice( index, howmany, item1, item2..... )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 从索引处，删除howmany个元素，并加入后面的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  index(必选)，howmany(必须)，item（可选）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造。如果删除了元素，则返回删除的数组</p>
+<pre><code>.
+</code></pre><h4 id="（8）、Array-prototype-sort-callback"><a href="#（8）、Array-prototype-sort-callback" class="headerlink" title="（8）、Array.prototype.sort( callback )"></a>（8）、Array.prototype.sort( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.sort( callback )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组的元素，按着某个方式排序</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  callback(可选)。如果没有参数，则按着 <code>ASCII</code>排序；提供了函数，则依照函数的方法排序</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造。</p>
+<pre><code>arr.sort(function(a,b) {    //a,b泛指数组两个元素
+    return a-b;     // 负数：a前b后；正数：a后b前； 0，正常顺序
+})
+
+
+//依据某种属性排序
+var arr = [[1,2],[3,4,5],[6,7,8,9]];
+arr.sort(function(a, b) {
+    return b.length - a.length;
+})
+console.log(arr);       //[[6, 7, 8, 9],[3, 4, 5],[1, 2]]
+
+
+ .
+</code></pre><h4 id="（9）、Array-prototype-reverse"><a href="#（9）、Array-prototype-reverse" class="headerlink" title="（9）、Array.prototype.reverse( )"></a>（9）、Array.prototype.reverse( )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.reverse( )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 反转数组的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  空</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造。</p>
+<pre><code> .
+</code></pre><h4 id="（9）、Array-prototype-indexOf-searchValue-startIndex"><a href="#（9）、Array-prototype-indexOf-searchValue-startIndex" class="headerlink" title="（9）、Array.prototype.indexOf( searchValue, startIndex )"></a>（9）、Array.prototype.indexOf( searchValue, startIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.indexOf( searchValue, startIndex )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 寻找值首次出现位置，从startIndex往后找</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  searchValue(必选)，startIndex(可选)，省略从0开始</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回寻找值首次出现位置，如果没找到，返回-1</p>
+<pre><code> .
+</code></pre><h4 id="（10）、Array-prototype-map-callback"><a href="#（10）、Array-prototype-map-callback" class="headerlink" title="（10）、Array.prototype.map( callback )"></a>（10）、Array.prototype.map( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.map( function( curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组的每个元素传入回调函数，处理</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>curValue：当前元素；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>index：当前元素索引；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>array：当前元素来源的数组；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>this：执行回调函数的this值；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回一个新数组，数组中的元素为原始数组元素调用回调函数处理后的值</p>
+<pre><code> .
+</code></pre><h4 id="（11）、Array-prototype-forEach-callback"><a href="#（11）、Array-prototype-forEach-callback" class="headerlink" title="（11）、Array.prototype.forEach( callback )"></a>（11）、Array.prototype.forEach( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.forEach( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组的每个元素传入回调函数</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 没有明确返回值，只是遍历数组每个元素，并相应的处理</p>
+<pre><code> .
+</code></pre><h4 id="（12）、Array-prototype-some-callback"><a href="#（12）、Array-prototype-some-callback" class="headerlink" title="（12）、Array.prototype.some( callback )"></a>（12）、Array.prototype.some( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.some( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 检测数组元素是否==有==满足指定条件（callback提供）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回boolean</p>
+<pre><code> .
+</code></pre><h4 id="（13）、Array-prototype-every-callback"><a href="#（13）、Array-prototype-every-callback" class="headerlink" title="（13）、Array.prototype.every( callback )"></a>（13）、Array.prototype.every( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.every( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 检测数组元素是否==所有都==满足指定条件（callback提供）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回boolean</p>
+<pre><code>.
+</code></pre><h4 id="（14）、Array-prototype-filter-callback"><a href="#（14）、Array-prototype-filter-callback" class="headerlink" title="（14）、Array.prototype.filter( callback )"></a>（14）、Array.prototype.filter( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.filter( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 选择符合指定条件（callback提供）的元素构成的数组</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回符合条件元素构成的新数组</p>
+<pre><code>.
+</code></pre><h4 id="（15）、Array-prototype-find-callback"><a href="#（15）、Array-prototype-find-callback" class="headerlink" title="（15）、Array.prototype.find( callback )"></a>（15）、Array.prototype.find( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.find( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 选择符合指定条件（callback提供）的第一个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回第一个符合条件的元素</p>
+<pre><code>.
+</code></pre><h4 id="（16）、Array-prototype-fill-fillValue-startIndex-endIndex"><a href="#（16）、Array-prototype-fill-fillValue-startIndex-endIndex" class="headerlink" title="（16）、Array.prototype.fill( fillValue, startIndex, endIndex )"></a>（16）、Array.prototype.fill( fillValue, startIndex, endIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.fill( fillValue, startIndex, endIndex )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 用指定元素填充数组的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  fillValue(必选)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造</p>
+<pre><code>.
+</code></pre><h4 id="（17）、Array-prototype-reduce-callback"><a href="#（17）、Array-prototype-reduce-callback" class="headerlink" title="（17）、Array.prototype.reduce( callback )"></a>（17）、Array.prototype.reduce( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.reduce( function( ==accumulator==, curValue, index, arr )[, ==initialValue==])</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组每个元素都调用callback，执行时用到上一次回调结果，最后返回一个值，有累加的效果</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  accumulator(必选)：上一次调用回调返回值，或initialValue;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>initialValue(可选): 第一次调用时，有initialValue，accumulator为initialValue，curValue为数组第一个元素；没有initialValue，accumulator为数组第一个元素，curValue数组第二个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造</p>
+<pre><code>.
+</code></pre><h4 id="（18）、Array-prototype-copyWithin-target-startIndex-endIndex"><a href="#（18）、Array-prototype-copyWithin-target-startIndex-endIndex" class="headerlink" title="（18）、Array.prototype.copyWithin( target, startIndex, endIndex )"></a>（18）、Array.prototype.copyWithin( target, startIndex, endIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.copyWithin( target, startIndex, endIndex )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 复制数组中指定值到指定位置</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  target:目标位置；startIndex–endIndex为复制的部分值，这个endIndex需要考虑target位置，以target位置为主</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JS%E6%95%B4%E7%90%86%E2%80%94%E2%80%943%E4%B8%AA%E5%BC%B9%E6%A1%86%E5%87%BD%E6%95%B0%EF%BC%882017.08.11%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>问题背景：弹框，在浏览器随处可见。其实它们都是函数，都有返回值。</p>
+</blockquote>
+<h3 id="1、3个最直白的弹框"><a href="#1、3个最直白的弹框" class="headerlink" title="1、3个最直白的弹框"></a>1、3个最直白的弹框</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>简单弹框<code>alert()</code></strong></p>
+<pre><code>alert(&quot;hello!&quot;);    //&quot;hello&quot;
+
+alert(alert(&quot;hello&quot;));  // &quot;hello&quot;   undefined
+
+alert(alert(alert(&quot;hello&quot;)));  // &quot;hello&quot;   undefined   undefined
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>以弹框形式，显示一个具体值，没多少实际意义。它是个函数，默认返回undefined</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>确定框<code>confirm()</code></strong></p>
+<pre><code>confirm(&quot;make your choose! please&quot;);    //弹出一框，让你做出选择；
+
+alert(confirm(&quot;make your choose! please&quot;););    //弹出一框，让你做出选择；弹出true/false
+
+alert(alert(confirm(&quot;make your choose! please&quot;)));      //弹出一框，让你做出选择；弹出true/false； undefined
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>弹出一框，让你选择；它是一个函数，根据你的选择，返回true/false</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>输入框<code>prompt()</code></strong></p>
+<pre><code>prompt(&quot;input your name! please&quot;);      //一个输入框
+
+alert(prompt(&quot;input your name! please&quot;));      //一个输入框； 弹出你输入的值
+
+alert(alert(prompt(&quot;input your name! please&quot;)));      //一个输入框； 弹出你输入的值;  undefined
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>弹出一框，用于输入值；它是个函数，返回你输入的值</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/JSON.parse()%E5%A5%87%E8%91%A9%E7%89%B9%E6%80%A7/</url>
+      <content type="html"><![CDATA[<p>解析错误：</p>
+<pre><code>JSON.parse(&quot;{&#39;a&#39;:1}&quot;)
+</code></pre><p>正确解析：</p>
+<pre><code>JSON.parse(&#39;{&quot;a&quot;: 1}&#39;)
+</code></pre><blockquote>
+<p>这种做法第一次区分了双引号与单引号。正常情况下，双引号和单引号的位置可以互换的，而且它们的级别也不在乎谁高谁低的。但是这里面，它就是这样的，或许一开始就是这样规定的。</p>
+<p>或许，计算机就是这样设计的。一开始，它是由非常简单的东西构成的，别人在此基础上不断规定设计的，在设计过程中，考虑的肯定只是某一种场景，作为使用者，你肯定得熟悉它的相关API，才可能用得好</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/input%5Btype=file%5D%E7%90%86%E8%A7%A3%EF%BC%882017.07.30%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><strong>文件上传入口：</strong></p>
+<pre><code>&lt;input type=&quot;file&quot; multiple accept=&quot;.jpg, .gif&quot; /&gt;
+</code></pre><blockquote>
+<p>有一些有用的属性</p>
+</blockquote>
+<pre><code>multiple    //支持多个选择
+
+accept      //支持文件选择格式
+</code></pre><blockquote>
+<p>最有用的属性</p>
+</blockquote>
+<pre><code>files;
+</code></pre><p><strong>每个上传文件的input都有一个files属性，它是一个FileList对象，是个数组，可以取到每个File对象</strong></p>
+<p>文件上传后，this.value并不是图片真实路径值，而是：this.value=C:\fakepath\1.jpg</p>
+<p>主要是为了安全考虑，读取文件真实地址，需用到FileReader对象</p>
+<blockquote>
+<p>新建一个FileReader对象</p>
+</blockquote>
+<pre><code>var fReader = new FileReader();     
+</code></pre><blockquote>
+<p>FileReader对象读取File对象的URL</p>
+</blockquote>
+<pre><code>fReader.readAsDataURL(File);
+</code></pre><blockquote>
+<p>读取完成后的结果</p>
+</blockquote>
+<pre><code>fReader.onload = function() {
+    var img = new Image();
+    img.src = this.result;
+}
+</code></pre><p><strong>重点理解FileReader对象：</strong></p>
+<blockquote>
+<p><strong>构造创建FileReader对象实例</strong></p>
+</blockquote>
+<pre><code>var fReader = new FileReader();
+</code></pre><blockquote>
+<p><strong>属性</strong></p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>error: 读取文件时发生的错误 【只读】</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>result: 读取操作完成后的读取内容 【只读】</p>
+<blockquote>
+<p><strong>方法</strong></p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>readAsText(): 以纯文本形式读取内容</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>readAsDataURL(): 以URL形式读取内容</p>
+<blockquote>
+<p><strong>几个事件</strong></p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>onbort: 读取中断</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>onerror: 读取发生错误时</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>onload: 读取成功时</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>onloadend: 当读取操作完成后，无论成功或错误</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/HTML%E6%95%B4%E7%90%86%E2%80%94%E2%80%94nbsp(2017.08.01)/</url>
+      <content type="html"><![CDATA[<h3 id="网页端空格理解："><a href="#网页端空格理解：" class="headerlink" title="网页端空格理解："></a>网页端空格理解：</h3><blockquote>
+<p>问题背景：</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>当在HTML页面里输入多个空格，或换行，浏览器在解析时，都只会转成一个空格，那如何才能输入想多少空格就多少空格呢？</p>
+<blockquote>
+<p>解决办法：</p>
+</blockquote>
+<pre><code>&amp;nbsp;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>nbsp: non-breaking space(不间断空格)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>为什么称呼为“不间断空格”，这个问题来源于<code>英文词组</code>和<code>破折号连接单词</code>在一行末尾显示，被身首异处（被间断了），</p>
+<p>如：一个词组分两行显示，破折号连接器被分成两行显示</p>
+<p>不方便阅读，在Word下，在词组空格间用<code>Ctrl+shift+space</code>，实现同一行显示，破折号连接词最前面按<code>Ctrl+shift+space</code>，也同样实现同一行显示。</p>
+<p><strong>这就是为什么称为“不间断空格”</strong></p>
+<h3 id="对HTML实体理解"><a href="#对HTML实体理解" class="headerlink" title="对HTML实体理解"></a>对HTML实体理解</h3><blockquote>
+<p>问题背景：</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我们知道，小于号(&lt;)在html被用作了标签符号，所以浏览器解析时，都会把它当做标签解析了，那怎么在HTML里输出这个效果呢？</p>
+<blockquote>
+<p>解决办法：</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以引进字符实体，用于页面显示预留字符，这些预留字符包括：HTML里作为它用的字符、键盘打印不出的特殊字符，用法：</p>
+<pre><code>&amp;entity_name;
+</code></pre><h3 id="转义字符理解："><a href="#转义字符理解：" class="headerlink" title="转义字符理解："></a>转义字符理解：</h3><p><strong>分两种（就我领域）：</strong></p>
+<ul>
+<li>HTML字符实体（字符实体也是转义字符）： &nbsp;</li>
+<li>JS转义字符    : <code>\&quot;</code> <code>\\</code> <code>\&#39;</code></li>
+</ul>
+<p><strong>作用情况：</strong> </p>
+<ul>
+<li>ASCII不存在的特殊字符，用转义字符显示，如：换行</li>
+<li>将某些作为它用的字符，如<code>&lt;</code>作为标签的开始，转成本义</li>
+</ul>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/hexo+github%E6%95%B4%E5%A5%97%E6%B5%81%E7%A8%8B%E7%90%86%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>对于每个知识的学习，都是要先从大的方向入手，理解全局环境背景，掌握完整运作模式，再谈细化每一个小点</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>本想完整的弄懂<code>hexo+github</code>博客全套运行机制，无奈知识水平有限，只能掌握部分内容。但不管怎么说，先谈谈自己的理解，不足的地方后续跟进。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>首先，分工明确。<code>hexo</code>负责提供写博客，在<code>hexo init</code>初始化项目里的<code>source-&gt;_posts</code>下的文件夹，可以写各种<code>.md  .html</code>文件。而<code>github</code>充当了服务器的角色，将<code>hexo</code>项目部署到<code>github</code>里的某个仓库下，以后就可以直接在互联网输入类似如<a href="http://lofayo.github.io" title="web">http://lofayo.github.io</a>，访问博客网站。这是一个大的运行机制。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>其次，两者之间具体联系方式还有待考究。比如说，所有你在<code>source-&gt;_posts</code>写的<code>.md</code>文件都会被转成<code>public</code>目录下的<code>.html</code>    文件，最后也是以该<code>.html</code>文件部署到<code>github</code>里，甚至到博客网站里，这里生成的<code>.html</code>都是由一套模板刻画出来的，按道理我只要修改了模板文件的布局，最后在博客网站也能显示出来，但是结果好像不是这样，每次修改后再部署，原来修改的模板文件都会被打回原形。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最终，只能在<code>github</code>里修改静态页面才能在博客网站里呈现效果，但是非常有限，因为你不可能修改<code>github</code>里的每一个静态页面吧，总得从源头解决才行。其实问题就出在这里，我修改后的模板文件应该怎么提交呢？这就是问题的关键所在，部署到底干了些什么事？？？</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/H5%E5%B1%9E%E6%80%A7%E5%AD%A6%E4%B9%A0%EF%BC%882017.07.27%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>问题：<strong>H5不支持a标签的<code>name</code>属性，那如何实现锚点跳转呢？</strong></p>
+<p>回答：<strong>可以用ID属性实现</strong>，其实目前还是可以用name属性跳转，在浏览器页面里检测还是可行的</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E8%87%AA%E9%80%82%E5%BA%94%E6%9C%80%E5%AE%8C%E7%BE%8E%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%EF%BC%882018.08.18%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在项目中碰到过这种问题：同一页面，在不同大小的显示设备上显示，都希望效果最佳，这时肯定不能用统一某个单位设置字体大小及元素大小的。牛叉的CSS3用一个单位就完美解决了这个问题（我之前竟然是通过下载的一个js文件解决的，真实不知者不罪）</p>
+</blockquote>
+<p>屏幕大小，简称视口：<code>viewport</code>。我们把屏幕的宽和高都记为100个单元：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>1vw = 一个视口宽度单元，及屏幕宽度的1/100;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>1vh = 一个视口高度单元，及屏幕高度的1/100;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>1vmin = Math.min(1vw,1vh);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>1vmax = Math.max(1vw,1vh);</p>
+<p>这个能很好的自适应，用起来相当简单，计算都只是针对于屏幕宽高。</p>
+<p>浏览器支持情况，除了IE9</p>
+<p><strong>总结：</strong> 相较于百分比，这种单位的使用简直太高效了，无论元素在DOM结构中多么深的层级里，是要设置的是这种单位，都是相对于屏幕宽高计算。而不像百分比很多情况下都是相对于父级元素计算，或者本身计算</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E4%BC%9F%E5%A4%A7%E7%9A%84%E4%BC%AA%E5%85%83%E7%B4%A0%EF%BC%88pseudo%EF%BC%89%EF%BC%882017.08.13%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>伪元素(pseudo)的强大简直出乎我的意料</p>
+</blockquote>
+<h4 id="1、写法"><a href="#1、写法" class="headerlink" title="1、写法"></a>1、写法</h4><pre><code>a::after {
+    content: &quot;___&quot;;
+    color: white;
+
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>CSS3中，伪类用单冒号<code>:</code>，伪元素用双冒号<code>::</code>，以示区别</p>
+<h4 id="2、内容content"><a href="#2、内容content" class="headerlink" title="2、内容content"></a>2、内容<code>content</code></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>content</code>内容很强大，可以写入各种字符及字符串，还有部分多媒体文件<code>content: url(img)</code></p>
+<h4 id="3、content里内容的获取"><a href="#3、content里内容的获取" class="headerlink" title="3、content里内容的获取"></a>3、<code>content</code>里内容的获取</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>content</code>里的内容可以通过<code>attr</code>从HTML<code>data-*</code>属性获取</p>
+<pre><code>html:
+    &lt;a href=&quot;#&quot; data-pseudoContent=&quot;_______&quot;&gt;切换选项&lt;/a&gt;
+
+css:
+    a::after {
+        content: attr(data-pseudoContent);
+    }
+</code></pre><h4 id="4、切换伪元素样式"><a href="#4、切换伪元素样式" class="headerlink" title="4、切换伪元素样式"></a>4、切换伪元素样式</h4><pre><code>.active {
+    color: red;
+}
+.active::after {
+    color: red;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>点击文本，切换样式，给a标签加个<code>active</code>，要想伪元素有效果，所以<code>.active::after</code></p>
+<h3 id="5、获取伪元素的属性值"><a href="#5、获取伪元素的属性值" class="headerlink" title="5、获取伪元素的属性值"></a>5、获取伪元素的属性值</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>先获取伪元素样式申明对象，通过<code>getComputedStyle()</code>方法</p>
+<pre><code>var styleObj = window.getComputedStyle(element[, pseudoElement]);
+</code></pre><ul>
+<li>element： 伪元素所在的DOM元素</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>再获取某个具体样式属性值，通过<code>getPropertyValue()</code>方法，也可以通过点操作符<code>.</code>，或者中括号操作符<code>[]</code></p>
+<pre><code>styleObj.getPropertyValue(&quot;color&quot;);
+
+styleObj.color;
+
+styleObj[&quot;color&quot;];
+</code></pre><p><strong>注意：上面的方法是通用的，不仅仅只是为了取得伪元素属性值</strong>。因为先取得某个元素样式申明对象<code>window.getComputedStyle(element)</code>，再取得某个具体样式属性值<code>styleObj.getPropertyValue(&quot;color&quot;)</code>。<strong>上面两个方法可以取得任何元素的样式申明对象及样式值</strong>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以这个让我们联想到，之前写的一个兼容新方法，获取行间或非行间样式值</p>
+<pre><code>function getStyle(obj, attr) {
+    if (obj.currentStyle) {     //兼容IE
+        return obj.currentStyle[attr];
+    } else {
+        return window.getComputedStyle(obj)[attr];      //兼容非IE
+    }
+}
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/CSS%E6%95%B4%E7%90%86%E2%80%94%E2%80%94%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%B5%AE%E5%8A%A8%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%EF%BC%882017.07.30%EF%BC%89/</url>
+      <content type="html"><![CDATA[<h3 id="1、行内框的特性"><a href="#1、行内框的特性" class="headerlink" title="1、行内框的特性"></a>1、行内框的特性</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>行内元素生成的框，俗称“行内框”，它的水平padding,border,margin可以调整间距，垂直padding,border,margin不影响行内框的高度，但是可以通过line-height来调整</p>
+<h3 id="2、定位"><a href="#2、定位" class="headerlink" title="2、定位"></a>2、定位</h3><pre><code>position:relative;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>相对于元素在文档流位置而定位；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>元素在文档流中的空间保留；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>其实，一定程度上也脱离了文档流，可以覆盖其它元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>用<code>z-index</code>设置谁覆盖谁；</p>
+<pre><code>position:absolute;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>相对于定位的父辈元素，直至窗口；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>彻底脱离人民群众（文档流），原来元素空间不复存在；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>使得父框高度塌陷；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>完全覆盖了其它元素；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>==永远生成块框，无论原来什么框==</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>用<code>z-index</code>设置谁覆盖谁；</p>
+<pre><code>position:fixed;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>相对于窗口定位；</p>
+<h3 id="3、浮动"><a href="#3、浮动" class="headerlink" title="3、浮动"></a>3、浮动</h3><pre><code>float: right/left;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>浮动，脱离文档流，使父框高度塌陷（非IE6）；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>浮动后的位置：直到碰到一个浮动元素或包含框，它才不会考虑正常文档流的位置，即无论浮动元素在正常文档流前面还是后面</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>覆盖其它元素，但不会覆盖文字，因为浮动本质就是<code>文字环绕效果</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>浮动能制作BFC效果（block formating context），即生成一个块级元素</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
       <url>/flex/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>flex的某些属性可能更符合我们的理解，感觉更智能化，更人性化</p>

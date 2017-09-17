@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="中秋月饼">
+  <meta name="description" content="天价月饼">
+  
+  <title>每天寻求一点变化</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="stylesheet" href="/css/prism-cb.css" type="text/css"></head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/my-imgs/bamboo.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/my-imgs/me.png" ondragstart="return false;"></div>
+    <p>lofayo</p>
+    <div class="nav-link">
+        
+        
+        <a  href="https://github.com/lofayo" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/09/">September 2017<span class="archive-count">70</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<li class="nav-list">
+    <a href="/photo" class="nopjax" target="_self">
+        <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
+    </a>
+</li>
+
+<!--friends-->
+
+<li class="nav-list">
+    <a href="/friends" target="_self">
+        <div class="nav-ico"><i class="material-icons">face</i> </div><p>友链</p>
+    </a>
+</li>
+
+<!--about-->
+
+<li class="nav-list">
+    <a href="/about" target="_self">
+        <div class="nav-ico"><i class="material-icons">copyright</i> </div><p>关于</p>
+    </a>
+</li>
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-4.png)" >
+  <h2></h2>
+    
+  <p>作者:lofayo &nbsp&nbsp 发布于:<time datetime="2017-09-17T03:25:09.779Z">
+          2017-09-17
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p>伪元素(pseudo)的强大简直出乎我的意料</p>
+</blockquote>
+<h4 id="1、写法"><a href="#1、写法" class="headerlink" title="1、写法"></a>1、写法</h4><pre><code>a::after {
+    content: &quot;___&quot;;
+    color: white;
+
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>CSS3中，伪类用单冒号<code>:</code>，伪元素用双冒号<code>::</code>，以示区别</p>
+<h4 id="2、内容content"><a href="#2、内容content" class="headerlink" title="2、内容content"></a>2、内容<code>content</code></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>content</code>内容很强大，可以写入各种字符及字符串，还有部分多媒体文件<code>content: url(img)</code></p>
+<h4 id="3、content里内容的获取"><a href="#3、content里内容的获取" class="headerlink" title="3、content里内容的获取"></a>3、<code>content</code>里内容的获取</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>content</code>里的内容可以通过<code>attr</code>从HTML<code>data-*</code>属性获取</p>
+<pre><code>html:
+    &lt;a href=&quot;#&quot; data-pseudoContent=&quot;_______&quot;&gt;切换选项&lt;/a&gt;
+
+css:
+    a::after {
+        content: attr(data-pseudoContent);
+    }
+</code></pre><h4 id="4、切换伪元素样式"><a href="#4、切换伪元素样式" class="headerlink" title="4、切换伪元素样式"></a>4、切换伪元素样式</h4><pre><code>.active {
+    color: red;
+}
+.active::after {
+    color: red;
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>点击文本，切换样式，给a标签加个<code>active</code>，要想伪元素有效果，所以<code>.active::after</code></p>
+<h3 id="5、获取伪元素的属性值"><a href="#5、获取伪元素的属性值" class="headerlink" title="5、获取伪元素的属性值"></a>5、获取伪元素的属性值</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>先获取伪元素样式申明对象，通过<code>getComputedStyle()</code>方法</p>
+<pre><code>var styleObj = window.getComputedStyle(element[, pseudoElement]);
+</code></pre><ul>
+<li>element： 伪元素所在的DOM元素</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>再获取某个具体样式属性值，通过<code>getPropertyValue()</code>方法，也可以通过点操作符<code>.</code>，或者中括号操作符<code>[]</code></p>
+<pre><code>styleObj.getPropertyValue(&quot;color&quot;);
+
+styleObj.color;
+
+styleObj[&quot;color&quot;];
+</code></pre><p><strong>注意：上面的方法是通用的，不仅仅只是为了取得伪元素属性值</strong>。因为先取得某个元素样式申明对象<code>window.getComputedStyle(element)</code>，再取得某个具体样式属性值<code>styleObj.getPropertyValue(&quot;color&quot;)</code>。<strong>上面两个方法可以取得任何元素的样式申明对象及样式值</strong>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以这个让我们联想到，之前写的一个兼容新方法，获取行间或非行间样式值</p>
+<pre><code>function getStyle(obj, attr) {
+    if (obj.currentStyle) {     //兼容IE
+        return obj.currentStyle[attr];
+    } else {
+        return window.getComputedStyle(obj)[attr];      //兼容非IE
+    }
+}
+</code></pre>
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/CSS整理——自适应最完美的解决办法（2018.08.18）/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/CSS整理——定位及浮动深刻理解（2017.07.30）/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、写法"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、写法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、内容content"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、内容content</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、content里内容的获取"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、content里内容的获取</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、切换伪元素样式"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、切换伪元素样式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、获取伪元素的属性值"><span class="post-toc-number"></span> <span class="post-toc-text">5、获取伪元素的属性值</span></a>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p >Copyright ©  2017  每天寻求一点变化</p>
+<p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+<p style="font-size: 10px" id="footer-times" data-time="9/17/2017 8:00:00"></p>
+<script>
+    var beginTime=document.getElementById("footer-times").dataset.time
+    function show_date_time(){
+        var span=document.getElementById("footer-times")
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date(beginTime);//初始日期
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold);
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=Math.floor(e_hrsold);
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=Math.floor((e_hrsold-hrsold)*60);
+        seconds=Math.floor((e_minsold-minsold)*60);
+        span.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+    }
+    show_date_time();
+</script>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

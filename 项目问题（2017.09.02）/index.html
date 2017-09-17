@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="中秋月饼">
+  <meta name="description" content="天价月饼">
+  
+  <title>每天寻求一点变化</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="stylesheet" href="/css/prism-cb.css" type="text/css"></head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/my-imgs/bamboo.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/my-imgs/me.png" ondragstart="return false;"></div>
+    <p>lofayo</p>
+    <div class="nav-link">
+        
+        
+        <a  href="https://github.com/lofayo" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/09/">September 2017<span class="archive-count">70</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<li class="nav-list">
+    <a href="/photo" class="nopjax" target="_self">
+        <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
+    </a>
+</li>
+
+<!--friends-->
+
+<li class="nav-list">
+    <a href="/friends" target="_self">
+        <div class="nav-ico"><i class="material-icons">face</i> </div><p>友链</p>
+    </a>
+</li>
+
+<!--about-->
+
+<li class="nav-list">
+    <a href="/about" target="_self">
+        <div class="nav-ico"><i class="material-icons">copyright</i> </div><p>关于</p>
+    </a>
+</li>
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-3.png)" >
+  <h2></h2>
+    
+  <p>作者:lofayo &nbsp&nbsp 发布于:<time datetime="2017-09-17T03:25:11.191Z">
+          2017-09-17
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <p>7、网络断开后<code>ajax</code>请求的失败</p>
+<p>竟然忽略了一个这么重要的问题：我们用<code>ajax</code>向服务器请求数据，请求成功后存储在浏览器数据库<code>webSql IndexedDB</code>，<strong>以备断网时使用</strong>。可是如果断网了，<code>ajax</code>请求必定失败报错，程序不能运行，但其实所需的数据早已都存在数据库里，直接使用即可。其实，也是程序的一个高性能问题，得到了东西，就没必要每次再重复执行了。提高性能准则：<strong>时常判断，不要重复已经存在结果的运行。没有才做，有了就不做。</strong></p>
+<p><strong>分析理想情况：</strong> 一次<code>ajax</code>请求，将数据都存储在浏览器数据库，仅仅只需要一次<code>ajax</code>成功的请求。每次打开页面，动态渲染页面，用到的数据都是从数据库中取</p>
+<p><strong>但是好像多虑了：</strong> 上面这样的确减少ajax的请求次数，而且动态代码的添加也是从浏览器数据库取得的数据。但是没网了支付设备怎么付费，又说回来，这样的确可以提高效率，因为数据从数据库请求来的，断网下依然可用</p>
+<p>8、这个竟然输出了定时器的个数</p>
+<pre><code>  var result1 = setTimeout(function() {
+
+  }, 3000);
+  console.log(setTimeout(function() {
+
+  }, 3000));    //2
+  console.log(setTimeout(function() {
+
+  }, 3000));    //3
+</code></pre><p>9、请求响应模式竟然还有这样的问题：函数申明与变量申明都会提前，但是有可能赋值需要延后</p>
+<pre><code>var result = getObjectStore(&#39;SyncCategory&#39;);
+</code></pre><p>虽然这句话在所有程序的最前面，但是后面这个赋值的函数执行<code>getObjectStore(&#39;SyncCategory&#39;)</code>是基于请求响应模式的，该函数返回的值会有延后。</p>
+<p>如果<code>getObjectStore(&#39;SyncCategory&#39;)</code>没有返回值（无论函数里），<code>result = undefined</code>;</p>
+<p>如果<code>getObjectStore(&#39;SyncCategory&#39;)</code>，<code>result = undefined</code>;</p>
+<p>10、订单号码问题：唯一性、多人同时操作时的唯一性、需要访问数据库吗？？</p>
+<p>11、不要把<code>return</code>语句的功能想得太多了， 它只是：返回一个值，结束后面代码的执行。它更本不可能等待请求响应结果后再返回，正常语句，先于‘请求响应模式’的执行</p>
+<pre><code>// 用游标对表全部检索
+function getObjectStore(osName) {
+  var result = [];
+  var request = indexedDB.open(&#39;pageData&#39;, 1);
+
+  request.onsuccess = function() {
+      let db = this.result;
+      var trans = db.transaction([osName], &#39;readwrite&#39;);
+      var os = trans.objectStore([osName]);
+
+      // 游标遍历表全部数据（循环）
+      var cursorReq = os.openCursor();
+      console.log(cursorReq);
+      cursorReq.onsuccess = function() {
+          if (this.result) {
+              result.push(this.result.value);
+              this.result.continue();
+          }
+      }
+  }
+
+  request.onerror = function() {
+      alert(&#39;初始化所有表失败：&#39; + this.error);
+  }
+
+  return result;
+  }
+</code></pre><p>这个函数返回结果永远为空数组，不会等待请求响应后的结果，只是在浏览器<code>console.log(result)</code>有点怪：虽然为空，但下面有值</p>
+<h2 id="12、之前的逻辑判断全错"><a href="#12、之前的逻辑判断全错" class="headerlink" title="12、之前的逻辑判断全错"></a>12、之前的逻辑判断全错</h2><p>我太渴望一种普遍适用的准则解释这一切:</p>
+<pre><code>console.log(NaN == NaN);
+//false
+</code></pre><p>这个好理解：NaN（not a number），不是一个数字，还可以是很多其它东西，所以不相等</p>
+<pre><code>console.log(&#39;&#39; == &#39;&#39;);
+//true
+</code></pre><p>这个也还好理解：<code>空字符</code>等于 <code>空字符</code>，如果不相等，它还能咋地？上天不成？</p>
+<p><strong>但下面这个就有点逆天了</strong></p>
+<pre><code>console.log([] == []);
+//false
+</code></pre><p><code>空数组</code>不等于<code>空数组</code>，你是想咋地？好像真的上天了，既然如此，我也没辙</p>
+<p><em>曾经还以为，<code>空数组</code>的<code>boolean</code>值是<code>false</code>，但实际是<code>true</code>，这个还能接受：数组是<code>object</code>，<code>object</code>的<code>boolean</code>值都是<code>true</code>，只有<code>null</code>的<code>boolean</code>值是<code>false</code></em></p>
+<pre><code>console.log(!![]);
+//true
+</code></pre><p><strong>后记：</strong> 虽然这些知识都比较小众，但是却决定了<code>逻辑判断</code>，选择了程序的走向，所以还是弄清楚为好。这么多东西肯定不可能全凭记忆，我太渴望一种普遍使用的准则来判断（准则肯定是有的，想想设计者的初衷），我不要：试验、根据结果作总结、推翻总结、再试验、再总结、再推翻总结、、、，这种大浪淘沙的过程太让人崩溃了。</p>
+<p><strong>静候您的指教：、、、</strong></p>
+<h2 id="13、玩电风扇把鼠标玩坏了"><a href="#13、玩电风扇把鼠标玩坏了" class="headerlink" title="13、玩电风扇把鼠标玩坏了"></a>13、玩电风扇把鼠标玩坏了</h2><p>这是一种怎样的神奇，电脑和风扇的插头在一排，通过开关风扇，鼠标的闪光跟着一起变化，希望找出规律，玩了几次后，鼠标竟然神奇的坏了（闪光依然亮着，但是不能移动光标）</p>
+<h2 id="14、跨域请求"><a href="#14、跨域请求" class="headerlink" title="14、跨域请求"></a>14、跨域请求</h2><pre><code>XMLHttpRequest cannot load http://pay.pospi.com/Api/Pay/Refund. 
+Response to preflight request doesn&#39;t pass access control check: 
+No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. 
+Origin &#39;null&#39; is therefore not allowed access. The response had HTTP status code 405.
+</code></pre><p>15、数组和<code>json</code>联系：都能循环，但是却不能在一个循环里将其联系</p>
+<p>16、很多东西能放在一个<code>.html</code>里，就尽量放在一个<code>.html</code>里，因为多个页面的跳转后涉及到数据的传递就会很麻烦：跳转之前保存数据到数据库，跳转至后，又要从数据库里取数据填充页面。</p>
+<p>17、这是一种怎样的css选择器</p>
+<pre><code>.mui-bar-tab~.mui-content
+
+
+
+18、通过`.val()`设置的值能显示在，显示栏中，但不能显示在`vlaue`属性中
+</code></pre>
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/项目——项目中的几个问题（2017.08.17）/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/项目问题（2017.08.31）/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12、之前的逻辑判断全错"><span class="post-toc-number">1.</span> <span class="post-toc-text">12、之前的逻辑判断全错</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#13、玩电风扇把鼠标玩坏了"><span class="post-toc-number">2.</span> <span class="post-toc-text">13、玩电风扇把鼠标玩坏了</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#14、跨域请求"><span class="post-toc-number">3.</span> <span class="post-toc-text">14、跨域请求</span></a></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p >Copyright ©  2017  每天寻求一点变化</p>
+<p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+<p style="font-size: 10px" id="footer-times" data-time="9/17/2017 8:00:00"></p>
+<script>
+    var beginTime=document.getElementById("footer-times").dataset.time
+    function show_date_time(){
+        var span=document.getElementById("footer-times")
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date(beginTime);//初始日期
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold);
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=Math.floor(e_hrsold);
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=Math.floor((e_hrsold-hrsold)*60);
+        seconds=Math.floor((e_minsold-minsold)*60);
+        span.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+    }
+    show_date_time();
+</script>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>

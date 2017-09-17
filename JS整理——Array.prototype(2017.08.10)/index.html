@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <meta name="keywords" content="中秋月饼">
+  <meta name="description" content="天价月饼">
+  
+  <title>每天寻求一点变化</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/materialize.min.css">
+    
+      <link rel="stylesheet" href="/css/main.min.css">
+    
+  
+  <style type="text/css">
+      html{
+          font-family: sans-serif;
+          font-weight: 300;
+      }
+      @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url(/fonts/MaterialIcons-Regular.eot);
+          src: url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/MaterialIcons-Regular.ttf) format('truetype')
+      }
+  </style>
+<link rel="stylesheet" href="/css/prism-cb.css" type="text/css"></head>
+<body>
+<div id="menu-box"><a href="javascript:void(0)" id="menu" data-activates="slide-out" class="button-collapse menu" ><span class="nav-btn"></span></a></div>
+<div id="menu-outer">
+  <div id="menu-inner">
+      <ul id="slide-out" class="side-nav" >
+    <div class="nav-header"  style="background-image: url(/my-imgs/bamboo.jpg);background-color:#26A69A">
+    <div class="header-box"><img src="/my-imgs/me.png" ondragstart="return false;"></div>
+    <p>lofayo</p>
+    <div class="nav-link">
+        
+        
+        <a  href="https://github.com/lofayo" target="_blank"><div class="link-box github"></div></a>
+        
+        
+        
+        
+    </div>
+    <div class="nav-search">
+        <form id="search-form"> <!-- 搜索框相关 -->
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="search form-control" autocomplete="off" autocorrect="off"/>
+            <div class="nav-search-img"><i class="material-icons">search</i></div>
+        </form>
+        <div id="local-search-result"></div> <!-- 搜索结果区 -->
+        <p class='no-result'>无搜索结果</p>
+    </div>
+</div>
+    <!--Homepage-->
+
+<li class="nav-list">
+    <a href="/" target="_self">
+        <div class="nav-ico"><i class="material-icons">home</i> </div><p>主页</p>
+    </a>
+</li>
+
+<!--archives-->
+
+<li class="nav-list dropdown-btn">
+    <a  class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">assignment</i></div><p>归档</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        <a class="archive-link" href="/archives/2017/09/">September 2017<span class="archive-count">70</span></a>
+    </li>
+</ul>
+<!--categories-->
+
+<li class="nav-list dropdown-btn">
+    <a   class=""  target="_self">
+        <div class="nav-ico"><i class="material-icons">dashboard</i></div><p>分类</p><div class="dropdown-ico"><i class="material-icons">arrow_drop_down</i></div>
+    </a>
+</li>
+
+<ul class="dropdown-menu dropdown" >
+    <li class="nav-dropdown-list">
+        
+    </li>
+</ul>
+<!--tags-->
+
+<li class="nav-list">
+    <a href="/archives" target="_self">
+        <div class="nav-ico"><i class="material-icons">bookmark</i> </div><p>标签</p>
+    </a>
+</li>
+
+<!--photo-->
+
+<li class="nav-list">
+    <a href="/photo" class="nopjax" target="_self">
+        <div class="nav-ico"><i class="material-icons">insert_photo</i> </div><p>影集</p>
+    </a>
+</li>
+
+<!--friends-->
+
+<li class="nav-list">
+    <a href="/friends" target="_self">
+        <div class="nav-ico"><i class="material-icons">face</i> </div><p>友链</p>
+    </a>
+</li>
+
+<!--about-->
+
+<li class="nav-list">
+    <a href="/about" target="_self">
+        <div class="nav-ico"><i class="material-icons">copyright</i> </div><p>关于</p>
+    </a>
+</li>
+
+
+</ul>
+
+  </div>
+</div>
+
+<div id="content-outer">
+  <div id="content-inner">
+    
+<article id="post">
+  <div class="post-page-title"  style="background-color:#26A69A;background-image:url(/images/random/vateral-6.png)" >
+  <h2></h2>
+    
+  <p>作者:lofayo &nbsp&nbsp 发布于:<time datetime="2017-09-17T03:25:10.188Z">
+          2017-09-17
+    </time>
+  </p>
+    
+  </div>
+  <div class="post-page-content">
+  <blockquote>
+<p><strong>问题背景：</strong>    ==数组在程序中用得较多，它本身的方法也众多，必须整理总结，以理解==</p>
+</blockquote>
+<h4 id="（1）、Array-prototype-join-separator"><a href="#（1）、Array-prototype-join-separator" class="headerlink" title="（1）、Array.prototype.join( separator )"></a>（1）、Array.prototype.join( separator )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.join( separator )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 用分隔符，将数组元素拼接成一个字符串</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  任意都可以</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回拼接后的字符串，元素组不变</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>默认情况：</strong> 参数为空，将<code>,</code>作为分隔符</p>
+<pre><code>.
+</code></pre><h4 id="（2）、Array-prototype-push-elems"><a href="#（2）、Array-prototype-push-elems" class="headerlink" title="（2）、Array.prototype.push( elems)"></a>（2）、Array.prototype.push( elems)</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.push( elem1, elem2,.... )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 在数组末尾，追加元素，一个或多个</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  元素element</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回新数组的长度</p>
+<pre><code>.
+</code></pre><h4 id="（3）、Array-prototype-unshift-elems"><a href="#（3）、Array-prototype-unshift-elems" class="headerlink" title="（3）、Array.prototype.unshift( elems)"></a>（3）、Array.prototype.unshift( elems)</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.unshift( elem1, elem2,.... )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 在数组开头，追加元素，一个或多个</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  元素element</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回新数组的长度</p>
+<pre><code>.
+</code></pre><h4 id="（4）、Array-prototype-pop"><a href="#（4）、Array-prototype-pop" class="headerlink" title="（4）、Array.prototype.pop()"></a>（4）、Array.prototype.pop()</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.pop()</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 删除数组最后一个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  没有</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回删除的值</p>
+<pre><code>.
+</code></pre><h4 id="（5）、Array-prototype-shift"><a href="#（5）、Array-prototype-shift" class="headerlink" title="（5）、Array.prototype.shift()"></a>（5）、Array.prototype.shift()</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.shift()</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 删除数组第一个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  没有</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回删除的值</p>
+<pre><code>.
+</code></pre><h4 id="（6）、Array-prototype-slice-startIndex-endIndex"><a href="#（6）、Array-prototype-slice-startIndex-endIndex" class="headerlink" title="（6）、Array.prototype.slice( startIndex, endIndex )"></a>（6）、Array.prototype.slice( startIndex, endIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.slice( startIndex, endIndex )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 截取数组中某一个片段的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  起点和终点索引位置，算头不算尾（猜中了开头却没猜中结尾）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>如果参数为负，则倒着数；省略第二个参数，则从索引值到尾；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回一个新数组。元素组不变</p>
+<pre><code>.
+</code></pre><h4 id="（7）、Array-prototype-splice-index-howmany-item1-item2…"><a href="#（7）、Array-prototype-splice-index-howmany-item1-item2…" class="headerlink" title="（7）、Array.prototype.splice( index, howmany, item1, item2….. )"></a>（7）、Array.prototype.splice( index, howmany, item1, item2….. )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.splice( index, howmany, item1, item2..... )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 从索引处，删除howmany个元素，并加入后面的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  index(必选)，howmany(必须)，item（可选）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造。如果删除了元素，则返回删除的数组</p>
+<pre><code>.
+</code></pre><h4 id="（8）、Array-prototype-sort-callback"><a href="#（8）、Array-prototype-sort-callback" class="headerlink" title="（8）、Array.prototype.sort( callback )"></a>（8）、Array.prototype.sort( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> <code>arr.sort( callback )</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组的元素，按着某个方式排序</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  callback(可选)。如果没有参数，则按着 <code>ASCII</code>排序；提供了函数，则依照函数的方法排序</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造。</p>
+<pre><code>arr.sort(function(a,b) {    //a,b泛指数组两个元素
+    return a-b;     // 负数：a前b后；正数：a后b前； 0，正常顺序
+})
+
+
+//依据某种属性排序
+var arr = [[1,2],[3,4,5],[6,7,8,9]];
+arr.sort(function(a, b) {
+    return b.length - a.length;
+})
+console.log(arr);       //[[6, 7, 8, 9],[3, 4, 5],[1, 2]]
+
+
+ .
+</code></pre><h4 id="（9）、Array-prototype-reverse"><a href="#（9）、Array-prototype-reverse" class="headerlink" title="（9）、Array.prototype.reverse( )"></a>（9）、Array.prototype.reverse( )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.reverse( )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 反转数组的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  空</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造。</p>
+<pre><code> .
+</code></pre><h4 id="（9）、Array-prototype-indexOf-searchValue-startIndex"><a href="#（9）、Array-prototype-indexOf-searchValue-startIndex" class="headerlink" title="（9）、Array.prototype.indexOf( searchValue, startIndex )"></a>（9）、Array.prototype.indexOf( searchValue, startIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.indexOf( searchValue, startIndex )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 寻找值首次出现位置，从startIndex往后找</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  searchValue(必选)，startIndex(可选)，省略从0开始</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回寻找值首次出现位置，如果没找到，返回-1</p>
+<pre><code> .
+</code></pre><h4 id="（10）、Array-prototype-map-callback"><a href="#（10）、Array-prototype-map-callback" class="headerlink" title="（10）、Array.prototype.map( callback )"></a>（10）、Array.prototype.map( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.map( function( curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组的每个元素传入回调函数，处理</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>curValue：当前元素；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>index：当前元素索引；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>array：当前元素来源的数组；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>this：执行回调函数的this值；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回一个新数组，数组中的元素为原始数组元素调用回调函数处理后的值</p>
+<pre><code> .
+</code></pre><h4 id="（11）、Array-prototype-forEach-callback"><a href="#（11）、Array-prototype-forEach-callback" class="headerlink" title="（11）、Array.prototype.forEach( callback )"></a>（11）、Array.prototype.forEach( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.forEach( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组的每个元素传入回调函数</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 没有明确返回值，只是遍历数组每个元素，并相应的处理</p>
+<pre><code> .
+</code></pre><h4 id="（12）、Array-prototype-some-callback"><a href="#（12）、Array-prototype-some-callback" class="headerlink" title="（12）、Array.prototype.some( callback )"></a>（12）、Array.prototype.some( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.some( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 检测数组元素是否==有==满足指定条件（callback提供）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回boolean</p>
+<pre><code> .
+</code></pre><h4 id="（13）、Array-prototype-every-callback"><a href="#（13）、Array-prototype-every-callback" class="headerlink" title="（13）、Array.prototype.every( callback )"></a>（13）、Array.prototype.every( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.every( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 检测数组元素是否==所有都==满足指定条件（callback提供）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回boolean</p>
+<pre><code>.
+</code></pre><h4 id="（14）、Array-prototype-filter-callback"><a href="#（14）、Array-prototype-filter-callback" class="headerlink" title="（14）、Array.prototype.filter( callback )"></a>（14）、Array.prototype.filter( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.filter( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 选择符合指定条件（callback提供）的元素构成的数组</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回符合条件元素构成的新数组</p>
+<pre><code>.
+</code></pre><h4 id="（15）、Array-prototype-find-callback"><a href="#（15）、Array-prototype-find-callback" class="headerlink" title="（15）、Array.prototype.find( callback )"></a>（15）、Array.prototype.find( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.find( function(curValue[, index, array]){}[, thisArg] )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 选择符合指定条件（callback提供）的第一个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  curValue(必选)，其它都可选；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 返回第一个符合条件的元素</p>
+<pre><code>.
+</code></pre><h4 id="（16）、Array-prototype-fill-fillValue-startIndex-endIndex"><a href="#（16）、Array-prototype-fill-fillValue-startIndex-endIndex" class="headerlink" title="（16）、Array.prototype.fill( fillValue, startIndex, endIndex )"></a>（16）、Array.prototype.fill( fillValue, startIndex, endIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.fill( fillValue, startIndex, endIndex )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 用指定元素填充数组的元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  fillValue(必选)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造</p>
+<pre><code>.
+</code></pre><h4 id="（17）、Array-prototype-reduce-callback"><a href="#（17）、Array-prototype-reduce-callback" class="headerlink" title="（17）、Array.prototype.reduce( callback )"></a>（17）、Array.prototype.reduce( callback )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.reduce( function( ==accumulator==, curValue, index, arr )[, ==initialValue==])</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 将数组每个元素都调用callback，执行时用到上一次回调结果，最后返回一个值，有累加的效果</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  accumulator(必选)：上一次调用回调返回值，或initialValue;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>initialValue(可选): 第一次调用时，有initialValue，accumulator为initialValue，curValue为数组第一个元素；没有initialValue，accumulator为数组第一个元素，curValue数组第二个元素</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造</p>
+<pre><code>.
+</code></pre><h4 id="（18）、Array-prototype-copyWithin-target-startIndex-endIndex"><a href="#（18）、Array-prototype-copyWithin-target-startIndex-endIndex" class="headerlink" title="（18）、Array.prototype.copyWithin( target, startIndex, endIndex )"></a>（18）、Array.prototype.copyWithin( target, startIndex, endIndex )</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>语法：</strong> `arr.copyWithin( target, startIndex, endIndex )</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>用法：</strong> 复制数组中指定值到指定位置</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>参数：</strong>  target:目标位置；startIndex–endIndex为复制的部分值，这个endIndex需要考虑target位置，以target位置为主</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><strong>返回值：</strong> 在原数组上改造</p>
+
+  </div>
+  <!--评论块-->
+    
+
+</article>
+<nav class="post-nav">
+  <!-- Prev Nav -->
+    
+  <a href="/JS整理——for循环变量类型（2017.08.10）/" id="post_nav-newer" class="post-nav-content prev-content">
+      新篇
+  </a>
+    
+
+
+  <!-- Next Nav -->
+    
+  <a href="/JS整理——3个弹框函数（2017.08.11）/" id="post_nav-older" class="post-nav-content next-content">
+      旧篇
+  </a>
+    
+</nav>
+<div class="post-toc-btn"><i class="material-icons">format_list_numbered</i></div>
+<div class="post-toc-none"><p>(无)</p></div>
+<div class="post-toc-box">
+    <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（1）、Array-prototype-join-separator"><span class="post-toc-number">1.</span> <span class="post-toc-text">（1）、Array.prototype.join( separator )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（2）、Array-prototype-push-elems"><span class="post-toc-number">2.</span> <span class="post-toc-text">（2）、Array.prototype.push( elems)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（3）、Array-prototype-unshift-elems"><span class="post-toc-number">3.</span> <span class="post-toc-text">（3）、Array.prototype.unshift( elems)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（4）、Array-prototype-pop"><span class="post-toc-number">4.</span> <span class="post-toc-text">（4）、Array.prototype.pop()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（5）、Array-prototype-shift"><span class="post-toc-number">5.</span> <span class="post-toc-text">（5）、Array.prototype.shift()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（6）、Array-prototype-slice-startIndex-endIndex"><span class="post-toc-number">6.</span> <span class="post-toc-text">（6）、Array.prototype.slice( startIndex, endIndex )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（7）、Array-prototype-splice-index-howmany-item1-item2…"><span class="post-toc-number">7.</span> <span class="post-toc-text">（7）、Array.prototype.splice( index, howmany, item1, item2….. )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（8）、Array-prototype-sort-callback"><span class="post-toc-number">8.</span> <span class="post-toc-text">（8）、Array.prototype.sort( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（9）、Array-prototype-reverse"><span class="post-toc-number">9.</span> <span class="post-toc-text">（9）、Array.prototype.reverse( )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（9）、Array-prototype-indexOf-searchValue-startIndex"><span class="post-toc-number">10.</span> <span class="post-toc-text">（9）、Array.prototype.indexOf( searchValue, startIndex )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（10）、Array-prototype-map-callback"><span class="post-toc-number">11.</span> <span class="post-toc-text">（10）、Array.prototype.map( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（11）、Array-prototype-forEach-callback"><span class="post-toc-number">12.</span> <span class="post-toc-text">（11）、Array.prototype.forEach( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（12）、Array-prototype-some-callback"><span class="post-toc-number">13.</span> <span class="post-toc-text">（12）、Array.prototype.some( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（13）、Array-prototype-every-callback"><span class="post-toc-number">14.</span> <span class="post-toc-text">（13）、Array.prototype.every( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（14）、Array-prototype-filter-callback"><span class="post-toc-number">15.</span> <span class="post-toc-text">（14）、Array.prototype.filter( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（15）、Array-prototype-find-callback"><span class="post-toc-number">16.</span> <span class="post-toc-text">（15）、Array.prototype.find( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（16）、Array-prototype-fill-fillValue-startIndex-endIndex"><span class="post-toc-number">17.</span> <span class="post-toc-text">（16）、Array.prototype.fill( fillValue, startIndex, endIndex )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（17）、Array-prototype-reduce-callback"><span class="post-toc-number">18.</span> <span class="post-toc-text">（17）、Array.prototype.reduce( callback )</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（18）、Array-prototype-copyWithin-target-startIndex-endIndex"><span class="post-toc-number">19.</span> <span class="post-toc-text">（18）、Array.prototype.copyWithin( target, startIndex, endIndex )</span></a></li></ol>
+</div>
+<!--<div class="post-back"><i class="material-icons">arrow_back</i></div>-->
+<script type="text/javascript">
+    menu();
+</script>
+  </div>
+</div>
+<div id="bottom-outer">
+  <div id="bottom-inner">
+    <a  id="top-button" onfocus="this.blur();"><div class="up upinbody" style="background-color:#26A69A"><i class="material-icons material-up">vertical_align_top</i></div></a>
+
+
+<p >Copyright ©  2017  每天寻求一点变化</p>
+<p >Powered by <a href="https://hexo.io/" target="_blank"> Hexo </a> & Theme - <a href="https://github.com/moumao/hexo-theme-Vateral" target="_blank">Vateral</a></p>
+<p style="font-size: 10px" id="footer-times" data-time="9/17/2017 8:00:00"></p>
+<script>
+    var beginTime=document.getElementById("footer-times").dataset.time
+    function show_date_time(){
+        var span=document.getElementById("footer-times")
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date(beginTime);//初始日期
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold);
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=Math.floor(e_hrsold);
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=Math.floor((e_hrsold-hrsold)*60);
+        seconds=Math.floor((e_minsold-minsold)*60);
+        span.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+    }
+    show_date_time();
+</script>
+
+  </div>
+</div>
+
+<!--影集界面需要的资源-->
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/materialize.min.js"></script>
+
+<script src="/js/main.min.js"></script>
+
+
+<script>
+    NProgress.start();
+    NProgress.done();
+    lazy();
+    links();
+    window.onpopstate = menu();
+    //pjax操作
+    $(document).pjax('a:not(.nopjax)', '#content-inner', {fragment:'#content-inner', timeout:8000});
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done)
+        .on('pjax:end', () => {
+            dowmdiv();
+            lazy();
+            toc();
+            links();
+            menu();
+        });
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+</html>
