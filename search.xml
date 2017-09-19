@@ -570,6 +570,54 @@ strokeStyle = &quot;green&quot;;
     
     <entry>
       <title></title>
+      <url>/%E8%87%AA%E8%AE%A4%E4%B8%BA%E5%86%99%E5%BE%97%E5%BE%88%E8%B5%9E%E7%9A%84%E4%B8%80%E4%B8%AAJS%E7%A8%8B%E5%BA%8F%EF%BC%882017.08.13%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>问题背景：需要找出这样一个整数：找出它所有的因数，把每个因数都平方，再求和，最后的和是一个平方数。</p>
+</blockquote>
+<p>具体实例里，找出的是两个数之间的这样的数，最后结果以二重数组显示：</p>
+<pre><code>listSquared(1,250);
+[[1, 1], [42, 2500], [246, 84100]]
+</code></pre><hr>
+<pre><code>// 得到一个正整数所有的正因数
+function allDivisors(n) {
+    var result = [];
+    for (var i = 1; i &lt;= n; i++) {
+        if (n % i == 0) {
+            result.push(i);
+        }
+    }
+    return result;
+}
+
+function listSquared(m, n) {
+    // your code
+    var result = [];
+    for (var i = m; i &lt;= n; i++) {
+        var divisorsSquaredSum = allDivisors(i).map(function(n) {
+          return n*n;
+        }).reduce(function(sum,curValue){
+          return sum += curValue;
+        })
+
+        if (Number.isInteger(Math.sqrt(divisorsSquaredSum))) {
+            var curArr = [];
+            curArr.push(i, divisorsSquaredSum);
+
+            result.push(curArr);
+        }
+
+    }
+    return result;
+}
+</code></pre><p>这个程序算是一遍对的，其实考虑的是逻辑思维，写程序的过程中，把每一步的问题想清楚，其实很容易出结果的。下次希望自己能写得更快些，别磨蹭。</p>
+<p>程序就是这样，只要你能找到规律的东西，无论多复杂，它都能快速给你一个结果。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
       <url>/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3JQuery%EF%BC%882017.09.01%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>原来<a href="http://www.w3school.com.cn/jquery/jquery_ref_dom_element_methods.asp" target="_blank" rel="external"><code>jQuery</code></a>有这么多的好方法，都不曾好好利用，还一直苦于造轮子的毫无头绪。</p>
@@ -1308,6 +1356,69 @@ height: 100%;
     top: 50%;
 }
 </code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/%E8%AE%B0%E5%BD%95%E9%97%AE%E9%A2%98%EF%BC%882017.08.02%EF%BC%89/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>记不起来太多，写下一个body的特异功能，说不定后续会联系起来*</p>
+</blockquote>
+<h3 id="1、body的显示性："><a href="#1、body的显示性：" class="headerlink" title="1、body的显示性："></a>1、body的显示性：</h3><pre><code>&lt;body&gt;
+    &lt;p&gt;这是默认的一行段落文字&lt;/p&gt;
+&lt;/body&gt;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我们都知道，p元素默认带有上下16px的margin，但是就像上面这种情况，body的高度竟然只有一行文字的高度，不会将margin计算在内。但是，</p>
+<pre><code> body {
+     border: 1px solid pink;
+ }
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这样就会计算在内，同理，这个不仅是body才有的，div元素包一个p元素，也同样如此，<em>不知什么原因，这种做法让我感受到现实的因素，说不清楚</em></p>
+<hr>
+<h3 id="2、video元素的特异属性："><a href="#2、video元素的特异属性：" class="headerlink" title="2、video元素的特异属性："></a>2、video元素的特异属性：</h3><blockquote>
+<p>问题背景：我在video视频上设置了一个按钮垂直水平居中的按钮，可是却点击不到，原来是被放到了video元素的下面去了，我就怀疑了，绝对定位的元素应该在文档流其它元素之上才对；还有个问题，既然放到了下面去了，但是却清晰可见。最后发现video元素浏览器代理（chrome）有个如下属性：（值得好好研究下）</p>
+</blockquote>
+<pre><code>object-fit: contain;
+</code></pre><p><em>先不研究，把项目做完再来跟你纠缠不清</em></p>
+<p><strong>视频默认的长宽比：这个好像不能改变</strong></p>
+<hr>
+<h3 id="3、background-size-x-y-几个属性值的理解："><a href="#3、background-size-x-y-几个属性值的理解：" class="headerlink" title="3、background-size: x y;   几个属性值的理解："></a>3、background-size: x y;   几个属性值的理解：</h3><p><strong>（1）、auto</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>如果只设置了一个值，则另一个值默认auto，那auto是什么意思？就是以这一个值，根据长宽比，来计算另一个</p>
+<p><strong>（2）、百分比值</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>如果是以百分比为单位，则背景图片长、框是以父元素的<em>长、框的百分比</em>计算的，而不仅仅只是以父元素的宽度计算</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>同理，如果只设置了一个，另一个依然auto，计算的方式还是保持图片原始长宽比</p>
+<p><strong>（3）、<a href="https://www.w3.org/TR/css3-background/#background-size" target="_blank" rel="external">background-size</a>： cover/contain：</strong>   </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>cover</code> 和 <code>contain</code>的共同点：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>同：都对背景图片<code>scale</code>拉伸了，并且保持图片原长宽比例不变</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>异：<code>cover</code>是<strong>最小比例</strong> 拉伸，使得图片覆盖“背景定位区” <a href="https://www.w3.org/TR/css3-background/#background-positioning-area" target="_blank" rel="external">background position area</a>；</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>contain</code> 是<strong>最大比例</strong> 拉伸，使得图片“容纳于”背景定位区</p>
+<p><strong>（4）、所有background的缩写：</strong> <code>background</code></p>
+<pre><code>background: url() no-repeat left top / 100%;
+background-position 和 background-size 因为都是数值，容易混淆，所以之间用 `/`斜线 隔开，并且前后都要设置值
+</code></pre><p><strong>总结：</strong> 无论是图片还是视频，这个默认长宽比还是挺重要的。还有一点，任何一个很小的效果，实现起来，需要考虑的问题还是蛮多的，就拿这个<em>背景图片大小</em>来说</p>
+<blockquote>
+<p>确定大小的div里，设置一张背景图片，图片有大有小，当图片比div大，怎么处理？当图片比div小，又当如何处理？这都是设计之初需要考虑的问题的。带着这些问题去学习，很多值的用法就一目了然了！</p>
+</blockquote>
+<hr>
+<h3 id="4、几个项目中遇到的问题"><a href="#4、几个项目中遇到的问题" class="headerlink" title="4、几个项目中遇到的问题"></a>4、几个项目中遇到的问题</h3><ol>
+<li><p>前面的元素绝对定位了，应该盖在了后面元素上，但是最后反而被后面元素盖住了，这个怎么解释？</p>
+<pre><code> &lt;span class=&quot;icon-play2 play&quot; id=&quot;play&quot;&gt;&lt;/span&gt;
+ &lt;video src=&quot;img/movie.ogg&quot; class=&quot;videoCtrl&quot;&gt;
+     Your browser does not support the video tag.
+ &lt;/video&gt;
+</code></pre></li>
+<li><p>video添加的视频文件为什么不能显示？</p>
+</li>
+<li><p>同样的代码，有的能居中，有的却不能居中，这个是怎么呢？</p>
+<pre><code> &lt;a href=&quot;/web/life/dealer&quot; style=&quot;background:#eee;color:#8FC123;border-radius: 50%;width: 50px;height: 50px;display: block;text-align: center;line-height: 50px;&quot;&gt;
+     &lt;span class=&quot;mui-icon mui-icon-home&quot; &gt;&lt;/span&gt;
+ &lt;/a&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li>视频会有默认的长宽比</li>
+</ol>
+]]></content>
       
         
     </entry>
