@@ -738,55 +738,6 @@ for (var i = 0; i &lt; 4; i++) {
     
     <entry>
       <title></title>
-      <url>/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%EF%BC%882017.08.20%EF%BC%89/</url>
-      <content type="html"><![CDATA[<p>有时候，学习学习着，就不知道该学生么了，计算机里的知识点太多，说起来每个知识点都值得仔细的学习，但这个 有时候又得看心情，长时间学习一个东西会疲劳，换另外一个说不定效率就会高很多。但不管怎样，还是规划下当下最应该学习的知识点。因为我的学习太随意，看到什么不懂的，不熟悉的，就会立马去找相关的只是来学习，自然就忽略一开始的目标。</p>
-<h2 id="当下目标：研习框架mui"><a href="#当下目标：研习框架mui" class="headerlink" title="当下目标：研习框架mui"></a>当下目标：研习框架mui</h2><ul>
-<li>但是里面很多都跟事件有关，先得复习温故下事件知识</li>
-<li>学习框架里CSS的一些布局效果，查阅相关CSS属性</li>
-<li>周末两天连续时间，最好跟着视频完整做个项目</li>
-<li></li>
-</ul>
-<p><em>当你进入一个公司，想拿得一份像样的工资，那就必须对得起你做的事。</em></p>
-<p><em>不要总给自己等待的机会，这个不会没关系，那个不会也没关系，但是你入了一个公司，别人要求的是直接能上手做事的，而不是这个可以不会，那个可以不会</em></p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/%E5%86%99%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%9D%E8%80%83/</url>
-      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最近做的项目让我思考，思考自己到底该学习什么，又该这样的学习。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最近这段时间做的项目差不多都是一个类型的，利用<code>html5/css3</code>实现手机端的<code>App</code>应用，这种转型也是大势所趋，其中道理也很容易理解，曾经的一个APP为了适应各种设备需要专门的团队负责开发各个操作系统的版本，比如：IOS团队、Android团队、黑莓手机团队等等。可如今的一个APP利用<code>html5/css3</code>工具写一套程序就可适配给中版本，无论是从人力物力来说，都大大节省了公司资源，所以，这是一种势在必行的趋势，可能在某些和硬件交互的功能部分不如原生语言来得流畅，对如如今各种高性能手机，高速度的网路，这些方面也该不是太大问题。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但自己在写这方面的程序也碰到过问题，比如：对于框架大行其道的编程世界，我到底改写原生语言，还是直接利用框架封装好的组件？</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>作为一个初学者，一开始我肯定研究的是各种原生语言，原生写法，基础概念都清楚后，尝试着学习框架，学习的过程中只是感觉到它能实现各种功能，但是不太清楚为什么，所以学着学着就没什么意思了。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>看着网上大神们的学习路线，好像还是自己基础不太扎实，因此继续转而复习巩固基础知识。可是，来了公司必定还是要为公司做点事的（虽然公司的事不是很多），开始了写项目，尝试着完整的布局一个页面，写的过程当然是相当的漫长，这个属性不清楚查一查，那个布局不太理解肯定要花时间思考理解的，这样一来自己的速度当然如蜗牛般缓慢。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我的小领导（前端就我们两个人，她有两年的工作经验吧）肯定会觉得我这也太菜鸟了，虽然她没说，但我感觉应该是这样认为的，和她配合一个项目后，我看过她写的代码，才明白了她看不起我的原因了（她没说啊，只是我个人感觉，其实她人挺好的，赞一个）。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>她的页面里大量的框架组件，而我的全是原生代码，这样一比不慢才怪。况且，说实话，到现在为止也用了不少框架组件，但对里面具体原理有很多还真是不清楚的，如果让自己来写一个框架组件效果，还真写不出来，之前瞧不起框架就真的这样干过，结果就是没多大结果。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>对于框架，应该保持一种开发的心态。为了快速完成工作，框架里的东西还是有借鉴的必要，如果私底下有时间的话，回过头来好好研究下，尝试着自己封装组件，这会让你学到很多东西。首先，你得更加熟悉属性的相关用法，其次，深刻理解了封装的计算机思想。这对你以后写出快速高效的代码大有裨益。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>最后，说说目前的学习目标和工作理解。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>学习目标：还是想好好研究下<code>js</code>相关的知识，目的是写出更高效的代码，还有<code>html5+</code>知识，能让自己更熟练手机端这一套操作流程。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>工作理解：平时自己的学习，不是只为了完成工作任务，也不是为了拿到一份不错的薪水，重要的是增长能力，这也是当初坚持转行的原因，趁着年轻，多学习学习，增长见识，扩宽知识，提高能力。这才是永恒不变的目标。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/%E5%86%99%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%80%E7%AF%87%E6%96%87%E5%AD%97%EF%BC%882017.08.24%EF%BC%89/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>一个人经历的事情多了，他的认识就会更深刻与成熟。</p>
-</blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>加上今天同学给我介绍的女朋友，今年总共介绍了四个女朋友，但最后能成的，或许一个也没有吧！不是别人的问题，是我自己的原因。不知道为什么，现在的我还不想结婚，目前连恋爱的想法都没有。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我不知道这到底是什么原因，或许是因为自己的心智不够成熟，还是自己的不够担当，又或者是自己的懦弱无能，又或许都有、、、</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
       <url>/%E9%A1%B9%E7%9B%AE%E2%80%94%E2%80%94%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%882017.08.17%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>不要害怕学习新的东西，因为新的事物永远有你不曾体会过的美丽！</p>
@@ -1066,50 +1017,6 @@ console.log(result);    //[&#39;方&#39;,&#39;罗&#39;,&#39;勇&#39;]
     
     <entry>
       <title></title>
-      <url>/%E5%89%A9%E4%B8%8B%E8%BF%99%E6%AE%B5%E6%97%B6%E9%97%B4%E5%9D%9A%E6%8C%81%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</url>
-      <content type="html"><![CDATA[<h3 id="学习规划："><a href="#学习规划：" class="headerlink" title="学习规划："></a>学习规划：</h3><pre><code>1、对于CSS、JS真的做到精通，了解并熟练每个样式属性的用法，熟练每个基本JS知识点原理
-</code></pre><hr>
-<pre><code>2、在精通JS基础上，深刻理解jQuery框架原理，并能以此及彼，理解各大其它框架，如：vue.js、react.js
-</code></pre><hr>
-<pre><code>3、在这些基础上，部署自己的服务器，并跟着学习项目，项目要真的做大完全弄懂，而不再是跟着别人讲解做一遍
-</code></pre>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/%E8%AE%A4%E8%AF%86%E4%BA%86%E8%87%AA%E5%B7%B1/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>最近算是慢慢认识了自己，无所谓好坏，只是它会决定着您未来的选择，那就好好剖析一次。</p>
-</blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>首先，感性大于理性是我性格最主要的特征。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>就像我现在宁愿花更多时间写下这篇文章总结自己，而不是去学习技术，这就是最好的证明。在我的心里，永远将感性的感觉排在第一位，而不是逻辑思维的判断，更准确的说，当感性的感觉来临，任何强大合理的逻辑思维根本没有立身之地。所以我是一个感谢的人。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是，我又不是一个纯感性的人，感性中带有一点抠搜与现实才符合我自己。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>纯感性的人容易成为艺术人，像诗人、学者、画家、作家、艺术家等等，他们有更高的精神追求，活在自己的理想世界里。我却做不到，我所有的感性都是基于现实之上，没有矢志不渝的理想，一切的情绪都被现实左右着。这也就注定这样的人生是痛苦的，想活在理想境界里，却又始终被现实羁绊。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我之前不太理解，为什么自己和别人那么的不同，旁人的人情世故我向来不屑一顾，甚至鄙视，原来是内心里有个理想的世界，我会用理想的情况衡量现实的结果，所以不一样。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>但是，如果放任一切让我寻找理想世界，我又无从下手不知所措，因为我的行为准则所思所想又得顾虑到旁人的眼光，我会在乎别人的看法，所以注定了我是个纠结的人。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>从另一个层面来说，我不是个坚定的人，没有坚定的信念去坚持一件事，还容易受到他人的影响，好在经过不断地认识自己，对于某些事好像慢慢变得坚定多了。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>说了这么多，也回顾了很多过往，毕竟性格这东西还是很复杂，很多的东西还不能很好串在一起给出一个合理的解释。但是我相信有一条主线在控制着这一切，前路漫漫，且行且认识。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>突然想到，像我这种性格的人可能做不了伟大的艺术家，但是可以做一个普普通通的平凡人，过一个正常人的普通生活，在此之上实现那么点小小的理想。这也不失为一种惬意的生活。</p>
-<h2 id="人生追求的是什么？"><a href="#人生追求的是什么？" class="headerlink" title="人生追求的是什么？"></a>人生追求的是什么？</h2><p>（2017.09.03晚）</p>
-<blockquote>
-<p>以上问题来于今晚吃饭所思</p>
-</blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>因为不喜欢等待，所以平时晚上吃饭都是挑人少的地去，吃得以比较简单，一碗热干面，或者两个饼，或者一碗其它的面类。今天故意排了个长队，吃了碗鸡蛋火腿猪肝煲（相对别人而言其实也挺随意的），说实话，味道还不错，吃起来感觉比较卫生，尤其适合晚上饮食。从我去到最后吃完，少说有20个人来下单，每单至少9元，算下来一晚上卖个100单应该不成问题，一个月下来3万的销售额很正常，夫妻两人，刨掉所有的成本一人1万的到手工资，在一个二线城市还是比较可观的，超过很多大学毕业生三四年的工资，反正超过我目前在这个城市的工资。还有最近看到一则新闻，浙江某地一对夫妻靠着卖饼卖油条也是一月收入3万多，前前后后在城里买了7套房子来投资，可以说他们的生活现在应该不用愁了。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这样一比，都自惭形秽，敢情是那么多年的书是白读了，还不如别人小夫妻合伙创业，掌握自己的命运来得实在。可能你会说，不要只看着现在起色不错，别人的艰难辛楚你想过么？试问，自己的工作又何尝轻松过。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>因此，问题来了。我们到底该如何选择自己生活，奔着金钱去，还是奔着工作的意义去？我想大多数都会奔着利益去吧，这个本来就没错，天下熙熙皆为利来，天下攘攘皆为利往，而且可以说是最正确的取向。既然看到了金钱，那到底做什么赚钱了。好，你看别人做这个挣钱就去做这个，看到做那个挣钱就去做那个，在你多次的选择尝试中，你可能找到了最适合自己的挣钱方式，又或者依然一无所获。这就像众人做同一件事，有的人做的风生水起，有的人找不到方向还碰了一鼻子灰。所以，无论古今为利益所驱动再正常不过，但是在追逐利益同时多多量你而行，一定要发掘自己最擅长的事来干。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>还有，通过分析我还想表达另一个观点：所谓的体制内并不一定就是安全的。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我这里阐述的体制内不仅仅是狭义的体制，它包含了教师、公务员、人事单位等传统体制，还包括生产车间的工人、工程师（像我们这样的程序员）、建筑工地的工人等所有的靠给公司付出一部分劳动力换取薪金的工人阶层。他们一个鲜明特征就是劳动力被压榨了，寄存于公司下，看似比较安全，其实也未必。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>反观上面提到的白手起家的创业者，他们的付出离着利益最近，没有第三方的中间人分成。相对而言，没有公司的庇护，风险稍微大些，但利益也大些。而且我认为后者的利益风险比会更大些，因此也更容易成功，所以我建议一部分跳出体制，过上自己的创业生活，可能前期的选择会比较迷茫，但是一定能找到自己的门道，必须多用点心才行。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>所以，生活永远不会亏待那些用心思考改变的人。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
       <url>/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/</url>
       <content type="html"><![CDATA[<h2 id="统一规则：都用小写英文"><a href="#统一规则：都用小写英文" class="headerlink" title="统一规则：都用小写英文"></a>统一规则：都用小写英文</h2><h3 id="1、文件夹及文件规范"><a href="#1、文件夹及文件规范" class="headerlink" title="1、文件夹及文件规范"></a>1、文件夹及文件规范</h3><p>   名称太长，或组合的，可以用中线</p>
 <h3 id="2、CSS规范"><a href="#2、CSS规范" class="headerlink" title="2、CSS规范"></a>2、CSS规范</h3><p>   名称太长，或组合的，可以用下划线</p>
@@ -1362,69 +1269,6 @@ height: 100%;
     
     <entry>
       <title></title>
-      <url>/%E8%AE%B0%E5%BD%95%E9%97%AE%E9%A2%98%EF%BC%882017.08.02%EF%BC%89/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>记不起来太多，写下一个body的特异功能，说不定后续会联系起来*</p>
-</blockquote>
-<h3 id="1、body的显示性："><a href="#1、body的显示性：" class="headerlink" title="1、body的显示性："></a>1、body的显示性：</h3><pre><code>&lt;body&gt;
-    &lt;p&gt;这是默认的一行段落文字&lt;/p&gt;
-&lt;/body&gt;
-</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>我们都知道，p元素默认带有上下16px的margin，但是就像上面这种情况，body的高度竟然只有一行文字的高度，不会将margin计算在内。但是，</p>
-<pre><code> body {
-     border: 1px solid pink;
- }
-</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>这样就会计算在内，同理，这个不仅是body才有的，div元素包一个p元素，也同样如此，<em>不知什么原因，这种做法让我感受到现实的因素，说不清楚</em></p>
-<hr>
-<h3 id="2、video元素的特异属性："><a href="#2、video元素的特异属性：" class="headerlink" title="2、video元素的特异属性："></a>2、video元素的特异属性：</h3><blockquote>
-<p>问题背景：我在video视频上设置了一个按钮垂直水平居中的按钮，可是却点击不到，原来是被放到了video元素的下面去了，我就怀疑了，绝对定位的元素应该在文档流其它元素之上才对；还有个问题，既然放到了下面去了，但是却清晰可见。最后发现video元素浏览器代理（chrome）有个如下属性：（值得好好研究下）</p>
-</blockquote>
-<pre><code>object-fit: contain;
-</code></pre><p><em>先不研究，把项目做完再来跟你纠缠不清</em></p>
-<p><strong>视频默认的长宽比：这个好像不能改变</strong></p>
-<hr>
-<h3 id="3、background-size-x-y-几个属性值的理解："><a href="#3、background-size-x-y-几个属性值的理解：" class="headerlink" title="3、background-size: x y;   几个属性值的理解："></a>3、background-size: x y;   几个属性值的理解：</h3><p><strong>（1）、auto</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>如果只设置了一个值，则另一个值默认auto，那auto是什么意思？就是以这一个值，根据长宽比，来计算另一个</p>
-<p><strong>（2）、百分比值</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>如果是以百分比为单位，则背景图片长、框是以父元素的<em>长、框的百分比</em>计算的，而不仅仅只是以父元素的宽度计算</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>同理，如果只设置了一个，另一个依然auto，计算的方式还是保持图片原始长宽比</p>
-<p><strong>（3）、<a href="https://www.w3.org/TR/css3-background/#background-size" target="_blank" rel="external">background-size</a>： cover/contain：</strong>   </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>cover</code> 和 <code>contain</code>的共同点：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>同：都对背景图片<code>scale</code>拉伸了，并且保持图片原长宽比例不变</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>异：<code>cover</code>是<strong>最小比例</strong> 拉伸，使得图片覆盖“背景定位区” <a href="https://www.w3.org/TR/css3-background/#background-positioning-area" target="_blank" rel="external">background position area</a>；</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><code>contain</code> 是<strong>最大比例</strong> 拉伸，使得图片“容纳于”背景定位区</p>
-<p><strong>（4）、所有background的缩写：</strong> <code>background</code></p>
-<pre><code>background: url() no-repeat left top / 100%;
-background-position 和 background-size 因为都是数值，容易混淆，所以之间用 `/`斜线 隔开，并且前后都要设置值
-</code></pre><p><strong>总结：</strong> 无论是图片还是视频，这个默认长宽比还是挺重要的。还有一点，任何一个很小的效果，实现起来，需要考虑的问题还是蛮多的，就拿这个<em>背景图片大小</em>来说</p>
-<blockquote>
-<p>确定大小的div里，设置一张背景图片，图片有大有小，当图片比div大，怎么处理？当图片比div小，又当如何处理？这都是设计之初需要考虑的问题的。带着这些问题去学习，很多值的用法就一目了然了！</p>
-</blockquote>
-<hr>
-<h3 id="4、几个项目中遇到的问题"><a href="#4、几个项目中遇到的问题" class="headerlink" title="4、几个项目中遇到的问题"></a>4、几个项目中遇到的问题</h3><ol>
-<li><p>前面的元素绝对定位了，应该盖在了后面元素上，但是最后反而被后面元素盖住了，这个怎么解释？</p>
-<pre><code> &lt;span class=&quot;icon-play2 play&quot; id=&quot;play&quot;&gt;&lt;/span&gt;
- &lt;video src=&quot;img/movie.ogg&quot; class=&quot;videoCtrl&quot;&gt;
-     Your browser does not support the video tag.
- &lt;/video&gt;
-</code></pre></li>
-<li><p>video添加的视频文件为什么不能显示？</p>
-</li>
-<li><p>同样的代码，有的能居中，有的却不能居中，这个是怎么呢？</p>
-<pre><code> &lt;a href=&quot;/web/life/dealer&quot; style=&quot;background:#eee;color:#8FC123;border-radius: 50%;width: 50px;height: 50px;display: block;text-align: center;line-height: 50px;&quot;&gt;
-     &lt;span class=&quot;mui-icon mui-icon-home&quot; &gt;&lt;/span&gt;
- &lt;/a&gt;
-</code></pre></li>
-</ol>
-<ol>
-<li>视频会有默认的长宽比</li>
-</ol>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
       <url>/%E5%87%BD%E6%95%B0%E7%90%86%E8%A7%A3%EF%BC%882017.07.27%EF%BC%89/</url>
       <content type="html"><![CDATA[<h3 id="1、函数定义的两种方式："><a href="#1、函数定义的两种方式：" class="headerlink" title="1、函数定义的两种方式："></a>1、函数定义的两种方式：</h3><blockquote>
 <p><code>函数申明</code>和<code>函数表达式</code></p>
@@ -1535,26 +1379,6 @@ eg:
     })
   }
 </code></pre>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/%E6%96%B9%E6%B3%95%E2%80%94%E2%80%94%E5%AD%A6%E4%B9%A0%E5%BF%83%E6%80%81%EF%BC%882017.08.17%EF%BC%89/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>计算机就像一个小孩，你满以为的没有问题，它却偏偏出问题了，有的时候需要给他点时间（上传的东西，两个地方一模一样，这个地方好了，那个地方却是坏的），有的时候又需要告别过去（比如多清清缓存再看看效果）、、、。保持着一颗平和的心态去思考，问题不会完，但方法总是有的。</p>
-<p>其实计算机就是个小孩，我们都是以成人的角度解释着问题，可是到了他那里却又是另一个世界，多倾听，多站在它的角度思考问题。世界本没有错，错在了固步自封，却又偏偏责怪对方的不是。</p>
-<p>最近，被一个项目搞得找不着方向，都不知道怎么做才对，今天项目问题解决了，所以才有心情写这个总结。有的时候，根本就不是问题有多难，而是心态的把控。解决了一个问题，并不代表你的未来从此就是康庄大道衣食无忧，因为永远会有下一个问题等着你；被问题卡了个把星期，也不一定就代表你的生活就没了希望，你的智商不足以挑战计算机。</p>
-<p>其实有时候换个角度思考，就完全不一样。你解决了这个问题，难道你就是最厉害的人么？又或者说，你没有解决这个问题，难道就什么都不是么？这样一想是不是一切都清晰了，你的存在与否永远不是一个问题能代替的，重在一种学习的心态，世界很大，前方很远，而你的路还在脚下！</p>
-<p>生活，没必要一定要把自己过得很苦，平时多笑笑，很多问题也就没有了。况且，生活里的事情这么多，又不是只有烦恼，何必非得盯着一处发愁了，或者，有时候问题也根本没有想象的那么复杂，说不定思路一转变，一切都解决了。。。</p>
-<p>生活，也可以做一点自己想做的事，靠着自己。人生，也可以不用把所有的筹码全部都压在一起，给自己一些其它的爱好，也给自己一些其它的保障。</p>
-<p>才发现，原来计算机的世界才是最稳定不变的。它的本质的确是很傻很单纯，另一个特性就是高运速率，就凭着这两点，他已经足够做到很多我们人类做不到的事，但是要想完成高强度的任务，它还需要最重要的一点——我们人类的思想，也就是我们的设计思路，有了这他才可以没毛病的永远运行下去。所以最后的双赢 = 计算机简单语法+计算机高效率运算+人类的思想</p>
-<p>最近，想在网页上用前端语言做一个计算器，做的过程中你会发现它不知道有多傻，什么都不知道，一个简单的计算它也是一会判断这的一会判断那的，蠢得要死，简直都不想鸟他，直接鄙视。可是，就是因为这些，他才需要高明的人类帮它设计思路，有了思想它就很乐意干活，无论多难多复杂，而且可以永无错误的运算下去。所以，我才说，计算机的世界才是永不改变，也是一劳永逸的。</p>
-<p>做一个永不出错的计算器，没什么大不了的，因为它在我们生活里随处可见，太普通了，可能一开始的各种处理稍微有些麻烦，一旦设计成功就一劳永逸。况且，它真正的本事<br>也不只这一点，它还可以处理很多高强度的任务，不信，你就试试！！！</p>
-<p>所谓的bug，其实不是计算机的错，而是我们设计思想的bug，如果你真的能做到天衣无缝，你看看它还能出错不。计算机的世界也是最自由的，有了它这个工具，你可以按着的自己的想法做出各种东西，包括我们的未来世界，做未来的东西！！！</p>
-</blockquote>
-]]></content>
       
         
     </entry>
